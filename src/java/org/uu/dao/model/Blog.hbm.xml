@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-10 22:49:28 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.uu.dao.model.Blog" table="blog" catalog="uuproject">
+        <id name="blogId" type="long">
+            <column name="blog_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="userinfo" class="org.uu.dao.model.Userinfo" fetch="select">
+            <column name="uid" />
+        </many-to-one>
+        <property name="blogContent" type="string">
+            <column name="blog_content" length="65535" not-null="true" />
+        </property>
+        <property name="blogType" type="string">
+            <column name="blog_type" length="20" not-null="true" />
+        </property>
+        <property name="viewCount" type="long">
+            <column name="view_count" not-null="true" />
+        </property>
+        <property name="commentCount" type="long">
+            <column name="comment_count" not-null="true" />
+        </property>
+        <property name="visiable" type="boolean">
+            <column name="visiable" not-null="true" />
+        </property>
+        <property name="time" type="time">
+            <column name="time" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

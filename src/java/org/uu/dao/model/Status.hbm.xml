@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-10 22:49:28 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.uu.dao.model.Status" table="status" catalog="uuproject">
+        <id name="statusId" type="long">
+            <column name="status_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="userinfo" class="org.uu.dao.model.Userinfo" fetch="select">
+            <column name="uid" not-null="true" />
+        </many-to-one>
+        <property name="statusMessage" type="string">
+            <column name="status_message" not-null="true" />
+        </property>
+        <property name="time" type="time">
+            <column name="time" length="8" not-null="true" />
+        </property>
+        <set name="statusComments" inverse="true">
+            <key>
+                <column name="status_id" not-null="true" />
+            </key>
+            <one-to-many class="org.uu.dao.model.StatusComment" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-5-10 22:49:28 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.uu.dao.model.Admin" table="admin" catalog="uuproject">
+        <id name="adid" type="long">
+            <column name="adid" />
+            <generator class="assigned" />
+        </id>
+        <property name="loginName" type="string">
+            <column name="login_name" length="20" not-null="true" unique="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="20" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="uuproject"/>
+  <table-filter match-name="userinfo"/>
+  <table-filter match-name="admin"/>
+  <table-filter match-name="login_info"/>
+  <table-filter match-name="status"/>
+  <table-filter match-name="blog"/>
+  <table-filter match-name="status_comment"/>
+  <table-filter match-name="userrelation"/>
+  <table-filter match-name="feed"/>
+</hibernate-reverse-engineering>
