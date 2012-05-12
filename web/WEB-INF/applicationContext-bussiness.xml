@@ -7,4 +7,11 @@
     <bean id="mgr" class="org.uu.bussiness.UserManagerImpl">
         <property name="userDao" ref="userDao"></property>
     </bean>
+
+    
+    <bean id="statusMgr" class="org.uu.bussiness.StatusManagerImpl">
+        <property name="userDao" ref="userDao"></property>
+        <priperty name="statusDao" ref="statusDao"></priperty>
+    </bean>
+
 </beans>

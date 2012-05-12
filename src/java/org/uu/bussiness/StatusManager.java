@@ -1,0 +1,49 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package org.uu.bussiness;
+
+/**
+ *
+ * @author 甲骨文
+ */
+public interface StatusManager {
+    
+    /**
+     * 添加一条状态
+     * @param uid 用户id
+     * @param statusContent 状态内容
+     * @return 状态di
+     */
+    long addStatus(long uid, String statusContent)
+            throws Exception;
+    
+    /**
+     * 根据状态id删除状态
+     * @param statusId 状态id
+     * @return 如存在则返回true,否则false
+     */
+    boolean deleteStatus(long statusId)
+            throws Exception;
+    
+    /**
+     * 添加一条评论
+     * @param commentContent
+     * @param statusId
+     * @param uid
+     * @return 
+     */
+    long addComment(String commentContent, long statusId, long uid)
+            throws Exception;
+    
+    /**
+     * 删除评论
+     * @param commentId 评论id
+     * @return 不存在返回false
+     */
+    boolean deleteComment(long commentId)
+            throws Exception;
+    
+   
+}

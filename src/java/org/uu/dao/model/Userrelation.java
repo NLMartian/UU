@@ -1,4 +1,5 @@
 package org.uu.dao.model;
+
 // Generated 2012-5-11 0:07:39 by Hibernate Tools 3.2.1.GA
 
 

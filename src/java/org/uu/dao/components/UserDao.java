@@ -13,7 +13,11 @@ import org.uu.dao.model.Userinfo;
  */
 public interface UserDao {
     /**
+<<<<<<< HEAD
      * 查找用户             
+=======
+     * 查找用户
+>>>>>>> be76501d1cb2ca36b46127dbdc06b6a4eba38a12
      * @param id 用户uid
      * @return 用户信息
      */
