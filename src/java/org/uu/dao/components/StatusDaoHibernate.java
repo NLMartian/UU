@@ -59,7 +59,7 @@ public class StatusDaoHibernate extends HibernateDaoSupport implements StatusDao
 
     @Override
     public void deleteStatus(Status status) {
-         getHibernateTemplate().delete(getHibernateTemplate().get(Status.class, status));
+         getHibernateTemplate().delete(getHibernateTemplate().get(Status.class, status.getStatusId()));
     }
 
     @Override
@@ -68,8 +68,8 @@ public class StatusDaoHibernate extends HibernateDaoSupport implements StatusDao
     }
 
     @Override
-    public void deleteComment(StatusComment comment) {
-        getHibernateTemplate().delete(getHibernateTemplate().get(StatusComment.class, comment));
+    public void deleteComment(long commentId) {
+        getHibernateTemplate().delete(getHibernateTemplate().get(StatusComment.class, commentId));
     }
 
 

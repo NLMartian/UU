@@ -37,7 +37,7 @@ public class UserDaoHibernate extends HibernateDaoSupport implements UserDao{
     @Override
     public void delete(Userinfo user) {
      //   throw new UnsupportedOperationException("Not supported yet.");
-        getHibernateTemplate().delete(getHibernateTemplate().get(Userinfo.class, user));
+        getHibernateTemplate().delete(getHibernateTemplate().get(Userinfo.class, user.getUid()));
     }
 
     @Override

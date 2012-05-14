@@ -39,7 +39,7 @@ public interface StatusDao {
      * 删除评论
      * @param comment 评论
      */
-    void deleteComment(StatusComment comment);
+    void deleteComment(long commentId);
     
     
     /**

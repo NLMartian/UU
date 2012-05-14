@@ -4,6 +4,9 @@
  */
 package org.uu.bussiness;
 
+import java.util.List;
+import org.uu.dao.model.Status;
+
 /**
  *
  * @author 甲骨文
@@ -25,6 +28,15 @@ public interface StatusManager {
      * @return 如存在则返回true,否则false
      */
     boolean deleteStatus(long statusId)
+            throws Exception;
+     
+    /**
+     * 获取用户的所有状态
+     * @param userId
+     * @return
+     * @throws Exception 
+     */
+    List<Status> getAllStatus(long userId)
             throws Exception;
     
     /**
