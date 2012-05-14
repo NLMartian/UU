@@ -5,6 +5,7 @@
 package org.uu.bussiness;
 
 import java.util.Date;
+import java.util.List;
 import org.uu.dao.components.StatusDao;
 import org.uu.dao.components.UserDao;
 import org.uu.dao.model.Status;
@@ -78,14 +79,32 @@ public class StatusManagerImpl implements StatusManager{
             
         } catch (Exception e) {
             e.printStackTrace();
-            throw new Exception("添加评论是出现异常");
+            throw new Exception("添加评论出现异常");
         }
         
     }
 
     @Override
     public boolean deleteComment(long commentId) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            statusDao.deleteComment(commentId);
+            return true;
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            throw new Exception("删除评论出现异常");
+        }
+    }
+
+    @Override
+    public List<Status> getAllStatus(long userId) throws Exception {
+        try {
+            return statusDao.getUserAllStatus(userId);
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            throw new Exception("获取用户状态时出错");
+        }
     }
     
     
