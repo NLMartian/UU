@@ -106,6 +106,17 @@ public class StatusManagerImpl implements StatusManager{
             throw new Exception("获取用户状态时出错");
         }
     }
+
+    @Override
+    public List<StatusComment> getAllComments(long statusId) throws Exception {
+        try {
+            return statusDao.getAllCommentsById(statusId);
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            throw new Exception("获取一条状态的评论时出错");
+        }
+    }
     
     
     

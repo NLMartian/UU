@@ -6,6 +6,7 @@ package org.uu.bussiness;
 
 import java.util.List;
 import org.uu.dao.model.Status;
+import org.uu.dao.model.StatusComment;
 
 /**
  *
@@ -37,6 +38,15 @@ public interface StatusManager {
      * @throws Exception 
      */
     List<Status> getAllStatus(long userId)
+            throws Exception;
+    
+    /**
+     * 获取一条状态所有的评论
+     * @param statusId 状态ID
+     * @return 所有状态列表
+     * @throws Exception 
+     */
+    List<StatusComment> getAllComments(long statusId)
             throws Exception;
     
     /**
