@@ -4,6 +4,9 @@
  */
 package org.uu.bussiness;
 
+import java.util.List;
+import org.uu.dao.model.Feed;
+
 /**
  *
  * @author 甲骨文
@@ -18,6 +21,15 @@ public interface FeedManager {
      * @throws Exception 
      */
     long addFeed(long uid, long feedSrcId, String feedType)
+            throws Exception;
+    
+    /**
+     * 查找一个用户所有的新鲜事
+     * @param uid
+     * @return 用户新新鲜事列表
+     * @throws Exception 
+     */
+    List<Feed> getOnesAllFeeds(long uid)
             throws Exception;
     
 }

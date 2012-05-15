@@ -11,5 +11,9 @@
     <bean id="statusDao" class="org.uu.dao.components.StatusDaoHibernate">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
+    
+    <bean id="feedDao" class="org.uu.dao.components.FeedDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
 
 </beans>

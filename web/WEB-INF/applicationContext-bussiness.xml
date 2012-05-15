@@ -13,5 +13,11 @@
         <property name="userDao" ref="userDao"></property>
         <property name="statusDao" ref="statusDao"></property>
     </bean>
+    
+    <bean id="feedMgr" class="org.uu.bussiness.FeedManagerImpl" >
+        <property name="feedDao" ref="feedDao"></property>
+        <property name="userDao" ref="userDao"></property>
+        <property name="statusDao" ref="statusDao"></property>
+    </bean>
 
 </beans>
