@@ -1,5 +1,5 @@
 package org.uu.dao.model;
-// Generated 2012-5-12 22:26:37 by Hibernate Tools 3.2.1.GA
+// Generated 2012-5-15 22:21:17 by Hibernate Tools 3.2.1.GA
 
 
 
@@ -9,24 +9,23 @@ package org.uu.dao.model;
 public class Admin  implements java.io.Serializable {
 
 
-     private long adid;
+     private Long adid;
      private String loginName;
      private String password;
 
     public Admin() {
     }
 
-    public Admin(long adid, String loginName, String password) {
-       this.adid = adid;
+    public Admin(String loginName, String password) {
        this.loginName = loginName;
        this.password = password;
     }
    
-    public long getAdid() {
+    public Long getAdid() {
         return this.adid;
     }
     
-    public void setAdid(long adid) {
+    public void setAdid(Long adid) {
         this.adid = adid;
     }
     public String getLoginName() {

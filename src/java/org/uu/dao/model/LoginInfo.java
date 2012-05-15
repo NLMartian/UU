@@ -1,5 +1,5 @@
 package org.uu.dao.model;
-// Generated 2012-5-12 22:26:37 by Hibernate Tools 3.2.1.GA
+// Generated 2012-5-15 22:21:17 by Hibernate Tools 3.2.1.GA
 
 
 
@@ -9,7 +9,7 @@ package org.uu.dao.model;
 public class LoginInfo  implements java.io.Serializable {
 
 
-     private long logininfoId;
+     private Long logininfoId;
      private Userinfo userinfo;
      private String password;
      private String loginName;
@@ -17,18 +17,17 @@ public class LoginInfo  implements java.io.Serializable {
     public LoginInfo() {
     }
 
-    public LoginInfo(long logininfoId, Userinfo userinfo, String password, String loginName) {
-       this.logininfoId = logininfoId;
+    public LoginInfo(Userinfo userinfo, String password, String loginName) {
        this.userinfo = userinfo;
        this.password = password;
        this.loginName = loginName;
     }
    
-    public long getLogininfoId() {
+    public Long getLogininfoId() {
         return this.logininfoId;
     }
     
-    public void setLogininfoId(long logininfoId) {
+    public void setLogininfoId(Long logininfoId) {
         this.logininfoId = logininfoId;
     }
     public Userinfo getUserinfo() {

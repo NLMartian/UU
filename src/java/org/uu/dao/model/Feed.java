@@ -1,5 +1,5 @@
 package org.uu.dao.model;
-// Generated 2012-5-12 22:26:37 by Hibernate Tools 3.2.1.GA
+// Generated 2012-5-15 22:21:17 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -10,7 +10,7 @@ import java.util.Date;
 public class Feed  implements java.io.Serializable {
 
 
-     private long feedId;
+     private Long feedId;
      private Userinfo userinfo;
      private String name;
      private long feedSrcid;
@@ -23,8 +23,7 @@ public class Feed  implements java.io.Serializable {
     }
 
 	
-    public Feed(long feedId, Userinfo userinfo, String name, long feedSrcid, String feedType, String title, Date updateTime) {
-        this.feedId = feedId;
+    public Feed(Userinfo userinfo, String name, long feedSrcid, String feedType, String title, Date updateTime) {
         this.userinfo = userinfo;
         this.name = name;
         this.feedSrcid = feedSrcid;
@@ -32,8 +31,7 @@ public class Feed  implements java.io.Serializable {
         this.title = title;
         this.updateTime = updateTime;
     }
-    public Feed(long feedId, Userinfo userinfo, String name, long feedSrcid, String feedType, String title, String description, Date updateTime) {
-       this.feedId = feedId;
+    public Feed(Userinfo userinfo, String name, long feedSrcid, String feedType, String title, String description, Date updateTime) {
        this.userinfo = userinfo;
        this.name = name;
        this.feedSrcid = feedSrcid;
@@ -43,11 +41,11 @@ public class Feed  implements java.io.Serializable {
        this.updateTime = updateTime;
     }
    
-    public long getFeedId() {
+    public Long getFeedId() {
         return this.feedId;
     }
     
-    public void setFeedId(long feedId) {
+    public void setFeedId(Long feedId) {
         this.feedId = feedId;
     }
     public Userinfo getUserinfo() {

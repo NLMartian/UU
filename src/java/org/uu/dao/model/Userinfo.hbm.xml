@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-12 22:26:51 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 2012-5-15 22:21:29 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="org.uu.dao.model.Userinfo" table="userinfo" catalog="uuproject">
-        <id name="uid" type="long">
+        <id name="uid" type="java.lang.Long">
             <column name="uid" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="name" type="string">
             <column name="name" length="30" not-null="true" />
@@ -23,11 +23,17 @@
         <property name="className" type="string">
             <column name="class_name" length="20" not-null="true" />
         </property>
-        <set name="statusComments" inverse="true">
+        <set name="blogs" inverse="true">
+            <key>
+                <column name="uid" />
+            </key>
+            <one-to-many class="org.uu.dao.model.Blog" />
+        </set>
+        <set name="loginInfos" inverse="true">
             <key>
                 <column name="uid" not-null="true" />
             </key>
-            <one-to-many class="org.uu.dao.model.StatusComment" />
+            <one-to-many class="org.uu.dao.model.LoginInfo" />
         </set>
         <set name="feeds" inverse="true">
             <key>
@@ -35,23 +41,17 @@
             </key>
             <one-to-many class="org.uu.dao.model.Feed" />
         </set>
-        <set name="blogs" inverse="true">
+        <set name="statusComments" inverse="true">
             <key>
-                <column name="uid" />
+                <column name="uid" not-null="true" />
             </key>
-            <one-to-many class="org.uu.dao.model.Blog" />
+            <one-to-many class="org.uu.dao.model.StatusComment" />
         </set>
         <set name="statuses" inverse="true">
             <key>
                 <column name="uid" not-null="true" />
             </key>
             <one-to-many class="org.uu.dao.model.Status" />
-        </set>
-        <set name="loginInfos" inverse="true">
-            <key>
-                <column name="uid" not-null="true" />
-            </key>
-            <one-to-many class="org.uu.dao.model.LoginInfo" />
         </set>
     </class>
 </hibernate-mapping>
