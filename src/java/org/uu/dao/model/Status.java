@@ -1,5 +1,5 @@
 package org.uu.dao.model;
-// Generated 2012-5-12 22:26:37 by Hibernate Tools 3.2.1.GA
+// Generated 2012-5-15 22:21:17 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.Set;
 public class Status  implements java.io.Serializable {
 
 
-     private long statusId;
+     private Long statusId;
      private Userinfo userinfo;
      private String statusMessage;
      private Date time;
@@ -22,25 +22,23 @@ public class Status  implements java.io.Serializable {
     }
 
 	
-    public Status(long statusId, Userinfo userinfo, String statusMessage, Date time) {
-        this.statusId = statusId;
+    public Status(Userinfo userinfo, String statusMessage, Date time) {
         this.userinfo = userinfo;
         this.statusMessage = statusMessage;
         this.time = time;
     }
-    public Status(long statusId, Userinfo userinfo, String statusMessage, Date time, Set statusComments) {
-       this.statusId = statusId;
+    public Status(Userinfo userinfo, String statusMessage, Date time, Set statusComments) {
        this.userinfo = userinfo;
        this.statusMessage = statusMessage;
        this.time = time;
        this.statusComments = statusComments;
     }
    
-    public long getStatusId() {
+    public Long getStatusId() {
         return this.statusId;
     }
     
-    public void setStatusId(long statusId) {
+    public void setStatusId(Long statusId) {
         this.statusId = statusId;
     }
     public Userinfo getUserinfo() {

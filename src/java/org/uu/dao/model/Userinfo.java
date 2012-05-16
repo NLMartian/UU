@@ -1,5 +1,5 @@
 package org.uu.dao.model;
-// Generated 2012-5-12 22:26:37 by Hibernate Tools 3.2.1.GA
+// Generated 2012-5-15 22:21:17 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -12,49 +12,47 @@ import java.util.Set;
 public class Userinfo  implements java.io.Serializable {
 
 
-     private long uid;
+     private Long uid;
      private String name;
      private boolean sex;
      private Date birthday;
      private String email;
      private String className;
-     private Set statusComments = new HashSet(0);
-     private Set feeds = new HashSet(0);
      private Set blogs = new HashSet(0);
-     private Set statuses = new HashSet(0);
      private Set loginInfos = new HashSet(0);
+     private Set feeds = new HashSet(0);
+     private Set statusComments = new HashSet(0);
+     private Set statuses = new HashSet(0);
 
     public Userinfo() {
     }
 
 	
-    public Userinfo(long uid, String name, boolean sex, Date birthday, String email, String className) {
-        this.uid = uid;
+    public Userinfo(String name, boolean sex, Date birthday, String email, String className) {
         this.name = name;
         this.sex = sex;
         this.birthday = birthday;
         this.email = email;
         this.className = className;
     }
-    public Userinfo(long uid, String name, boolean sex, Date birthday, String email, String className, Set statusComments, Set feeds, Set blogs, Set statuses, Set loginInfos) {
-       this.uid = uid;
+    public Userinfo(String name, boolean sex, Date birthday, String email, String className, Set blogs, Set loginInfos, Set feeds, Set statusComments, Set statuses) {
        this.name = name;
        this.sex = sex;
        this.birthday = birthday;
        this.email = email;
        this.className = className;
-       this.statusComments = statusComments;
-       this.feeds = feeds;
        this.blogs = blogs;
-       this.statuses = statuses;
        this.loginInfos = loginInfos;
+       this.feeds = feeds;
+       this.statusComments = statusComments;
+       this.statuses = statuses;
     }
    
-    public long getUid() {
+    public Long getUid() {
         return this.uid;
     }
     
-    public void setUid(long uid) {
+    public void setUid(Long uid) {
         this.uid = uid;
     }
     public String getName() {
@@ -92,12 +90,19 @@ public class Userinfo  implements java.io.Serializable {
     public void setClassName(String className) {
         this.className = className;
     }
-    public Set getStatusComments() {
-        return this.statusComments;
+    public Set getBlogs() {
+        return this.blogs;
     }
     
-    public void setStatusComments(Set statusComments) {
-        this.statusComments = statusComments;
+    public void setBlogs(Set blogs) {
+        this.blogs = blogs;
+    }
+    public Set getLoginInfos() {
+        return this.loginInfos;
+    }
+    
+    public void setLoginInfos(Set loginInfos) {
+        this.loginInfos = loginInfos;
     }
     public Set getFeeds() {
         return this.feeds;
@@ -106,12 +111,12 @@ public class Userinfo  implements java.io.Serializable {
     public void setFeeds(Set feeds) {
         this.feeds = feeds;
     }
-    public Set getBlogs() {
-        return this.blogs;
+    public Set getStatusComments() {
+        return this.statusComments;
     }
     
-    public void setBlogs(Set blogs) {
-        this.blogs = blogs;
+    public void setStatusComments(Set statusComments) {
+        this.statusComments = statusComments;
     }
     public Set getStatuses() {
         return this.statuses;
@@ -119,13 +124,6 @@ public class Userinfo  implements java.io.Serializable {
     
     public void setStatuses(Set statuses) {
         this.statuses = statuses;
-    }
-    public Set getLoginInfos() {
-        return this.loginInfos;
-    }
-    
-    public void setLoginInfos(Set loginInfos) {
-        this.loginInfos = loginInfos;
     }
 
 

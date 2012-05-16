@@ -1,5 +1,5 @@
 package org.uu.dao.model;
-// Generated 2012-5-12 22:26:37 by Hibernate Tools 3.2.1.GA
+// Generated 2012-5-15 22:21:17 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -10,7 +10,7 @@ import java.util.Date;
 public class Blog  implements java.io.Serializable {
 
 
-     private long blogId;
+     private Long blogId;
      private Userinfo userinfo;
      private String blogContent;
      private String blogType;
@@ -23,8 +23,7 @@ public class Blog  implements java.io.Serializable {
     }
 
 	
-    public Blog(long blogId, String blogContent, String blogType, long viewCount, long commentCount, boolean visiable, Date time) {
-        this.blogId = blogId;
+    public Blog(String blogContent, String blogType, long viewCount, long commentCount, boolean visiable, Date time) {
         this.blogContent = blogContent;
         this.blogType = blogType;
         this.viewCount = viewCount;
@@ -32,8 +31,7 @@ public class Blog  implements java.io.Serializable {
         this.visiable = visiable;
         this.time = time;
     }
-    public Blog(long blogId, Userinfo userinfo, String blogContent, String blogType, long viewCount, long commentCount, boolean visiable, Date time) {
-       this.blogId = blogId;
+    public Blog(Userinfo userinfo, String blogContent, String blogType, long viewCount, long commentCount, boolean visiable, Date time) {
        this.userinfo = userinfo;
        this.blogContent = blogContent;
        this.blogType = blogType;
@@ -43,11 +41,11 @@ public class Blog  implements java.io.Serializable {
        this.time = time;
     }
    
-    public long getBlogId() {
+    public Long getBlogId() {
         return this.blogId;
     }
     
-    public void setBlogId(long blogId) {
+    public void setBlogId(Long blogId) {
         this.blogId = blogId;
     }
     public Userinfo getUserinfo() {
