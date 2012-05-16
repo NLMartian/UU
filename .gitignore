@@ -6,6 +6,7 @@
 *.ear
 
 
+lib/
 build
 dist
 nbproject
