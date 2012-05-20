@@ -4,9 +4,13 @@
  */
 package org.uu.dao.components;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.uu.dao.model.LoginInfo;
 import org.uu.dao.model.Status;
@@ -53,13 +57,34 @@ public class StatusDaoHibernate extends HibernateDaoSupport implements StatusDao
     }
 
     @Override
+    public List<Status> getPageStatus(final long uid, final int offset, final int length) {
+
+        final String HQL = "from Status as st "
+                + "where st.userinfo.uid=?"
+                + "order by st.statusId desc";
+        
+        List<Status> list = getHibernateTemplate().executeFind(new HibernateCallback() {  
+              
+            public Object doInHibernate(Session session) throws HibernateException,  
+                    SQLException {  
+                List<Status> result = session.createQuery(HQL).setFirstResult(offset)  
+                                .setParameter(0, uid)  
+                                .setMaxResults(length)  
+                                .list();  
+                return result;  
+            }  
+        });  
+        return list;
+    }
+
+    @Override
     public void saveStatus(Status status) {
-         getHibernateTemplate().save(status);
+        getHibernateTemplate().save(status);
     }
 
     @Override
     public void deleteStatus(Status status) {
-         getHibernateTemplate().delete(getHibernateTemplate().get(Status.class, status.getStatusId()));
+        getHibernateTemplate().delete(status);
     }
 
     @Override
@@ -69,12 +94,7 @@ public class StatusDaoHibernate extends HibernateDaoSupport implements StatusDao
 
     @Override
     public void deleteComment(long commentId) {
-        getHibernateTemplate().delete(getHibernateTemplate().get(StatusComment.class, commentId));
+       getHibernateTemplate().delete(getHibernateTemplate().get(StatusComment.class, commentId));
     }
-
-
-
-
-  
     
 }

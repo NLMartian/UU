@@ -41,6 +41,17 @@ public interface StatusManager {
             throws Exception;
     
     /**
+     * 获取分页状态
+     * @param userId 用户id
+     * @param start 开始的状态索引 
+     * @param length 分页长度
+     * @return 分页状态的列表
+     * @throws Exception 
+     */
+    List<Status> getPageStatus(long userId, int start, int length)
+            throws Exception;
+    
+    /**
      * 获取一条状态所有的评论
      * @param statusId 状态ID
      * @return 所有状态列表

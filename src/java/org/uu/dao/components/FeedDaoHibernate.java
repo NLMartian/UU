@@ -4,7 +4,11 @@
  */
 package org.uu.dao.components;
 
+import java.sql.SQLException;
 import java.util.List;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.uu.dao.model.Feed;
 
@@ -36,6 +40,26 @@ public class FeedDaoHibernate extends HibernateDaoSupport implements FeedDao{
         if(lfeeds !=null && lfeeds.size()>=1)
             return lfeeds;
         return null;
+    }
+
+    @Override
+    public List<Feed> getPageFeed(final long uid, final int start, final int length) {
+        final String HQL = "from Feed as fd "
+                + "where fd.userinfo.uid=?"
+                + "order by fd.feedId desc";
+        
+        List<Feed> list = getHibernateTemplate().executeFind(new HibernateCallback() {  
+              
+            public Object doInHibernate(Session session) throws HibernateException,  
+                    SQLException {  
+                List<Feed> result = session.createQuery(HQL).setFirstResult(start)  
+                                .setParameter(0, uid)  
+                                .setMaxResults(length)  
+                                .list();  
+                return result;  
+            }  
+        });  
+        return list;
     }
     
 }

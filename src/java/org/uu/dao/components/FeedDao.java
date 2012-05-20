@@ -34,4 +34,13 @@ public interface FeedDao {
      */
     List<Feed> getAllFeedByUid(long uid);
     
+    /**
+     * 获取分页新鲜事
+     * @param uid 用户id
+     * @param start 开始的索引号 
+     * @param length 分页的长度
+     * @return  分页新鲜事列表
+     */
+    List<Feed> getPageFeed(final long uid, final int start, final int length);
+    
 }

@@ -3,25 +3,22 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2012-5-20 14:47:31 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="org.uu.dao.model.Status" table="status" catalog="uuproject">
-        <id name="statusId" type="java.lang.Long">
-            <column name="status_id" />
+    <class name="org.uu.dao.model.BlogComment" table="blog_comment" catalog="uuproject">
+        <id name="blogcommentId" type="java.lang.Long">
+            <column name="blogcomment_id" />
             <generator class="identity" />
         </id>
+        <many-to-one name="blog" class="org.uu.dao.model.Blog" fetch="select">
+            <column name="blog_id" not-null="true" />
+        </many-to-one>
         <many-to-one name="userinfo" class="org.uu.dao.model.Userinfo" fetch="select">
             <column name="uid" not-null="true" />
         </many-to-one>
-        <property name="statusMessage" type="string">
-            <column name="status_message" not-null="true" />
+        <property name="content" type="string">
+            <column name="content" length="100" not-null="true" />
         </property>
         <property name="time" type="time">
             <column name="time" length="8" not-null="true" />
         </property>
-        <set name="statusComments" inverse="true">
-            <key>
-                <column name="status_id" not-null="true" />
-            </key>
-            <one-to-many class="org.uu.dao.model.StatusComment" />
-        </set>
     </class>
 </hibernate-mapping>

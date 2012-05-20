@@ -117,6 +117,17 @@ public class StatusManagerImpl implements StatusManager{
             throw new Exception("获取一条状态的评论时出错");
         }
     }
+
+    @Override
+    public List<Status> getPageStatus(long userId, int start, int length) throws Exception {
+        try {
+                return statusDao.getPageStatus(userId, start, length);
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            throw new Exception("获取分页状态的评论时出错");
+        }    
+    }
     
     
     
