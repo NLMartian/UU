@@ -19,5 +19,10 @@
         <property name="userDao" ref="userDao"></property>
         <property name="statusDao" ref="statusDao"></property>
     </bean>
+    
+    <bean id="blogMgr" class="org.uu.bussiness.BlogManagerImpl" >
+        <property name="blogDao" ref="blogDao"></property>
+        <property name="userDao" ref="userDao"></property>
+    </bean>
 
 </beans>

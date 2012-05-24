@@ -32,4 +32,14 @@ public interface FeedManager {
     List<Feed> getOnesAllFeeds(long uid)
             throws Exception;
     
+    /**
+     * 获取分页
+     * @param uid 用户id
+     * @param start 开始索引号
+     * @param length 长度
+     * @return 分页新鲜事列表
+     */
+    List<Feed> getPageFeed(long uid, int start, int length)
+            throws Exception;
+    
 }

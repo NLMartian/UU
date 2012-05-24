@@ -1,5 +1,5 @@
 package org.uu.dao.model;
-// Generated 2012-5-15 22:21:17 by Hibernate Tools 3.2.1.GA
+// Generated 2012-5-20 14:47:22 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;

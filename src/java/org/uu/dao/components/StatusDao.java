@@ -66,6 +66,16 @@ public interface StatusDao {
     List<StatusComment> getAllCommentsById(long status_id);
     
     
+   /**
+    * 获取分页状态
+    * @param uid 用户id
+    * @param offset 开始的状态索引
+    * @param length 页长度
+    * @return 状态列表
+    */
+    List<Status> getPageStatus(final long uid, final int offset, final int length);
+    
+    
     
     
     

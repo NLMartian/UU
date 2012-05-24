@@ -79,5 +79,16 @@ public class FeedManagerImpl implements FeedManager{
             throw new Exception("获取用户新鲜事时出错");
         }
     }
+
+    @Override
+    public List<Feed> getPageFeed(long uid, int start, int length) throws Exception {
+        try {
+            return feedDao.getPageFeed(uid, start, length);
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            throw new Exception("获取用户分页新鲜事时出错");
+        }
+    }
     
 }
