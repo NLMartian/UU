@@ -1,5 +1,5 @@
 package org.uu.dao.model;
-// Generated 2012-5-20 14:47:22 by Hibernate Tools 3.2.1.GA
+// Generated 2012-5-25 13:01:19 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -23,7 +23,6 @@ public class Userinfo  implements java.io.Serializable {
      private Set feeds = new HashSet(0);
      private Set statusComments = new HashSet(0);
      private Set statuses = new HashSet(0);
-     private Set blogComments = new HashSet(0);
 
     public Userinfo() {
     }
@@ -36,7 +35,7 @@ public class Userinfo  implements java.io.Serializable {
         this.email = email;
         this.className = className;
     }
-    public Userinfo(String name, boolean sex, Date birthday, String email, String className, Set blogs, Set loginInfos, Set feeds, Set statusComments, Set statuses, Set blogComments) {
+    public Userinfo(String name, boolean sex, Date birthday, String email, String className, Set blogs, Set loginInfos, Set feeds, Set statusComments, Set statuses) {
        this.name = name;
        this.sex = sex;
        this.birthday = birthday;
@@ -47,7 +46,6 @@ public class Userinfo  implements java.io.Serializable {
        this.feeds = feeds;
        this.statusComments = statusComments;
        this.statuses = statuses;
-       this.blogComments = blogComments;
     }
    
     public Long getUid() {
@@ -126,13 +124,6 @@ public class Userinfo  implements java.io.Serializable {
     
     public void setStatuses(Set statuses) {
         this.statuses = statuses;
-    }
-    public Set getBlogComments() {
-        return this.blogComments;
-    }
-    
-    public void setBlogComments(Set blogComments) {
-        this.blogComments = blogComments;
     }
 
 

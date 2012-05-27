@@ -13,8 +13,8 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <form name="发一条状态呗" method="POST">
-            <textarea name="卧槽" rows="4" cols="60">
+        <form name="statusone" method="POST" action="Status.action">
+            <textarea name="status_content" rows="4" cols="60">
             </textarea>
             <input type="submit" value="无语" name="submit" />
         </form>

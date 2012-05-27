@@ -13,6 +13,11 @@
      <bean id="registerAction" class="org.uu.controller.RegisterAction">
         <property name="mgr" ref="mgr"/>
     </bean>
+    <bean id="statusAction" class="org.uu.controller.StatusAction">
+        <property name="statusMgr" ref="statusMgr"/>
+        <property name="feedMgr" ref="feedMgr"/>
+    </bean>
+ 
 
 
 </beans>

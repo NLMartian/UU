@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-20 14:47:31 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 2012-5-25 13:01:29 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="org.uu.dao.model.Feed" table="feed" catalog="uuproject">
         <id name="feedId" type="java.lang.Long">
