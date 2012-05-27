@@ -46,6 +46,7 @@ public class FeedManagerImpl implements FeedManager{
         try {
             Feed feed = new Feed();
             feed.setUserinfo(userDao.getUser(uid));
+            feed.setName(userDao.getUser(uid).getName());
             feed.setFeedType(feedType);
             feed.setFeedSrcid(feedSrcId);
             

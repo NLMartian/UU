@@ -6,6 +6,7 @@
     <!-- Configuration for the default package. -->
     
     <include file="struts-LoginAndReg.xml"/>
+    <include file="struts-Status.xml"/>
     <package name="default" extends="struts-default">
         
     </package>

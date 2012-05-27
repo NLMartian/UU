@@ -17,14 +17,6 @@
     <mapping resource="org/uu/dao/model/Status.hbm.xml"/>
     <mapping resource="org/uu/dao/model/Admin.hbm.xml"/>
     <mapping resource="org/uu/dao/model/StatusComment.hbm.xml"/>
-    <mapping/>
-    <mapping/>
-    <mapping/>
-    <mapping/>
-    <mapping/>
-    <mapping/>
-    <mapping/>
-    <mapping/>
     <mapping resource="org/uu/dao/model/BlogComment.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
