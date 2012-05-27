@@ -4,7 +4,7 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/uuproject</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/uuproject?useUnicode=true&amp;characterEncoding=utf-8</property>
     <property name="hibernate.connection.username">martian</property>
     <property name="hibernate.connection.password">z69449843</property>
     <property name="hibernate.show_sql">true</property>
@@ -17,14 +17,6 @@
     <mapping resource="org/uu/dao/model/Status.hbm.xml"/>
     <mapping resource="org/uu/dao/model/Admin.hbm.xml"/>
     <mapping resource="org/uu/dao/model/StatusComment.hbm.xml"/>
-    <mapping/>
-    <mapping/>
-    <mapping/>
-    <mapping/>
-    <mapping/>
-    <mapping/>
-    <mapping/>
-    <mapping/>
     <mapping resource="org/uu/dao/model/BlogComment.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
