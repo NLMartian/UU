@@ -6,7 +6,7 @@
  
 <struts>
     <!-- Add your configuration elements here -->
-     <package name="loginAndReg" extends="struts-default,json-default" namespace="">       
+     <package name="loginAndReg" extends="struts-default" namespace="">       
         
         <action name="Login" class="loginAction">  
                 <result name="input">/Login.jsp</result>                 
@@ -18,7 +18,7 @@
         </action>
         
         <action name="FirstAjaxAction" class="org.uu.controller.FirstAjaxAction">             
-                <result name="success">/personalpage.jsp</result>   
+                <result type="json"/>   
         </action>
     </package>
 </struts>

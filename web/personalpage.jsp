@@ -151,14 +151,14 @@
 
 <form id="statusForm" method="post" action="FirstAjaxAction.action">
 <div id="apDiv10">
-    <s:url id = "first" value= "FirstAjaxAction.action"/>
+    <s:url id = "send_status" value= "Status.action"/>
     
-  <textarea name="textarea" id="textarea" cols="17" rows="4">请点此直接输入状态</textarea>
+  <textarea name="status_content" id="textarea" cols="17" rows="4">请点此直接输入状态</textarea>
 </div>
 </form>
     
 <div id="apDiv11"> 
-    <sj:a id="ajaxlink" formIds="statusForm" target="apDiv10" cssClass="ajax_link" button="true">
+    <sj:a id="ajaxlink" formIds="statusForm" cssClass="ajax_link" button="true">
             发状态
     </sj:a>
 </div>
