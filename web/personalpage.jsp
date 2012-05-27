@@ -149,9 +149,8 @@
 
 
 
-<form id="statusForm" method="post" action="FirstAjaxAction.action">
+<form id="statusForm" method="post" action="Status.action">
 <div id="apDiv10">
-    <s:url id = "send_status" value= "Status.action"/>
     
   <textarea name="status_content" id="textarea" cols="17" rows="4">请点此直接输入状态</textarea>
 </div>

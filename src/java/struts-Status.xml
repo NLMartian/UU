@@ -9,7 +9,7 @@
     <package name="Status" extends="struts-default" namespace="">
         
         <action name="Status" class="statusAction">
-            <result name="success">personalpage.jsp</result>
+            <result name="success">/personalpage.jsp</result>
         </action>
     </package>
 </struts>
