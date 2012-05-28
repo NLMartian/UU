@@ -18,5 +18,6 @@
     <mapping resource="org/uu/dao/model/Admin.hbm.xml"/>
     <mapping resource="org/uu/dao/model/StatusComment.hbm.xml"/>
     <mapping resource="org/uu/dao/model/BlogComment.hbm.xml"/>
+    <mapping resource="org/uu/dao/model/Avatar.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

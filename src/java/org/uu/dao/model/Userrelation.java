@@ -1,5 +1,5 @@
 package org.uu.dao.model;
-// Generated 2012-5-25 13:01:19 by Hibernate Tools 3.2.1.GA
+// Generated 2012-5-28 10:31:10 by Hibernate Tools 3.2.1.GA
 
 
 
@@ -9,21 +9,30 @@ package org.uu.dao.model;
 public class Userrelation  implements java.io.Serializable {
 
 
-     private UserrelationId id;
+     private long uid2;
+     private Userinfo userinfo;
 
     public Userrelation() {
     }
 
-    public Userrelation(UserrelationId id) {
-       this.id = id;
+    public Userrelation(long uid2, Userinfo userinfo) {
+       this.uid2 = uid2;
+       this.userinfo = userinfo;
     }
    
-    public UserrelationId getId() {
-        return this.id;
+    public long getUid2() {
+        return this.uid2;
     }
     
-    public void setId(UserrelationId id) {
-        this.id = id;
+    public void setUid2(long uid2) {
+        this.uid2 = uid2;
+    }
+    public Userinfo getUserinfo() {
+        return this.userinfo;
+    }
+    
+    public void setUserinfo(Userinfo userinfo) {
+        this.userinfo = userinfo;
     }
 
 

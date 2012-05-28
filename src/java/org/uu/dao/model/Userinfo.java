@@ -1,5 +1,5 @@
 package org.uu.dao.model;
-// Generated 2012-5-25 13:01:19 by Hibernate Tools 3.2.1.GA
+// Generated 2012-5-28 10:31:10 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -21,8 +21,11 @@ public class Userinfo  implements java.io.Serializable {
      private Set blogs = new HashSet(0);
      private Set loginInfos = new HashSet(0);
      private Set feeds = new HashSet(0);
+     private Set userrelations = new HashSet(0);
      private Set statusComments = new HashSet(0);
      private Set statuses = new HashSet(0);
+     private Set avatars = new HashSet(0);
+     private Set blogComments = new HashSet(0);
 
     public Userinfo() {
     }
@@ -35,7 +38,7 @@ public class Userinfo  implements java.io.Serializable {
         this.email = email;
         this.className = className;
     }
-    public Userinfo(String name, boolean sex, Date birthday, String email, String className, Set blogs, Set loginInfos, Set feeds, Set statusComments, Set statuses) {
+    public Userinfo(String name, boolean sex, Date birthday, String email, String className, Set blogs, Set loginInfos, Set feeds, Set userrelations, Set statusComments, Set statuses, Set avatars, Set blogComments) {
        this.name = name;
        this.sex = sex;
        this.birthday = birthday;
@@ -44,8 +47,11 @@ public class Userinfo  implements java.io.Serializable {
        this.blogs = blogs;
        this.loginInfos = loginInfos;
        this.feeds = feeds;
+       this.userrelations = userrelations;
        this.statusComments = statusComments;
        this.statuses = statuses;
+       this.avatars = avatars;
+       this.blogComments = blogComments;
     }
    
     public Long getUid() {
@@ -111,6 +117,13 @@ public class Userinfo  implements java.io.Serializable {
     public void setFeeds(Set feeds) {
         this.feeds = feeds;
     }
+    public Set getUserrelations() {
+        return this.userrelations;
+    }
+    
+    public void setUserrelations(Set userrelations) {
+        this.userrelations = userrelations;
+    }
     public Set getStatusComments() {
         return this.statusComments;
     }
@@ -124,6 +137,20 @@ public class Userinfo  implements java.io.Serializable {
     
     public void setStatuses(Set statuses) {
         this.statuses = statuses;
+    }
+    public Set getAvatars() {
+        return this.avatars;
+    }
+    
+    public void setAvatars(Set avatars) {
+        this.avatars = avatars;
+    }
+    public Set getBlogComments() {
+        return this.blogComments;
+    }
+    
+    public void setBlogComments(Set blogComments) {
+        this.blogComments = blogComments;
     }
 
 
