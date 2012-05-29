@@ -18,7 +18,14 @@
         </action>
         
         <action name="FirstAjaxAction" class="org.uu.controller.FirstAjaxAction">             
-                <result name="success">/welcome</result>   
+                <result name="success">/welcome.jsp</result>   
+        </action>
+    </package>
+    
+    <package name="ajax" extends="json-default" namespace="">
+        <action name="Searchp" class="searchPeople">             
+            <result type="json"/>
+                <!--<result name="success">/welcome.jsp</result>  -->
         </action>
     </package>
 </struts>

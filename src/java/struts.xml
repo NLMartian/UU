@@ -11,8 +11,10 @@
     <include file="struts-jquery.xml"/>
     <include file="struts-Status.xml"/>
     
-    <package name="default" extends="struts-default">
-        
+    <!--设置开发模式-->
+     <constant name="struts.devMode" value="true" />
+    
+    <package name="default" extends="struts-default">        
     </package>
     
     

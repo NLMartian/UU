@@ -7,6 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix ="s" uri="/struts-tags" %>
 <%@taglib prefix ="sj" uri="/struts-jquery-tags" %>
+<%@taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,5 +32,23 @@
             发状态
         </sj:a>
     
+            
+         <!--表格-->
+        <s:url id="remoteurl" action="Searchp"/>
+        <sjg:grid
+            id="gridtable"
+            caption="Customer Examples"
+            dataType="json"
+            href="%{remoteurl}"
+            pager="true"
+            gridModel="gridModel"
+            rowList="10,15,20"
+            rowNum="15"
+            rownumbers="true">
+
+            <sjg:gridColumn name="name" index="name" title="名字" sortable="true"/>
+            <sjg:gridColumn name="sex" index="sex" title="生日" sortable="false"/>
+        </sjg:grid>      
+            
     </body>
 </html>

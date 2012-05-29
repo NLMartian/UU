@@ -17,7 +17,12 @@
         <property name="statusMgr" ref="statusMgr"/>
         <property name="feedMgr" ref="feedMgr"/>
     </bean>
+    
+    <bean id="searchPeople" class="org.uu.controller.SearchPeople">
+        <property name="mgr" ref="mgr"/>
+        <property name="statusMgr" ref="statusMgr" />
+        <property name="userdao" ref="userDao" />
+    </bean>
  
-
-
+ 
 </beans>
