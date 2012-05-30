@@ -57,8 +57,8 @@ public class SearchPeople extends BaseAction {
         try {
             //gridModel = statusMgr.getAllStatus(1);
             gridModel = new ArrayList<Userinfo>();
-            gridModel.add(
-                     new Userinfo("hahahah", false, new Date(), "", ""));
+//            gridModel.add(
+//                     new Userinfo("hahahah", false, new Date(), ""));
             
             
             

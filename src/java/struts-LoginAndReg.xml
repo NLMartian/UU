@@ -20,6 +20,8 @@
         <action name="FirstAjaxAction" class="org.uu.controller.FirstAjaxAction">             
                 <result name="success">/welcome.jsp</result>   
         </action>
+        
+       
     </package>
     
     <package name="ajax" extends="json-default" namespace="">
@@ -27,5 +29,10 @@
             <result type="json"/>
                 <!--<result name="success">/welcome.jsp</result>  -->
         </action>
+        
+         <action name="SearchUser" class="searchUser">             
+             <result type="json"/>
+        </action>
+        
     </package>
 </struts>

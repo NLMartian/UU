@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-28 10:31:18 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 2012-5-30 18:51:52 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="org.uu.dao.model.Userinfo" table="userinfo" catalog="uuproject">
         <id name="uid" type="java.lang.Long">
@@ -23,53 +23,8 @@
         <property name="className" type="string">
             <column name="class_name" length="20" not-null="true" />
         </property>
-        <set name="blogs" inverse="true">
-            <key>
-                <column name="uid" />
-            </key>
-            <one-to-many class="org.uu.dao.model.Blog" />
-        </set>
-        <set name="loginInfos" inverse="true">
-            <key>
-                <column name="uid" not-null="true" />
-            </key>
-            <one-to-many class="org.uu.dao.model.LoginInfo" />
-        </set>
-        <set name="feeds" inverse="true">
-            <key>
-                <column name="uid" not-null="true" />
-            </key>
-            <one-to-many class="org.uu.dao.model.Feed" />
-        </set>
-        <set name="userrelations" inverse="true">
-            <key>
-                <column name="uid1" not-null="true" />
-            </key>
-            <one-to-many class="org.uu.dao.model.Userrelation" />
-        </set>
-        <set name="statusComments" inverse="true">
-            <key>
-                <column name="uid" not-null="true" />
-            </key>
-            <one-to-many class="org.uu.dao.model.StatusComment" />
-        </set>
-        <set name="statuses" inverse="true">
-            <key>
-                <column name="uid" not-null="true" />
-            </key>
-            <one-to-many class="org.uu.dao.model.Status" />
-        </set>
-        <set name="avatars" inverse="true">
-            <key>
-                <column name="uid" not-null="true" />
-            </key>
-            <one-to-many class="org.uu.dao.model.Avatar" />
-        </set>
-        <set name="blogComments" inverse="true">
-            <key>
-                <column name="uid" not-null="true" />
-            </key>
-            <one-to-many class="org.uu.dao.model.BlogComment" />
-        </set>
+        <property name="avatar" type="string">
+            <column name="avatar" length="80" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

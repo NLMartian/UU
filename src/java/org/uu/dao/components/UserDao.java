@@ -4,6 +4,7 @@
  */
 package org.uu.dao.components;
 
+import java.util.List;
 import org.uu.dao.model.LoginInfo;
 import org.uu.dao.model.Userinfo;
 
@@ -60,8 +61,14 @@ public interface UserDao {
      */
     LoginInfo findUserByName(String loginName);
     
+    /**
+     * 根据用户姓名查找用户信息
+     * @param name
+     * @return 
+     */
+    List<Userinfo> searchUserByName(String name);
     
     
     
-    
+      
 }

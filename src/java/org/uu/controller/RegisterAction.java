@@ -115,7 +115,7 @@ public class RegisterAction extends BaseAction{
      @Override
      public String execute()throws Exception{   
          formatBirthday(birthday_yyyy,birthday_mm,birthday_mm);
-         mgr.addUser(login_name, password, name, sex, birthday,className, email);
+         mgr.addUser(login_name, password, name, sex, birthday,className, email, "defaultPath");
          return SUCCESS;
      }
 

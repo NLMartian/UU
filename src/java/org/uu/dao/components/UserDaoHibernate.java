@@ -67,5 +67,17 @@ public class UserDaoHibernate extends HibernateDaoSupport implements UserDao{
             return (LoginInfo)ln.get(0);
         return null;
     }
+
+    // 根据用户姓名查找用户，这里没有用到检索引擎，只能找到同名的用户。
+    @Override
+    public List<Userinfo> searchUserByName(String name) {
+        //throw new UnsupportedOperationException("Not supported yet.");
+        List<Userinfo> ln =getHibernateTemplate()
+                .find("from Userinfo info where info.name=?",
+                name);
+        if(ln !=null && ln.size()>=1)
+            return ln;
+        return null;
+    }
     
 }
