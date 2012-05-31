@@ -35,19 +35,23 @@
                     onChange                 : function(page){
                                                     $("#resultList").empty();
                                                     
+//                                                    $.load("SearchUser!getPageList.action");
                                                     $.post(
-                                                       "SearchUser.action",
+                                                       "SearchUser!getPageList.action",
                                                        function(data, textStatus){
                                                            if(textStatus == "success") {                                                               
-                                                               var jsonReslut = eval("("+ data + ")");
-                                                               var userList = jsonReslut.userList;
-                                                               
-                                                               if(userList != null && userList.length > 0) {                 
-                                                                   $.each(userList, function(index, Element){
-                                                                       $("#resultList").append("<li>" + Element.name + "   email :" +
-                                                                           Element.email + "</li>");
-                                                                   });
-                                                               }
+//                                                               var jsonReslut = eval("("+ data + ")");
+//                                                               var userList = jsonReslut.userList;
+//                                                               
+//                                                               if(userList != null && userList.length > 0) {                 
+//                                                                   $.each(userList, function(index, Element){
+//                                                                       $("#resultList").append("<li>" + Element.name + "   email :" +
+//                                                                           Element.email + "</li>");
+//                                                                   });
+//                                                               }
+                                                                
+                                                                $("#resultList").append(data);
+                                                                
                                                            }
                                                        }
                                                     );
@@ -56,7 +60,7 @@
                 }); 
         </script> 
         
-        <script type="text/javascript">
+<!--        <script type="text/javascript">
             $(document).ready( function() {
                 $.subscribe('handleJsonResult', function(event,data) {
                     var jsonResult = eval("("+ event.originalEvent.data + ")");
@@ -65,16 +69,17 @@
                             });
                 });
             });    
-        </script> 
+        </script> -->
         
     </head>
     <body>
         <h1>搜索</h1>
         <div>
              
-            <s:form id="searchForm" method="post" action="SearchUser.action">
+           <s:form id="searchForm" method="post" action="11">
                 <s:textfield name="keyWords"/>
             </s:form>
+          
                 
         </div>
         <div><sj:a id="ajaxjsonlink" 

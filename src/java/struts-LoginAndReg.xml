@@ -21,7 +21,9 @@
                 <result name="success">/welcome.jsp</result>   
         </action>
         
-       
+       <action name="SearchUser" class="searchUser">             
+              <result name="success">/searchResultList.jsp</result>   
+        </action>
     </package>
     
     <package name="ajax" extends="json-default" namespace="">
@@ -30,9 +32,7 @@
                 <!--<result name="success">/welcome.jsp</result>  -->
         </action>
         
-         <action name="SearchUser" class="searchUser">             
-             <result type="json"/>
-        </action>
+         
         
     </package>
 </struts>
