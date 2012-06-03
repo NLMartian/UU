@@ -52,7 +52,7 @@ public interface UserManager {
       * @return 用户Uid
       * @throws Exception 
       */
-     Userinfo findUidByLoginName(String loginName)
+     Userinfo findUserByLoginName(String loginName)
              throws Exception;
      
      /**
@@ -62,5 +62,14 @@ public interface UserManager {
       * @throws Exception 
       */
      List<Userinfo> searchUserByName(String name)
+             throws Exception;
+     
+     /**
+      * 根据用户uid查找用户
+      * @param uid
+      * @return
+      * @throws Exception 
+      */
+     Userinfo findUserById(long uid)
              throws Exception;
 }

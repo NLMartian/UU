@@ -20,24 +20,8 @@ import org.uu.dao.model.Userinfo;
 public class SearchUserAction extends BaseAction {
     
     private List<Userinfo> userList;
-    private int page;
-    private String keyWord;
 
-    public String getKeyWord() {
-        return keyWord;
-    }
-
-    public void setKeyWord(String keyWord) {
-        this.keyWord = keyWord;
-    }
-
-    public int getPage() {
-        return page;
-    }
-
-    public void setPage(int page) {
-        this.page = page;
-    }
+   
 
     public List<Userinfo> getUserList() {
         return userList;
@@ -64,7 +48,7 @@ public class SearchUserAction extends BaseAction {
 //        return execute();
 //    }
     
-    public String getPageList() {
+    public String execute() {
         ActionContext ctx= ActionContext.getContext();
         
         
@@ -76,9 +60,7 @@ public class SearchUserAction extends BaseAction {
                 ctx.getSession().put("ifnull", "null");
 
             }
-            //ctx.getSession().put("length", userList.size());
             ctx.getSession().put("searchList", (ArrayList<Userinfo>)userList);
-            ctx.getSession().put("sb", "草草草");
 
             
         } catch (Exception ex) {

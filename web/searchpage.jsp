@@ -118,10 +118,10 @@ body {
     
   <input name="searchContent" type="text" value="" />
 
- <sj:a id="ajaxlink" formIds="searchForm" target="gridtable" cssClass="ajax_link" button="true">
+ <sj:a id="ajaxlink" formId="searchForm" target="gridtable" cssClass="ajax_link" button="true">
             搜索
  </sj:a>
-    
+                
   <p>    &nbsp;<img src="resource/login2.png" width="225" height="59" /></p>
 </div>
 <div id="apDiv6">

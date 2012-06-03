@@ -37,8 +37,7 @@ public class LoginAction extends BaseAction{
         Map session = ActionContext.getContext().getSession();
        
         if(mgr.checkLogin(username, password)) {
-            session.put("username", username);
-            session.put("uid", mgr.findUidByLoginName(username));
+            session.put("CurrUser", mgr.findUserByLoginName(username));
             return SUCCESS;
         }
         else {

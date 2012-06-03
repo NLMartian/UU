@@ -1,0 +1,20 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Author: 甲骨文 -->
+ 
+<struts>
+    <!-- Add your configuration elements here -->
+     
+    
+    <package name="userRelation" extends="json-default" namespace="">
+        <action name="AddFriend" class="addFriend">             
+                <result type="json"></result>
+                <result name="error">/errorpages/unknowError.jsp</result>
+        </action>
+        
+         
+        
+    </package>
+</struts>

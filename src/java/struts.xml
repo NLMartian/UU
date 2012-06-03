@@ -10,6 +10,7 @@
     
     <include file="struts-jquery.xml"/>
     <include file="struts-Status.xml"/>
+    <include file="struts-UserRelation.xml"/>
     
     <!--设置开发模式-->
      <constant name="struts.devMode" value="true" />

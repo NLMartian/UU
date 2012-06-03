@@ -83,7 +83,7 @@ public class UserManagerImpl implements UserManager{
     }
 
     @Override
-    public Userinfo findUidByLoginName(String loginName) throws Exception {
+    public Userinfo findUserByLoginName(String loginName) throws Exception {
         try {
             LoginInfo user = userDao.findUserByName(loginName);
             if(user != null) {
@@ -108,7 +108,17 @@ public class UserManagerImpl implements UserManager{
              throw new Exception("搜索用户名时出现异常");
         }
     }
-    
+
+    @Override
+    public Userinfo findUserById(long uid) throws Exception {
+        try {
+           return userDao.getUser(uid);           
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+             throw new Exception("根据uid搜索用户时出现异常");
+        }
+    }
     
     
 }

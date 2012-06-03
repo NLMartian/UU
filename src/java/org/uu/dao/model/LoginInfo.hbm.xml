@@ -8,7 +8,7 @@
             <column name="logininfo_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="userinfo" class="org.uu.dao.model.Userinfo" fetch="select">
+        <many-to-one name="userinfo" class="org.uu.dao.model.Userinfo" fetch="select" lazy="false">
             <column name="uid" not-null="true" />
         </many-to-one>
         <property name="password" type="string">

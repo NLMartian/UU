@@ -21,14 +21,15 @@
         <h1>Welcome!</h1>
         
         <div  id = "result"  class= "result"></div>
-        <s:url id = "first" value= "FirstAjaxAction.action"/>
+        <s:url id = "first" value= "/welcome.jsp"/>
 
         <form id="statusForm" method="post" action="FirstAjaxAction.action">
         <div id="apDiv10">
         <textarea name="textarea" id="textarea" cols="17" rows="4">请点此直接输入状态</textarea>
         </div>
         </form>
-        <sj:a id="ajaxlink" formIds="statusForm" target="result" cssClass="ajax_link" button="true">
+        <sj:a id="ajaxlink" formIds="statusForm" targets="result" cssClass="ajax_link" 
+              button="true" >
             发状态
         </sj:a>
     
@@ -49,6 +50,6 @@
             <sjg:gridColumn name="name" index="name" title="名字" sortable="true"/>
             <sjg:gridColumn name="sex" index="sex" title="生日" sortable="false"/>
         </sjg:grid>      
-            
+           
     </body>
 </html>

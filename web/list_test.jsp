@@ -35,23 +35,11 @@
                     onChange                 : function(page){
                                                     $("#resultList").empty();
                                                     
-//                                                    $.load("SearchUser!getPageList.action");
                                                     $.post(
-                                                       "SearchUser!getPageList.action",
+                                                       "SearchUser.action",
                                                        function(data, textStatus){
                                                            if(textStatus == "success") {                                                               
-//                                                               var jsonReslut = eval("("+ data + ")");
-//                                                               var userList = jsonReslut.userList;
-//                                                               
-//                                                               if(userList != null && userList.length > 0) {                 
-//                                                                   $.each(userList, function(index, Element){
-//                                                                       $("#resultList").append("<li>" + Element.name + "   email :" +
-//                                                                           Element.email + "</li>");
-//                                                                   });
-//                                                               }
-                                                                
                                                                 $("#resultList").append(data);
-                                                                
                                                            }
                                                        }
                                                     );
@@ -60,36 +48,45 @@
                 }); 
         </script> 
         
-<!--        <script type="text/javascript">
+        <script type="text/javascript">
             $(document).ready( function() {
-                $.subscribe('handleJsonResult', function(event,data) {
-                    var jsonResult = eval("("+ event.originalEvent.data + ")");
-                            $.each(jsonResult.userList, function(index, value) { 
-                                    $("#resultList").append('<li>'+value.name + "  email:" + value.email+'</li>');
-                            });
+                $("#searchFriendLink").click(function(){
+                    $("#resultList").empty();
+                    postSearchData();
+                }); 
+                
+                //搜索框输入回车
+                $("#searchKeyWord").keypress(function(e){
+                    if (e.which == 13) {
+                         postSearchData();
+                    } 
                 });
-            });    
-        </script> -->
+                
+                
+            }); 
+            
+            function postSearchData(){
+                $.post(
+                        "SearchUser.action",
+                        function(data, textStatus){
+                            if(textStatus == "success") {                                                               
+                                $("#resultList").append(data);
+                            }
+                        }
+                );
+            }
+            
+        </script> 
         
     </head>
     <body>
         <h1>搜索</h1>
-        <div>
-             
-           <s:form id="searchForm" method="post" action="11">
-                <s:textfield name="keyWords"/>
-            </s:form>
-          
-                
+        
+        <div id="search">     
+                <s:textfield  id="searchKeyWord" name="keyWords"/>
+                <input type="button" id="searchFriendLink" value="搜索一下" />
         </div>
-        <div><sj:a id="ajaxjsonlink" 
-                    formIds="searchForm"
-                    button="true"
-                    cssClass="ajax_link"
-                    onSuccessTopics="handleJsonResult"
-                    >search</sj:a>
-        </div>
-            
+        
         <div class="demo"> 
             <div id="pagetxt"> 
                 <h4>搜索结果</h4>
@@ -98,7 +95,7 @@
                 </ul>
             </div> 
             <div id="demo"></div> 
-        </div>       
-        
+        </div>  
+       
     </body>
 </html>

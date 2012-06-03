@@ -28,6 +28,11 @@
         <property name="mgr" ref="mgr"/>
         <property name="statusMgr" ref="statusMgr" />
     </bean>
+    
+    <bean id="addFriend" class="org.uu.controller.AddFriend">
+        <property name="mgr" ref="mgr"/>
+        <property name="relationMgr" ref="relationMgr" />
+    </bean>
  
  
 </beans>

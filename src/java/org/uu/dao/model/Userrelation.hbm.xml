@@ -1,15 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-28 10:31:18 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 2012-6-4 1:31:14 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="org.uu.dao.model.Userrelation" table="userrelation" catalog="uuproject">
-        <id name="uid2" type="long">
-            <column name="uid2" />
-            <generator class="assigned" />
-        </id>
-        <many-to-one name="userinfo" class="org.uu.dao.model.Userinfo" fetch="select">
-            <column name="uid1" not-null="true" />
-        </many-to-one>
+        <composite-id name="id" class="org.uu.dao.model.UserrelationId">
+            <key-property name="uid1" type="long">
+                <column name="uid1" />
+            </key-property>
+            <key-property name="uid2" type="long">
+                <column name="uid2" />
+            </key-property>
+        </composite-id>
     </class>
 </hibernate-mapping>
