@@ -11,7 +11,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>${requestScope.name}的个人主页</title>
 <%--  引入Struts  jquery 插件标签库 --%>
 <sj:head jqueryui="true" jquerytheme="eggplant"/>
 <style type="text/css">
@@ -125,7 +125,7 @@
   <div id="Accordion1" class="Accordion" tabindex="0">
     <div class="AccordionPanel">
       <div class="AccordionPanelTab">日志动态</div>
-      <div class="AccordionPanelContent">内容预览1</div>
+      <div class="AccordionPanelContent">${requestScope.name}的日志</div>
     </div>
     <div class="AccordionPanel">
       <div class="AccordionPanelTab">新状态</div>

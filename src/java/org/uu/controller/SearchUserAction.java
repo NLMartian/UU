@@ -53,15 +53,13 @@ public class SearchUserAction extends BaseAction {
         
         
         try {
-            userList = mgr.searchUserByName("sb");
+            userList = (ArrayList<Userinfo>)mgr.searchUserByName("sb");
             
             
             if(userList == null) {
                 ctx.getSession().put("ifnull", "null");
 
             }
-            ctx.getSession().put("searchList", (ArrayList<Userinfo>)userList);
-
             
         } catch (Exception ex) {
             Logger.getLogger(SearchUserAction.class.getName()).log(Level.SEVERE, null, ex);

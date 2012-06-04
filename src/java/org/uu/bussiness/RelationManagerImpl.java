@@ -4,6 +4,7 @@
  */
 package org.uu.bussiness;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.uu.dao.components.UserDao;
 import org.uu.dao.components.UserRelationDao;
@@ -64,12 +65,32 @@ public class RelationManagerImpl implements RelationManager{
     @Override
     public List<Userinfo> getFriendList(long uid) throws Exception {
        try {
-            return relationDao.findAllFriend(uid);
+            return (ArrayList<Userinfo>)relationDao.findAllFriend(uid);
         }
         catch(Exception e) {
             e.printStackTrace();
             throw new Exception("获取好友列表时出错！");
         }
+    }
+
+    @Override
+    public List<Userinfo> getPageFriendList(long uid, int start, int length) throws Exception {
+        List<Userinfo> allFriendList = (ArrayList<Userinfo>)getFriendList(uid);
+        if(allFriendList == null || allFriendList.isEmpty()) {
+            return null;
+        }
+        
+        List<Userinfo> pageFriendList = new  ArrayList<Userinfo>();
+        
+        int pageLength = length;
+        if(start + pageLength > allFriendList.size()) {
+            pageLength = allFriendList.size() - start;
+        }
+        for(int i = start; i < start + pageLength; i ++) {
+            pageFriendList.add(allFriendList.get(i));
+        }
+        
+        return pageFriendList;
     }
     
 }

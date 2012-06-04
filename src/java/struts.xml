@@ -5,7 +5,7 @@
 <struts>
     <!-- Configuration for the default package. -->
     
-    <include file="struts-LoginAndReg.xml"/>
+    <include file="struts-User.xml"/>
 
     
     <include file="struts-jquery.xml"/>

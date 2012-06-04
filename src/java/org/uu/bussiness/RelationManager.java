@@ -49,4 +49,10 @@ public interface RelationManager {
      */
     List<Userinfo> getFriendList(long uid)
             throws Exception;
+    
+    /**
+     * 获取好友分页列表
+     */
+    List<Userinfo> getPageFriendList(long uid, int start, int length)
+            throws Exception;
 }

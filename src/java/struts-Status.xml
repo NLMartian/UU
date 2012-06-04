@@ -6,10 +6,14 @@
  
 <struts>
     <!-- Add your configuration elements here -->
-    <package name="Status" extends="struts-default" namespace="">
+    <package name="Status" extends="json-default" namespace="">
         
         <action name="Status" class="statusAction">
             <result name="success">/personalpage.jsp</result>
+        </action>
+  
+        <action name="GetPagedStatus" class="getPagedStatus">
+            <result name="success">/statusList.jsp</result>
         </action>
     </package>
 </struts>

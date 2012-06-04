@@ -14,7 +14,15 @@
                 <result name="error">/errorpages/unknowError.jsp</result>
         </action>
         
-         
+        <action name="SearchUser" class="searchUser">             
+              <result name="success">/searchResultList.jsp</result>   
+        </action>
         
+        <action name="GetFriend" class="getFriend">
+            <result name="success">/friendList.jsp</result>
+            <result name="page">/AllFriend.jsp</result>
+            <result name="error">/errorpages/unknowError</result>
+        </action>
+               
     </package>
 </struts>
