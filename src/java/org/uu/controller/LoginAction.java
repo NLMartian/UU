@@ -6,6 +6,7 @@ package org.uu.controller;
 
 import com.opensymphony.xwork2.ActionContext;
 import java.util.Map;
+import org.uu.dao.model.Userinfo;
 
 /**
  *
@@ -14,6 +15,7 @@ import java.util.Map;
 public class LoginAction extends BaseAction{
     private String username;
     private String password;
+    private Userinfo current_customer;
      
 
     public String getPassword() {
@@ -35,10 +37,12 @@ public class LoginAction extends BaseAction{
     @Override
     public String execute() throws Exception {
         Map session = ActionContext.getContext().getSession();
-       
+        current_customer.setUid(mgr.findUidByLoginName(username));
+
         if(mgr.checkLogin(username, password)) {
-            session.put("username", username);
-            session.put("uid", mgr.findUidByLoginName(username));
+          
+            
+            
             return SUCCESS;
         }
         else {
