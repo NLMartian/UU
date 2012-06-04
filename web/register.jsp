@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -53,7 +54,7 @@ body {
 <body background="resource/5252423_173600895562_2.png">
 <div id="apDiv1"><img src="resource/WantedPoster.png" width="470" height="611" /></div>
 <div id="apDiv2">
-  <form id="register_form" name="register_form" method="post" action="Register.action">
+    <s:form id="register_form" name="register_form" method="post" action="Register.action"  validate="true">
   <p>
     <label for="textfield2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注册姓名：&nbsp;&nbsp;</label>
     <input type="text" name="login_name" id="textfield2" />
@@ -246,9 +247,9 @@ body {
     </select>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
   <div id="apDiv3"><img src="resource/reg.png" width="120" height="30"
-  onclick="javascript:fsubmit(document.register_form);"
-       style="cursor: hand;"  /></div>
-  </form>
+        onclick="javascript:fsubmit(document.register_form);"
+        style="cursor: hand;"  /></div>
+  </s:form>
 </div>
 </body>
 </html>

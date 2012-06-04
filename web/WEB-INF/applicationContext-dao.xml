@@ -19,5 +19,9 @@
     <bean id="blogDao" class="org.uu.dao.components.BlogDaoHibernate">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
+    
+    <bean id="relationDao" class="org.uu.dao.components.UserRelationDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
 
 </beans>

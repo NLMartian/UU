@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-25 13:01:29 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 2012-5-28 10:31:18 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="org.uu.dao.model.LoginInfo" table="login_info" catalog="uuproject">
         <id name="logininfoId" type="java.lang.Long">
             <column name="logininfo_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="userinfo" class="org.uu.dao.model.Userinfo" fetch="select">
+        <many-to-one name="userinfo" class="org.uu.dao.model.Userinfo" fetch="select" lazy="false">
             <column name="uid" not-null="true" />
         </many-to-one>
         <property name="password" type="string">

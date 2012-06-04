@@ -17,5 +17,28 @@
         <action name="Register" class="registerAction">             
                 <result name="success">/Login.jsp</result>  
         </action> 
+                <result name="success">/infocenter.jsp</result>  
+        </action> 
+        <action name="Register" class="registerAction">             
+                <result name="success">/Login.jsp</result>  
+                <result name="input">/register.jsp</result>  
+        </action>
+        
+        <action name="FirstAjaxAction" class="org.uu.controller.FirstAjaxAction">             
+                <result name="success">/welcome.jsp</result>   
+        </action>
+        
+       <action name="SearchUser" class="searchUser">             
+              <result name="success">/searchResultList.jsp</result>   
+        </action>
+    </package>
+    
+    <package name="ajax" extends="json-default" namespace="">
+        <action name="Searchp" class="searchPeople">             
+            <result type="json"/>
+            <result name="error">/welcome.jsp</result> 
+        </action>
+        
+               
     </package>
 </struts>

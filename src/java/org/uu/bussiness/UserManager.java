@@ -5,6 +5,8 @@
 package org.uu.bussiness;
 
 import java.util.Date;
+import java.util.List;
+import org.uu.dao.model.Userinfo;
 
 /**
  *
@@ -23,7 +25,7 @@ public interface UserManager {
      * @return 新用户的uid
      */
      long addUser(String loginName, String password, String name, 
-             boolean sex, Date birthday, String className, String email)
+             boolean sex, Date birthday, String className, String email, String avatar)
              throws Exception;
      
       /**
@@ -45,11 +47,29 @@ public interface UserManager {
              throws Exception;
      
      /**
-      * 根据用户名查找Uid
+      * 根据用户名查找用户信息
       * @param loginName 登录名
       * @return 用户Uid
       * @throws Exception 
       */
-     long findUidByLoginName(String loginName)
+     Userinfo findUserByLoginName(String loginName)
+             throws Exception;
+     
+     /**
+      * 通过姓名查找用户
+      * @param name
+      * @return
+      * @throws Exception 
+      */
+     List<Userinfo> searchUserByName(String name)
+             throws Exception;
+     
+     /**
+      * 根据用户uid查找用户
+      * @param uid
+      * @return
+      * @throws Exception 
+      */
+     Userinfo findUserById(long uid)
              throws Exception;
 }

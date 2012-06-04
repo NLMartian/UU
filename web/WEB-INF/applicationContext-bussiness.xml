@@ -24,5 +24,10 @@
         <property name="blogDao" ref="blogDao"></property>
         <property name="userDao" ref="userDao"></property>
     </bean>
+    
+    <bean id="relationMgr" class="org.uu.bussiness.RelationManagerImpl" >
+        <property name="relationDao" ref="relationDao"></property>
+        <property name="userDao" ref="userDao"></property>
+    </bean>
 
 </beans>

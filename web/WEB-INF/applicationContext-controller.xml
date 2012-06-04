@@ -22,4 +22,21 @@
     </bean>
 
 
+    
+    <bean id="searchPeople" class="org.uu.controller.SearchPeople">
+        <property name="mgr" ref="mgr"/>
+        <property name="statusMgr" ref="statusMgr" />
+        <property name="userdao" ref="userDao" />
+    </bean>
+    
+    <bean id="searchUser" class="org.uu.controller.SearchUserAction">
+        <property name="mgr" ref="mgr"/>
+        <property name="statusMgr" ref="statusMgr" />
+    </bean>
+    
+    <bean id="addFriend" class="org.uu.controller.AddFriend">
+        <property name="mgr" ref="mgr"/>
+        <property name="relationMgr" ref="relationMgr" />
+    </bean>
+  
 </beans>

@@ -37,12 +37,10 @@ public class LoginAction extends BaseAction{
     @Override
     public String execute() throws Exception {
         Map session = ActionContext.getContext().getSession();
-        current_customer.setUid(mgr.findUidByLoginName(username));
 
         if(mgr.checkLogin(username, password)) {
-          
-            
-            
+
+            session.put("CurrUser", mgr.findUserByLoginName(username));
             return SUCCESS;
         }
         else {

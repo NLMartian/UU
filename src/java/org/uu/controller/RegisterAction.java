@@ -9,6 +9,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Administrator
@@ -111,9 +113,24 @@ public class RegisterAction extends BaseAction{
          this.email=email;
      }
      @Override
-     public String execute()throws Exception{
+     public String execute()throws Exception{   
          formatBirthday(birthday_yyyy,birthday_mm,birthday_mm);
-         mgr.addUser(login_name, password, name, sex, birthday,className, email);
+         mgr.addUser(login_name, password, name, sex, birthday,className, email, "defaultPath");
          return SUCCESS;
      }
+
+    @Override
+    public void validate() {
+        try {
+            // 检查登录名是否存在
+            if(mgr.checkExistLoginName(login_name)) {
+                  addFieldError("login_name", "用户名已存在！");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(RegisterAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+     
+     
 }
