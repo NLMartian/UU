@@ -1,0 +1,15 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Author: Administrator -->
+ 
+<struts>
+    <!-- Add your configuration elements here -->
+       <package name="Upload" extends="struts-default" namespace="">
+        
+        <action name="Upload" class="uploadAction">
+            <result name="success">uploadsuccess.jsp</result>
+        </action>
+    </package>
+</struts>
