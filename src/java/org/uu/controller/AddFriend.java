@@ -51,7 +51,11 @@ public class AddFriend extends BaseAction{
         }
         
         try {
-            relationMgr.addRelation(user1.getUid(), uid);
+            // 如果不存在的话添加关系  
+            if(!relationMgr.ifExist(user1.getUid(), uid)) {
+                relationMgr.addRelation(user1.getUid(), uid);
+            }
+            
         } catch (Exception ex) {
             Logger.getLogger(AddFriend.class.getName()).log(Level.SEVERE, null, ex);
         }

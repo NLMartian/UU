@@ -53,7 +53,7 @@ body {
   <p><img src="resource/logo.png" width="423" height="67" /></p>
   <form id="login_form" name="login_form" method="post" action="Login.action">
   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <label for="textfield">登录邮箱：</label>
+    <label for="textfield">用户名：</label>
     <input name="username" type="text" size="20" />
   </p>
   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

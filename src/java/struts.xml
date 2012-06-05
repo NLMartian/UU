@@ -5,7 +5,13 @@
 <struts>
     <!-- Configuration for the default package. -->
     
+
     <include file="struts-LoginAndReg.xml"/>
+
+    <include file="struts-User.xml"/>
+
+    
+
     <include file="struts-jquery.xml"/>
     <include file="struts-Status.xml"/>
     <include file="struts-Upload.xml"/>

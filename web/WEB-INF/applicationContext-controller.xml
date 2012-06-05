@@ -23,11 +23,6 @@
 
 
     
-    <bean id="searchPeople" class="org.uu.controller.SearchPeople">
-        <property name="mgr" ref="mgr"/>
-        <property name="statusMgr" ref="statusMgr" />
-        <property name="userdao" ref="userDao" />
-    </bean>
     
     <bean id="searchUser" class="org.uu.controller.SearchUserAction">
         <property name="mgr" ref="mgr"/>
@@ -38,5 +33,25 @@
         <property name="mgr" ref="mgr"/>
         <property name="relationMgr" ref="relationMgr" />
     </bean>
-  
+
+    
+    <!--进入个人主页-->
+    <bean id="goPersonalPage" class="org.uu.controller.GoPersonalPage">
+        <property name="mgr" ref="mgr"/>
+    </bean>
+    
+    <!--用户的好友-->
+    <bean id="getFriend" class="org.uu.controller.GetFriend">
+        <property name="mgr" ref="mgr"/>
+        <property name="relationMgr" ref="relationMgr"/>
+    </bean>
+    
+    <!--获取分页状态列表-->
+    <bean id="getPagedStatus" class="org.uu.controller.GetPagedStatus">
+        <property name="mgr" ref="mgr"/>
+        <property name="statusMgr" ref="statusMgr"/>
+    </bean>
+ 
+ 
+
 </beans>

@@ -37,17 +37,24 @@
                 <result name="success">/welcome.jsp</result>   
         </action>
         
-       <action name="SearchUser" class="searchUser">             
-              <result name="success">/searchResultList.jsp</result>   
+        <action name="PersonalPage" class="goPersonalPage">
+            <result name="success">/personalpage.jsp</result>
+            <result name="error">/errorpages/unknowError.jsp</result>
         </action>
+        
     </package>
     
     <package name="ajax" extends="json-default" namespace="">
+
         <action name="Searchp" class="searchPeople">             
             <result type="json"/>
             <result name="error">/welcome.jsp</result> 
         </action>
         
                
+
+       
+        
+
     </package>
 </struts>
