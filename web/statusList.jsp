@@ -16,7 +16,29 @@
         <script type="text/javascript" src="js/jquery-ui-1.8.20.custom.min.js"></script> 
         <link type="text/css" href="css/ui-lightness/jquery-ui-custom.css" rel="Stylesheet" />
         
-        
+        <script type="text/javascript">
+             $(document).ready( function() {
+                $("[class='commentCommit']").click(function(){
+                   var comment = $(this).prev("input").attr("value");
+                   var status_id = $(this).attr("id");
+                   
+                   $.post("AddStatusComment.action",
+                           {
+                               status_id: status_id,
+                               content: comment
+                           },
+                           // 提交以后的回调函数
+                           function(data, textStatus){
+                                   $("#statusList").append("<p>" + textStatus + "</p>");
+                            }
+                    );
+                        return true;
+                }); 
+                
+            }); 
+            
+             
+        </script>
     </head>
     <body>
         <p>状态列表</p>
@@ -28,7 +50,10 @@
                     <p>${status.userinfo.name}:</p>
                     <p>${status.statusMessage}</p> <br/>
                     <p>${status.time}</p>
-                    <p><input type="text"></input></p>
+                    <div class="commentForm">
+                            <input type="text"></input>
+                            <a class="commentCommit" id="${status.statusId}" href="#">评论</a>
+                    </div>
                     <hr/>
                 </li>
             </c:forEach>

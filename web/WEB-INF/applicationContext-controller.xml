@@ -46,5 +46,10 @@
         <property name="statusMgr" ref="statusMgr"/>
     </bean>
  
+    <!--添加状态评论-->
+    <bean id="addStatusComment" class="org.uu.controller.AddStatusComment">
+        <property name="mgr" ref="mgr"/>
+        <property name="statusMgr" ref="statusMgr"/>
+    </bean>
  
 </beans>

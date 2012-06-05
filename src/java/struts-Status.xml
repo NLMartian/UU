@@ -15,5 +15,9 @@
         <action name="GetPagedStatus" class="getPagedStatus">
             <result name="success">/statusList.jsp</result>
         </action>
+        
+        <action name="AddStatusComment" class="addStatusComment">
+            <result type="json"></result>
+        </action>
     </package>
 </struts>

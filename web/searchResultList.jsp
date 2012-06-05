@@ -30,13 +30,13 @@
                             hide: "explode",
                             modal: true,
                             buttons: {
-						"确定": function() {
-                                                        addFriend(selectId);
-							$(this).dialog("close");
-						},
-						"取消": function() {
-							$(this).dialog("close");
-						}
+                                            "确定": function() {
+                                                    addFriend(selectId);
+                                                    $(this).dialog("close");
+                                            },
+                                            "取消": function() {
+                                                    $(this).dialog("close");
+                                            }
 					}
 
                     });

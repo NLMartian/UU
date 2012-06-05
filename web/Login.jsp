@@ -47,19 +47,18 @@ body {
 <div id="apDiv2">
   <p>&nbsp;</p>
   <p>&nbsp;</p>
-  <p>&nbsp;</p>
+  <p align="center">&nbsp;</p>
   <p><img src="resource/logo.png" width="423" height="67" /></p>
   <form id="login_form" name="login_form" method="post" action="Login.action">
   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <label for="textfield">用户名：</label>
     <input name="username" type="text" size="20" />
-  </p>
+   </p>
   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <label for="textfield2">密   码：&nbsp;&nbsp;&nbsp;&nbsp;</label>
     <input name="password" type="password"  size="20" />
   </p>
-  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <img src="resource/login3.png" width="165" height="59" 
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="resource/login3.png" width="165" height="59" 
        onclick="javascript:fsubmit(document.login_form);"
        style="cursor: hand;"                                                             
        /></p>

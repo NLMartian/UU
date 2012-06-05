@@ -24,7 +24,7 @@ public class StatusAction extends BaseAction{
     }
     @Override
     public String execute()throws Exception{
-      feedMgr.addFeed(1l, statusMgr.addStatus(1l, status_content), "STATUS");
+        feedMgr.addFeed(1l, statusMgr.addStatus(1l, status_content).getStatusId(), "STATUS");
         return SUCCESS;
     }
 }
