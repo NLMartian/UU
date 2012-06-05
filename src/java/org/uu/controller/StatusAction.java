@@ -7,6 +7,7 @@ package org.uu.controller;
 import org.uu.dao.model.Status;
 import com.opensymphony.xwork2.ActionContext;
 import java.util.Map;
+import org.uu.dao.model.Userinfo;
 /**
  *
  * @author Administrator
@@ -26,7 +27,8 @@ public class StatusAction extends BaseAction{
     @Override
     public String execute()throws Exception{
       Map session = ActionContext.getContext().getSession();
-      Long uid=(Long) session.get("uid");
+      Userinfo user = (Userinfo)session.get("CurrUser");
+      Long uid = user.getUid();
       
       feedMgr.addFeed(uid, statusMgr.addStatus(uid, status_content), "STATUS");
         return SUCCESS;

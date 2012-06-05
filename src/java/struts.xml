@@ -6,21 +6,17 @@
     <!-- Configuration for the default package. -->
     
     <include file="struts-LoginAndReg.xml"/>
-
-    
     <include file="struts-jquery.xml"/>
     <include file="struts-Status.xml"/>
     <include file="struts-Upload.xml"/>
-   
-    <package name="default" extends="struts-default">
-        
-
+    
     <include file="struts-UserRelation.xml"/>
     
     <!--设置开发模式-->
-     <constant name="struts.devMode" value="true" />
+     
     
-    <package name="default" extends="struts-default">        
+    <package name="default" extends="struts-default">  
+    
     </package>
     
     

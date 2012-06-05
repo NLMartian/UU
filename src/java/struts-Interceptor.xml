@@ -6,10 +6,5 @@
  
 <struts>
     <!-- Add your configuration elements here -->
-    <package name="login_interceptor" extends="struts-default">
-        <interceptors>
-            <interceptor name="login_interceptor" class="org.uu.controller.AuthorityInterceptor">
-                <param name="name">一个登陆拦截器</param>
-            </interceptor>
-        </interceptors>      
+     
 </struts>

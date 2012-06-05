@@ -6,19 +6,28 @@
  
 <struts>
     <!-- Add your configuration elements here -->
+        
+        
      <package name="loginAndReg" extends="struts-default" namespace="">       
+         <interceptors>
+            <interceptor name="login_interceptor" class="org.uu.controller.AuthorityInterceptor">
+                <param name="name">一个登陆拦截器</param>
+            </interceptor>
+        </interceptors> 
         
         <action name="Login" class="loginAction">  
                 <result name="input">/Login.jsp</result>                 
-                <result name="success">/status_test.jsp</result>  
+                <result name="success">/status_test.jsp</result> 
                 
                
+               
+                
         </action> 
+        
         <action name="Register" class="registerAction">             
                 <result name="success">/Login.jsp</result>  
         </action> 
-                <result name="success">/infocenter.jsp</result>  
-        </action> 
+            
         <action name="Register" class="registerAction">             
                 <result name="success">/Login.jsp</result>  
                 <result name="input">/register.jsp</result>  
