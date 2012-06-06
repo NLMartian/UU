@@ -8,10 +8,10 @@
             <column name="statuscomment_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="userinfo" class="org.uu.dao.model.Userinfo" fetch="select">
+        <many-to-one name="userinfo" class="org.uu.dao.model.Userinfo" fetch="join">
             <column name="uid" not-null="true" />
         </many-to-one>
-        <many-to-one name="status" class="org.uu.dao.model.Status" fetch="select">
+        <many-to-one name="status" class="org.uu.dao.model.Status" fetch="join">
             <column name="status_id" not-null="true" />
         </many-to-one>
         <property name="content" type="string">

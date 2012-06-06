@@ -80,6 +80,8 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
           <!-- 需要自动创建事务代理的bean -->
           <list>
               <value>mgr</value>
+              <value>*Mgr</value>
+              <value>*Dao</value>
           </list>
       </property>
       <property name="interceptorNames">

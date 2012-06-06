@@ -31,7 +31,7 @@ public class StatusAction extends BaseAction{
       Userinfo user = (Userinfo)session.get("CurrUser");
       Long uid = user.getUid();
       
-      feedMgr.addFeed(uid, statusMgr.addStatus(uid, status_content), "STATUS");
+      feedMgr.addFeed(uid, statusMgr.addStatus(uid, status_content).getStatusId(), "STATUS");
         return SUCCESS;
     }
 }

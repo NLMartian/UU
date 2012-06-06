@@ -9,6 +9,11 @@
      
     
     <package name="userRelation" extends="json-default" namespace="">
+        
+        <global-results>  
+            <result name="login">/Login.jsp</result>  
+        </global-results>
+        
         <action name="AddFriend" class="addFriend">             
                 <result type="json"></result>
                 <result name="error">/errorpages/unknowError.jsp</result>

@@ -19,8 +19,16 @@
         <script type="text/javascript">
              $(document).ready( function() {
                 $("[class='commentCommit']").click(function(){
+                    
                    var comment = $(this).prev("input").attr("value");
+                   
+                   if(comment == ''){
+                       return false;
+                   }
                    var status_id = $(this).attr("id");
+                   
+                   // 状态所在的列表项
+                   var status_li = $(this).parent().parent();
                    
                    $.post("AddStatusComment.action",
                            {
@@ -29,8 +37,16 @@
                            },
                            // 提交以后的回调函数
                            function(data, textStatus){
-                                   $("#statusList").append("<p>" + textStatus + "</p>");
-                            }
+                                   if(textStatus == "success"){
+                                       //var jsonData = eval("(" + data + ")");
+                                       status_li.append("<p>"
+                                       + data.comment.userinfo.name + ":" + data.comment.content
+                                       + "</p><p>" + data.comment.time 
+                                       + "</p><hr size='1'/>");
+                                   }
+                                   
+                            },
+                            "json"
                     );
                         return true;
                 }); 
@@ -42,19 +58,23 @@
     </head>
     <body>
         <p>状态列表</p>
+        <div id="debug"></div>
         <ul>
             <div id="statusList"></div>
             
+            <style>
+                .status_li {list-style-type:none;}
+            </style>
+            
             <c:forEach var="status" items="${requestScope.statusList}" >
-                <li>
-                    <p>${status.userinfo.name}:</p>
-                    <p>${status.statusMessage}</p> <br/>
+                <li class="status_li">
+                    <p>${status.userinfo.name}:${status.statusMessage}</p> <br/>
                     <p>${status.time}</p>
                     <div class="commentForm">
                             <input type="text"></input>
-                            <a class="commentCommit" id="${status.statusId}" href="#">评论</a>
+                            <a class="commentCommit" id="${status.statusId}" href="#nogo">评论</a>
                     </div>
-                    <hr/>
+                    <hr size="2"/>
                 </li>
             </c:forEach>
         </ul>

@@ -21,7 +21,7 @@ public class AddStatusComment extends BaseAction{
     private long status_id;
     private String content;
     
-    private long uid;
+    //private String userName;
     
     private StatusComment comment;
     
@@ -55,25 +55,23 @@ public class AddStatusComment extends BaseAction{
         this.status_id = status_id;
     }
 
-    public long getUid() {
-        return uid;
-    }
-
-    public void setUid(long uid) {
-        this.uid = uid;
-    }
+   
     
     public String execute() {
         try {
             Userinfo user = (Userinfo)ActionContext.getContext().getSession().get("CurrUser");
-            uid = user.getUid();
             
-            comment = statusMgr.addComment(content, status_id, uid);
+            comment = statusMgr.addComment(content, status_id, user.getUid());
         } catch (Exception ex) {
             Logger.getLogger(AddStatusComment.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return SUCCESS;
+    }
+    
+    
+    public String getJSON() {
+        return execute();
     }
     
     
