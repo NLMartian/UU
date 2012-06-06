@@ -13,7 +13,7 @@ import org.uu.bussiness.UserManager;
  *
  * @author 甲骨文
  */
-public class BaseAction extends ActionSupport{
+public class BaseAction extends ActionSupport {
     protected UserManager mgr;
     protected StatusManager statusMgr;
     protected FeedManager feedMgr;

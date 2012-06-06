@@ -17,6 +17,11 @@
         <property name="statusMgr" ref="statusMgr"/>
         <property name="feedMgr" ref="feedMgr"/>
     </bean>
+    <bean id="uploadAction" class="org.uu.controller.UploadAction">
+      
+    </bean>
+
+
     
     
     <bean id="searchUser" class="org.uu.controller.SearchUserAction">
@@ -28,6 +33,7 @@
         <property name="mgr" ref="mgr"/>
         <property name="relationMgr" ref="relationMgr" />
     </bean>
+
     
     <!--进入个人主页-->
     <bean id="goPersonalPage" class="org.uu.controller.GoPersonalPage">
@@ -52,4 +58,5 @@
         <property name="statusMgr" ref="statusMgr"/>
     </bean>
  
+
 </beans>
