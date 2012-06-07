@@ -5,7 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
@@ -18,9 +17,20 @@
         
         <script type="text/javascript">
              $(document).ready( function() {
+                 //评论内容
+                 
+                //弹出评论框
+                $(".btn-slide").click(function(){
+                    $(this).parent().next(".panel").slideToggle("slow");
+                    $(this).toggleClass("active");
+                    return false;
+                });
+                 
+                 // 提交评论
                 $("[class='commentCommit']").click(function(){
                     
                    var comment = $(this).prev("input").attr("value");
+                   var input = $(this).prev("input");
                    
                    if(comment == ''){
                        return false;
@@ -38,13 +48,15 @@
                            // 提交以后的回调函数
                            function(data, textStatus){
                                    if(textStatus == "success"){
-                                       //var jsonData = eval("(" + data + ")");
+                                       // 清空输入框
+                                       input.val("");
+                                       
+                                       //显示回复的内容
                                        status_li.append("<p>"
                                        + data.comment.userinfo.name + ":" + data.comment.content
-                                       + "</p><p>" + data.comment.time 
+                                       + "</p><p>" + data.time 
                                        + "</p><hr size='1'/>");
                                    }
-                                   
                             },
                             "json"
                     );
@@ -55,28 +67,65 @@
             
              
         </script>
+        <style type="text/css">
+            
+            .commentCommit {
+                    background: url(images/btn-slide.gif) no-repeat center top;
+                    text-align: center;
+                    width: 54px;
+                    height: 23px;
+                    padding: 10px 10px 0 0;
+                    margin: 0 auto;
+                    display: block;
+                    font: bold 120%/100% Arial, Helvetica, sans-serif;
+                    color: #fff;
+                    text-decoration: none;
+            }
+            
+            .panel {
+                display: none;
+            }
+        </style>
     </head>
     <body>
         <p>状态列表</p>
         <div id="debug"></div>
         <ul>
             <div id="statusList"></div>
-            
+                
             <style>
                 .status_li {list-style-type:none;}
             </style>
-            
-            <c:forEach var="status" items="${requestScope.statusList}" >
+                
+            <s:iterator value="#request.statusList" id="status">
                 <li class="status_li">
-                    <p>${status.userinfo.name}:${status.statusMessage}</p> <br/>
-                    <p>${status.time}</p>
-                    <div class="commentForm">
+                    <p>
+                        <s:property value="#status.userinfo.name"/>
+                        <s:property value="#status.statusMessage"/>
+                    </p> <br/>
+                    <div>
+                        <s:date name="#status.time" format="yyyy-MM-dd HH:mm:ss"/>
+                        <a class="btn-slide" href="#">评论</a>
+                    </div>  
+                    
+                    <!--评论panel-->
+                    <div class="panel">
+                        <div class="commentForm">
                             <input type="text"></input>
-                            <a class="commentCommit" id="${status.statusId}" href="#nogo">评论</a>
+                            <a class="commentCommit" id="#status.statusId" href="#nogo">提交</a>
+                        </div>
+                        <!--评论-->
+                        <s:action name="GetStatusComments" executeResult="true">
+                            <s:param name="statusId" value="#status.statusId" />
+                        </s:action>
+                        
+                        <!--end of 评论panel-->
                     </div>
+                    
+                    
                     <hr size="2"/>
                 </li>
-            </c:forEach>
+            </s:iterator>
         </ul>
     </body>
 </html>

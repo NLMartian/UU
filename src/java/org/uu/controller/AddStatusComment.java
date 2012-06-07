@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ActionContext;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.struts2.json.annotations.JSON;
 import org.uu.bussiness.StatusManager;
 import org.uu.dao.model.StatusComment;
 import org.uu.dao.model.Userinfo;
@@ -21,11 +22,20 @@ public class AddStatusComment extends BaseAction{
     private long status_id;
     private String content;
     
-    //private String userName;
     
+    private Date time;
     private StatusComment comment;
     
     private StatusManager statusMgr;
+
+    @JSON(format="yyyy-MM-dd HH:mm:ss")
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
 
     public StatusComment getComment() {
         return comment;
@@ -62,6 +72,8 @@ public class AddStatusComment extends BaseAction{
             Userinfo user = (Userinfo)ActionContext.getContext().getSession().get("CurrUser");
             
             comment = statusMgr.addComment(content, status_id, user.getUid());
+            time = comment.getTime();
+            
         } catch (Exception ex) {
             Logger.getLogger(AddStatusComment.class.getName()).log(Level.SEVERE, null, ex);
         }

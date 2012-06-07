@@ -38,7 +38,7 @@ public class StatusDaoHibernate extends HibernateDaoSupport implements StatusDao
     @Override
     public List<StatusComment> getAllCommentsById(long status_id) {
         List<StatusComment> lcomment = getHibernateTemplate()
-                .find("find from StatusComment sc where sc.status_id=?", status_id);
+                .find("from StatusComment sc where sc.status.statusId=?", status_id);
         
          if(lcomment !=null && lcomment.size()>=1)
             return lcomment;

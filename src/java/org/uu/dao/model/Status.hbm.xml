@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-5-28 10:31:18 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 2012-6-7 16:26:21 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="org.uu.dao.model.Status" table="status" catalog="uuproject">
         <id name="statusId" type="java.lang.Long">
             <column name="status_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="userinfo" class="org.uu.dao.model.Userinfo" fetch="select" lazy="false">
+        <many-to-one name="userinfo" class="org.uu.dao.model.Userinfo" fetch="select">
             <column name="uid" not-null="true" />
         </many-to-one>
         <property name="statusMessage" type="string">
             <column name="status_message" not-null="true" />
         </property>
-        <property name="time" type="time">
-            <column name="time" length="8" not-null="true" />
+        <property name="time" type="timestamp">
+            <column name="time" length="19" />
         </property>
         <set name="statusComments" inverse="true">
             <key>

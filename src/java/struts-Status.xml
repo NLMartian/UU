@@ -26,5 +26,10 @@
         <action name="AddStatusComment" class="addStatusComment">
             <result type="json"/>
         </action>
+        
+        <!--获取状态评论-->
+        <action name="GetStatusComments" class="getStatusComments">
+            <result name="success">/statusCommentsList.jsp</result>
+        </action>
     </package>
 </struts>
