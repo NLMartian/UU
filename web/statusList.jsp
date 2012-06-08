@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +19,6 @@
         
         <script type="text/javascript">
              $(document).ready( function() {
-                 //评论内容
                  
                 //弹出评论框
                 $(".btn-slide").click(function(){
@@ -35,14 +36,13 @@
                    if(comment == ''){
                        return false;
                    }
-                   var status_id = $(this).attr("id");
                    
+                   var status_id = $(this).attr("id");
                    // 状态所在的列表项
                    var status_li = $(this).parent().parent();
-                   
-                   $.post("AddStatusComment.action",
+                   $.post("AddStatusComment!addComment.action",
                            {
-                               status_id: status_id,
+                               status_id: parseInt(status_id),
                                content: comment
                            },
                            // 提交以后的回调函数
@@ -52,10 +52,10 @@
                                        input.val("");
                                        
                                        //显示回复的内容
-                                       status_li.append("<p>"
+                                       status_li.append("<p><span>"
                                        + data.comment.userinfo.name + ":" + data.comment.content
-                                       + "</p><p>" + data.time 
-                                       + "</p><hr size='1'/>");
+                                       + "</span> <span>" + data.time 
+                                       + "</span></p><hr size='1'/>");
                                    }
                             },
                             "json"
@@ -112,7 +112,11 @@
                     <div class="panel">
                         <div class="commentForm">
                             <input type="text"></input>
-                            <a class="commentCommit" id="#status.statusId" href="#nogo">提交</a>
+                                <a class="commentCommit" 
+                                   id="<s:property value='#status.statusId'/>" 
+                                   href="#nogo">
+                                    提交
+                                </a>
                         </div>
                         <!--评论-->
                         <s:action name="GetStatusComments" executeResult="true">

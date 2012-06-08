@@ -17,7 +17,7 @@ import org.uu.dao.model.Userinfo;
  *
  * @author 甲骨文
  */
-public class AddStatusComment extends BaseAction{
+public class AddStatusComment {
     
     private long status_id;
     private String content;
@@ -67,7 +67,7 @@ public class AddStatusComment extends BaseAction{
 
    
     
-    public String execute() {
+    public String addComment() {
         try {
             Userinfo user = (Userinfo)ActionContext.getContext().getSession().get("CurrUser");
             
@@ -78,13 +78,11 @@ public class AddStatusComment extends BaseAction{
             Logger.getLogger(AddStatusComment.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return SUCCESS;
+        return "success";
     }
     
     
-    public String getJSON() {
-        return execute();
-    }
+   
     
     
 }

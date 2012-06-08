@@ -51,7 +51,7 @@ public class UserDaoHibernate extends HibernateDaoSupport implements UserDao{
       //  throw new UnsupportedOperationException("Not supported yet.");
         List lp=getHibernateTemplate()
                 .find("from LoginInfo au where au.loginName=? and au.password=?",
-                new String[]{loginName, password});    
+                new Object[]{loginName, password});    
         if(lp !=null && lp.size()>=1)
             return (LoginInfo)lp.get(0);
         return null;
