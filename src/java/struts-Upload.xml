@@ -7,6 +7,7 @@
 <struts>
     <!-- Add your configuration elements here -->
        <package name="Upload" extends="struts-default" namespace="">
+
                <action name="UploadImage" class="uploadImageAction">
 			<result>/upload_photo.jsp</result>
 		</action>
@@ -14,5 +15,11 @@
 		<action name="CropImage" class="cropImageAction">
 			<result>/show_image.jsp</result>
 		</action>
+
+        
+        <global-results>  
+            <result name="login">/Login.jsp</result>  
+        </global-results>
+     
     </package>
 </struts>

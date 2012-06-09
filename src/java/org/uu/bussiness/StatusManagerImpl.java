@@ -29,7 +29,7 @@ public class StatusManagerImpl implements StatusManager{
     }
 
     @Override
-    public long addStatus(long uid, String statusContent) throws Exception {
+    public Status addStatus(long uid, String statusContent) throws Exception {
         
         try {
             Status status = new Status();
@@ -39,7 +39,7 @@ public class StatusManagerImpl implements StatusManager{
             status.setTime(new Date());
             
             statusDao.saveStatus(status);
-            return status.getStatusId();
+            return status;
         }
         catch(Exception e) {
              e.printStackTrace();
@@ -65,7 +65,7 @@ public class StatusManagerImpl implements StatusManager{
     }
 
     @Override
-    public long addComment(String commentContent, long statusId, long uid) throws Exception {
+    public StatusComment addComment(String commentContent, long statusId, long uid) throws Exception {
         
         try {
             StatusComment comment = new StatusComment();
@@ -75,7 +75,7 @@ public class StatusManagerImpl implements StatusManager{
             comment.setStatus(statusDao.getStatusByid(statusId));
             
             statusDao.addComment(comment);
-            return comment.getStatuscommentId();           
+            return comment;           
             
         } catch (Exception e) {
             e.printStackTrace();

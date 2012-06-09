@@ -21,8 +21,17 @@ public class SearchUserAction extends BaseAction {
     
     private List<Userinfo> userList;
 
-   
+    private String userName;
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+   
+    
     public List<Userinfo> getUserList() {
         return userList;
     }
@@ -32,34 +41,13 @@ public class SearchUserAction extends BaseAction {
     }
     
     
-    
-//    public String execute() {
-//        
-//        try {
-//            userList = mgr.searchUserByName("sb");
-//        } catch (Exception ex) {
-//            Logger.getLogger(SearchUserAction.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//        return SUCCESS;
-//    }
-//    
-//    public String getJSON() {
-//        return execute();
-//    }
-    
     public String execute() {
         ActionContext ctx= ActionContext.getContext();
         
         
         try {
-            userList = (ArrayList<Userinfo>)mgr.searchUserByName("sb");
+            userList = (ArrayList<Userinfo>)mgr.searchUserByName(userName);
             
-            
-            if(userList == null) {
-                ctx.getSession().put("ifnull", "null");
-
-            }
             
         } catch (Exception ex) {
             Logger.getLogger(SearchUserAction.class.getName()).log(Level.SEVERE, null, ex);

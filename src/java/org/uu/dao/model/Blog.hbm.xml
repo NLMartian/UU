@@ -8,7 +8,7 @@
             <column name="blog_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="userinfo" class="org.uu.dao.model.Userinfo" fetch="select">
+        <many-to-one name="userinfo" class="org.uu.dao.model.Userinfo" fetch="select" >
             <column name="uid" />
         </many-to-one>
         <property name="blogContent" type="string">

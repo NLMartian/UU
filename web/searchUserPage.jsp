@@ -6,8 +6,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix ="s" uri="/struts-tags" %>
-<%@taglib prefix ="sj" uri="/struts-jquery-tags" %>
-<%@taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,10 +13,25 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>分页 Page</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" /> 
-        <script type="text/javascript" src="js/jquery.js"></script> 
-        <script type="text/javascript" src="js/jquery.paginate.js"></script> 
+        <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.20.custom.min.js"></script> 
+        <link type="text/css" href="css/ui-lightness/jquery-ui-custom.css" rel="Stylesheet" />
+        <script type="text/javascript" src="js/jquery.paginate.js"></script>
         <script type="text/javascript"> 
             $(function(){ 
+                // 性别选择radio
+                $( "#sex_radio" ).buttonset();
+                
+                // 生日选择
+                $( "#birthday" ).datepicker(
+                    {
+                        dateFormat: "yy-mm-dd",
+			changeMonth: true,
+			changeYear: true
+                    }
+                );
+                
+                // 分页组件
                 $("#demo").paginate({ 
                     count         : 100, 
                     start         : 1, 
@@ -78,13 +91,40 @@
             
         </script> 
         
+        <style type="text/css">
+                #searchFriendLink {padding: .4em 1em .4em 20px;text-decoration: none;position: relative;}
+                #searchFriendLink span.ui-icon {margin: 0 5px 0 0;position: absolute;left: .2em;top: 50%;margin-top: -8px;}
+        </style>
+
+        
     </head>
     <body>
         <h1>搜索</h1>
         
-        <div id="search">     
-                <s:textfield  id="searchKeyWord" name="keyWords"/>
-                <input type="button" id="searchFriendLink" value="搜索一下" />
+        <div id="search">   
+            <form id="keyWords">
+                <p>
+                    <s:textfield  label="姓名" id="name" name="name"/>
+                </p>
+                <div id="sex_radio">
+                    <span>性别:</span>
+                    <input type="radio" id="male" name="sex" /><label for="male">男</label>
+                    <input type="radio" id="female" name="sex" checked="checked" /><label for="female">女</label>
+                        <input type="radio" id="undefined" name="sex" /><label for="undefined">不限</label>
+                </div>
+                <p>
+                    <s:textfield  label="生日" id="birthday" name="birthday"/>
+                </p>
+                <p>
+                    <s:textfield  label="Email" id="email" name="email"/>
+                </p>
+                <p>
+                    <a href="#" id="searchFriendLink" class="ui-state-default ui-corner-all">
+                       <span class="ui-icon ui-icon-search"></span>
+                       搜索
+                    </a>
+                </P>
+            </form> 
         </div>
         
         <div class="demo"> 

@@ -52,8 +52,8 @@
 	width:551px;
 	height:45px;
 	z-index:4;
-	left: 284px;
-	top: 187px;
+	left: 282px;
+	top: 186px;
 	font-size: 18px;
 	font-weight: bold;
 	font-family: Arial, Helvetica, sans-serif;
@@ -82,10 +82,10 @@
 #apDiv8 {
 	position:absolute;
 	width:314px;
-	height:241px;
+	height:385px;
 	z-index:6;
 	left: 833px;
-	top: 274px;
+	top: 225px;
 }
 #apDiv9 {
 	position:absolute;
@@ -112,15 +112,13 @@
 	left: 138px;
 	top: 316px;
 }
+body {
+	background-image: url(resource/uubg2.png);
+}
 </style>
 </head>
 
 <body>
-<div id="apDiv1"></div>
-<div id="apDiv2"><img src="resource/image002.png" width="258" height="588" /></div>
-<div id="apDiv3"><img src="resource/image005.png" width="313" height="255" /></div>
-<div id="apDiv4"><img src="resource/head.png" width="558" height="70" /></div>
-<div id="apDiv5"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;志&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;论&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;相&nbsp;&nbsp;&nbsp;&nbsp;册&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 <div id="apDiv7">
   <div id="Accordion1" class="Accordion" tabindex="0">
     <div class="AccordionPanel">
@@ -130,7 +128,6 @@
     <div class="AccordionPanel">
       <div class="AccordionPanelTab">新状态</div>
       <div class="AccordionPanelContent">内容预览2</div>
-      <div id="apDiv9"><img src="resource/内容框.png" width="251" height="131" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
     </div>
     <div class="AccordionPanel">
       <div class="AccordionPanelTab">相册动态</div>
@@ -150,20 +147,8 @@
 
 
 <form id="statusForm" method="post" action="Status.action">
-<div id="apDiv10">
-    
-  <textarea name="status_content" id="textarea" cols="17" rows="4">请点此直接输入状态</textarea>
-</div>
 </form>
-    
-<div id="apDiv11"> 
-    <sj:a id="ajaxlink" formIds="statusForm" cssClass="ajax_link" button="true">
-            发状态
-    </sj:a>
-</div>
-
-
-<img src="resource/image001.png" width="1137" height="195" />
+<img src="resource/image001.png" width="1176" height="195" align="middle" />
 <script type="text/javascript">
 var Accordion1 = new Spry.Widget.Accordion("Accordion1");
 var Accordion2 = new Spry.Widget.Accordion("Accordion2");

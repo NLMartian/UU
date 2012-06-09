@@ -1,5 +1,5 @@
 package org.uu.dao.model;
-// Generated 2012-5-28 10:31:10 by Hibernate Tools 3.2.1.GA
+// Generated 2012-6-7 16:26:06 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -22,10 +22,9 @@ public class Status  implements java.io.Serializable {
     }
 
 	
-    public Status(Userinfo userinfo, String statusMessage, Date time) {
+    public Status(Userinfo userinfo, String statusMessage) {
         this.userinfo = userinfo;
         this.statusMessage = statusMessage;
-        this.time = time;
     }
     public Status(Userinfo userinfo, String statusMessage, Date time, Set statusComments) {
        this.userinfo = userinfo;

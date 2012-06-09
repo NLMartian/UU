@@ -18,9 +18,9 @@ public interface StatusManager {
      * 添加一条状态
      * @param uid 用户id
      * @param statusContent 状态内容
-     * @return 状态di
+     * @return 状态新增的状态
      */
-    long addStatus(long uid, String statusContent)
+    Status addStatus(long uid, String statusContent)
             throws Exception;
     
     /**
@@ -65,9 +65,9 @@ public interface StatusManager {
      * @param commentContent
      * @param statusId
      * @param uid
-     * @return 
+     * @return 新增的评论
      */
-    long addComment(String commentContent, long statusId, long uid)
+    StatusComment addComment(String commentContent, long statusId, long uid)
             throws Exception;
     
     /**

@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/tx 
+http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    http://www.springframework.org/schema/aop 
+http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     
    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName">
@@ -35,6 +43,25 @@
          <property name="sessionFactory" ref="sessionFactory"/>
  </bean>
  
+ <!--解决 FlushMode.NEVER/MANUAL -->
+   <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="create*" propagation="REQUIRED" />  
+            <tx:method name="delete*" propagation="REQUIRED" />  
+            <tx:method name="update*" propagation="REQUIRED" />  
+            <tx:method name="add*" propagation="REQUIRED" />
+            <tx:method name="*" read-only="true" />
+        </tx:attributes>
+    </tx:advice>
+    
+    
+    <aop:config>
+        <aop:advisor
+            pointcut="execution(* org.uu.dao.components.*.*(..))"
+            advice-ref="txAdvice" />
+    </aop:config>
+    
+ 
   <!-- 配置事务拦截器 -->
   <bean id="transactionInterceptor"
     class="org.springframework.transaction.interceptor.TransactionInterceptor">
@@ -53,6 +80,8 @@
           <!-- 需要自动创建事务代理的bean -->
           <list>
               <value>mgr</value>
+              <value>*Mgr</value>
+              <value>*Dao</value>
           </list>
       </property>
       <property name="interceptorNames">

@@ -8,12 +8,28 @@
     <!-- Add your configuration elements here -->
     <package name="Status" extends="json-default" namespace="">
         
+       <!-- <global-results>  
+            <result name="login">/Login.jsp</result>  
+        </global-results> -->
+        
+        <!--添加状态-->
         <action name="Status" class="statusAction">
             <result name="success">/personalpage.jsp</result>
         </action>
   
+        <!--转到状态页面与获取状态列表-->
         <action name="GetPagedStatus" class="getPagedStatus">
             <result name="success">/statusList.jsp</result>
+        </action>
+        
+        <!--添加状态评论-->
+        <action name="AddStatusComment" class="addStatusComment">
+            <result type="json"/>
+        </action>
+        
+        <!--获取状态评论-->
+        <action name="GetStatusComments" class="getStatusComments">
+            <result name="success">/statusCommentsList.jsp</result>
         </action>
     </package>
 </struts>
