@@ -17,9 +17,13 @@
         <property name="statusMgr" ref="statusMgr"/>
         <property name="feedMgr" ref="feedMgr"/>
     </bean>
-    <bean id="uploadAction" class="org.uu.controller.UploadAction">
-      
+    <bean id="uploadImageAction" class="org.uu.controller.UploadImageAction">
+        
     </bean>
+    <bean id="cropImageAction" class="org.uu.controller.CropImageAction">
+        
+    </bean>
+    
 
 
     
