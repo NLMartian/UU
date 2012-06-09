@@ -65,22 +65,23 @@
             $(document).ready( function() {
                 $("#searchFriendLink").click(function(){
                     $("#resultList").empty();
-                    postSearchData();
+                    postSearchData($("#name").val());
                 }); 
                 
                 //搜索框输入回车
                 $("#searchKeyWord").keypress(function(e){
                     if (e.which == 13) {
-                         postSearchData();
+                         postSearchData($("#name").val());
                     } 
                 });
                 
                 
             }); 
             
-            function postSearchData(){
+            function postSearchData(name){
                 $.post(
                         "SearchUser.action",
+                        {userName: name},
                         function(data, textStatus){
                             if(textStatus == "success") {                                                               
                                 $("#resultList").append(data);

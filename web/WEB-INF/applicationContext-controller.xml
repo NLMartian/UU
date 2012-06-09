@@ -21,7 +21,9 @@
       
     </bean>
 
-
+    <bean id="userCard" class="org.uu.controller.UserCard">
+        <property name="mgr" ref="mgr"/>
+    </bean>
     
     
     <bean id="searchUser" class="org.uu.controller.SearchUserAction">
