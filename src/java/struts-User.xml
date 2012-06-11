@@ -8,11 +8,13 @@
     <!-- Add your configuration elements here -->
         
      <package name="loginAndReg" extends="struts-default" namespace=""> 
+         
          <interceptors>
             <interceptor name="login_interceptor" class="org.uu.controller.AuthorityInterceptor">
                 <param name="name">一个登陆拦截器</param>
             </interceptor>
         </interceptors> 
+        
         
         
         <global-results>  

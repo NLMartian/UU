@@ -1,0 +1,22 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Author: Administrator -->
+ 
+<struts>
+    <!-- Add your configuration elements here -->
+    <package name="Feed" extends="json-default" namespace="">
+        
+       <!-- <global-results>  
+            <result name="login">/Login.jsp</result>  
+        </global-results> -->
+        
+        <!--获取新鲜事-->
+        <action name="GetPagedFeeds" class="getPagedFeeds">
+            <result name="success">/pagedFeed.jsp</result>
+        </action>
+  
+        
+    </package>
+</struts>

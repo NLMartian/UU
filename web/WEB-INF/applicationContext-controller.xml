@@ -68,5 +68,16 @@
         <property name="mgr" ref="mgr"/>
         <property name="statusMgr" ref="statusMgr"/>
     </bean>
+    
+    <!--获取新鲜事-->
+    <bean id="getPagedFeeds" class="org.uu.controller.GetPagedFeeds">
+        <property name="mgr" ref="mgr"/>
+        <property name="feedMgr" ref="feedMgr"/>
+    </bean>
+    
+    <!--获取用户所有状态页面-->
+    <bean id="allOnesStatus" class="org.uu.controller.AllOnesStatus">
+        <property name="mgr" ref="mgr"/>
+    </bean>
 
 </beans>

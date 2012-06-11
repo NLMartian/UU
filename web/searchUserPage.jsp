@@ -43,7 +43,7 @@
                     border_hover_color        : '#68BA64', 
                     text_hover_color          : '#2573AF', 
                     background_hover_color    : '#CAE6C6',  
-                    images                    : true, 
+                    images                    : false, 
                     mouse                    : 'press', 
                     onChange                 : function(page){
                                                     $("#resultList").empty();

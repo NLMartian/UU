@@ -31,5 +31,11 @@
         <action name="GetStatusComments" class="getStatusComments">
             <result name="success">/statusCommentsList.jsp</result>
         </action>
+        
+        <!--获取状态页面-->
+        <action name="AllOnesStatus" class="allOnesStatus">
+            <result name="success">/status.jsp</result>
+        </action>
+        
     </package>
 </struts>

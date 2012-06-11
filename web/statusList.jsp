@@ -70,7 +70,7 @@
         <style type="text/css">
             
             .commentCommit {
-                    background: url(images/btn-slide.gif) no-repeat center top;
+                    background: url(resource/images/btn-slide.gif) no-repeat center top;
                     text-align: center;
                     width: 54px;
                     height: 23px;
@@ -88,7 +88,6 @@
         </style>
     </head>
     <body>
-        <p>状态列表</p>
         <div id="debug"></div>
         <ul>
             <div id="statusList"></div>
@@ -100,7 +99,7 @@
             <s:iterator value="#request.statusList" id="status">
                 <li class="status_li">
                     <p>
-                        <s:property value="#status.userinfo.name"/>
+                        <s:property value="#status.userinfo.name"/>:
                         <s:property value="#status.statusMessage"/>
                     </p> <br/>
                     <div>

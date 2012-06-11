@@ -1,5 +1,5 @@
 package org.uu.dao.model;
-// Generated 2012-5-28 10:31:10 by Hibernate Tools 3.2.1.GA
+// Generated 2012-6-11 15:04:56 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -18,20 +18,22 @@ public class Feed  implements java.io.Serializable {
      private String title;
      private String description;
      private Date updateTime;
+     private String content;
 
     public Feed() {
     }
 
 	
-    public Feed(Userinfo userinfo, String name, long feedSrcid, String feedType, String title, Date updateTime) {
+    public Feed(Userinfo userinfo, String name, long feedSrcid, String feedType, String title, Date updateTime, String content) {
         this.userinfo = userinfo;
         this.name = name;
         this.feedSrcid = feedSrcid;
         this.feedType = feedType;
         this.title = title;
         this.updateTime = updateTime;
+        this.content = content;
     }
-    public Feed(Userinfo userinfo, String name, long feedSrcid, String feedType, String title, String description, Date updateTime) {
+    public Feed(Userinfo userinfo, String name, long feedSrcid, String feedType, String title, String description, Date updateTime, String content) {
        this.userinfo = userinfo;
        this.name = name;
        this.feedSrcid = feedSrcid;
@@ -39,6 +41,7 @@ public class Feed  implements java.io.Serializable {
        this.title = title;
        this.description = description;
        this.updateTime = updateTime;
+       this.content = content;
     }
    
     public Long getFeedId() {
@@ -96,6 +99,13 @@ public class Feed  implements java.io.Serializable {
     
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+    public String getContent() {
+        return this.content;
+    }
+    
+    public void setContent(String content) {
+        this.content = content;
     }
 
 

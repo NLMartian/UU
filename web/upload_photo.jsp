@@ -31,7 +31,8 @@
 				jQuery('#cropbox').Jcrop({
 					onChange: showPreview,
 					onSelect: showPreview,
-					aspectRatio: 1
+					aspectRatio: 1,
+                                        boxWidth: 300
 				});
  
 			});
@@ -61,7 +62,7 @@
 			}
  
 		</script> 
-      <img  src="images/<s:property value='imageFileName'/>" id="cropbox" /> 
+      <img  src="images/<s:property value='imageFileName'/>" id="cropbox"/> 
 		
 		<div style="width:100px;height:100px;overflow:hidden;"> 
 			<img  src="images/<s:property value='imageFileName'/>" id="preview" /> 
