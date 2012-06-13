@@ -16,9 +16,7 @@
         </interceptors> 
         
         
-        <global-results>  
-            <result name="login">/Login.jsp</result>  
-        </global-results> 
+       
         
         <action name="Login" class="loginAction">  
                 <result name="input">/Login.jsp</result>                 

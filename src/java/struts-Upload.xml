@@ -17,9 +17,7 @@
 		</action>
 
         
-        <global-results>  
-            <result name="login">/Login.jsp</result>  
-        </global-results>
+        
      
     </package>
 </struts>
