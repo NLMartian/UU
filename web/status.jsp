@@ -66,6 +66,16 @@
                     );
             });
         </script>
+        
+        <style type="text/css">
+            #pagenate{
+                margin-left:auto;  
+ 
+                margin-right:auto;  
+
+                width: 200px; 
+            }
+        </style>
     </head>
     <body>
         <input id="currUid"  type="hidden" value="${requestScope.uid}" />

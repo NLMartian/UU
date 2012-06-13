@@ -57,13 +57,9 @@
                                 input.val("");
                                        
                                 //显示回复的内容
-                                feed_li.append("<p><span>"
-                                    + data.comment.userinfo.name + ":" + data.comment.content
-                                    + "</span> <span>" + data.time 
-                                    + "</span></p><hr size='1'/>");
+                                feed_li.append(data);
                             }
-                        },
-                        "json"
+                        }
                     );
                     }else if(feed_type.val() == "IMAGE"){
                         
@@ -80,20 +76,21 @@
 
             .commentCommit {
                 background: url(resource/images/btn-slide.gif) no-repeat center top;
-                text-align: center;
-                width: 54px;
-                height: 23px;
+                width: 52px;
+                height: 20px;
                 padding: 10px 10px 0 0;
                 margin: 0 auto;
                 display: block;
                 font: bold 120%/100% Arial, Helvetica, sans-serif;
                 color: #fff;
                 text-decoration: none;
+                display: inline
             }
 
             .panel {
                 display: none;
             }
+            .personLink:link,.personLink:visited{text-decoration:none;}
         </style>
     </head>
     <body>
@@ -105,10 +102,18 @@
                 <s:iterator value="#request.feedList" id="feeds">
                     <li class="feed_li">
                         <input class="feedType" type="hidden" value="<s:property value='#feeds.feedType'/>"/>
-                        <p>
-                            <s:property value="#feeds.userinfo.name"/>:
-                            <s:property value="#feeds.title"/>
-                        </p> 
+                        <div style="display: inline">
+                            <a class="personLink" href="PersonalPage.action?uid=<s:property value='#feeds.userinfo.uid'/>">
+                                <img src="<s:property value='#feeds.userinfo.avatar'/>" width="50" height="50" >
+                            </a>
+                        </div>
+                        <div style="display: inline">
+                            <a class="personLink" href="PersonalPage.action?uid=<s:property value='#feeds.userinfo.uid'/>">
+                                <s:property value="#feeds.userinfo.name"/>
+                            </a>
+                            :<s:property value="#feeds.title"/>
+                        </div> 
+                        
                         <s:if test="#feeds.feedType=='IMAGE'">
                             <image id="image" src="" width="200pix">
                         </s:if><br/>
@@ -120,7 +125,7 @@
                         <!--评论panel-->
                         <div class="panel">
                             <div class="commentForm">
-                                <input type="text"></input>
+                                <input type="text" size="43" style="display: inline"></input>
                                 <a class="commentCommit" 
                                    id="<s:property value='#feeds.feedSrcid'/>" 
                                    href="#nogo">

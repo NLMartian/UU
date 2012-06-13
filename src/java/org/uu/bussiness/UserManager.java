@@ -28,6 +28,17 @@ public interface UserManager {
              boolean sex, Date birthday, String className, String email, String avatar)
              throws Exception;
      
+     
+     /**
+      * 更新用户信息
+      * @param uid
+      * @param avatar
+      * @return
+      * @throws Exception 
+      */
+     long updateUserAvatar(long uid, String avatar)
+             throws Exception;
+     
       /**
      *  验证用户登录
      * @param loginName 新增用户名 

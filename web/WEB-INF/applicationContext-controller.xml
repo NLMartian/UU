@@ -21,12 +21,13 @@
         
     </bean>
     <bean id="cropImageAction" class="org.uu.controller.CropImageAction">
-        
+        <property name="mgr" ref="mgr"/>
     </bean>
     
 
     <bean id="userCard" class="org.uu.controller.UserCard">
         <property name="mgr" ref="mgr"/>
+        <property name="statusMgr" ref="statusMgr"/>
     </bean>
     
     

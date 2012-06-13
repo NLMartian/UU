@@ -84,11 +84,9 @@ public class UploadImageAction extends ActionSupport {
 
                 
 		File imageFile = new File(ServletActionContext.getServletContext()
-				.getRealPath("/images")
+				.getRealPath("/images/avatar/")
 				+ "/" + imageFileName);
-                System.out.println(ServletActionContext.getServletContext()
-				.getRealPath("/images")+"1111111111");
-		System.out.println(imageFile.getPath());
+                
 		try {
 			FileUtils.copyFile(image, imageFile);
 		} catch (IOException e) {

@@ -119,6 +119,22 @@ public class UserManagerImpl implements UserManager{
              throw new Exception("根据uid搜索用户时出现异常");
         }
     }
+
+    @Override
+    public long updateUserAvatar(long uid, String avatar) throws Exception {
+        try {
+            Userinfo user = findUserById(uid);
+            user.setAvatar(avatar);
+           
+            
+            userDao.update(user);
+            return user.getUid();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            throw new Exception("新增用户出现异常");
+        }
+    }
     
     
 }

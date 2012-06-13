@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.struts2.ServletActionContext;
 /**
  *
  * @author Administrator
@@ -114,8 +115,9 @@ public class RegisterAction extends BaseAction{
      }
      @Override
      public String execute()throws Exception{   
+         
          formatBirthday(birthday_yyyy,birthday_mm,birthday_mm);
-         mgr.addUser(login_name, password, name, sex, birthday,className, email, "defaultPath");
+         mgr.addUser(login_name, password, name, sex, birthday,className, email, "images/avatar/default_avatar.png");
          return SUCCESS;
      }
 

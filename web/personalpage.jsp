@@ -23,7 +23,7 @@
 
                 $.post(
                         "UserCard.action", 
-                        {uid: $("#uid").val()},
+                        {uid: Number($("#uid").val())},
                         function(data, textStatus){
                             if(textStatus == "success")
                                 $("#sidebar1").append(data);
@@ -41,25 +41,11 @@
 				}
 			}
 		});
-                
-                
-                // 中间tab页
-                $( ".tabs" ).tabs({
-			ajaxOptions: {
-				error: function( xhr, status, index, anchor ) {
-					$( anchor.hash ).html(
-						"Couldn't load this tab. We'll try to fix this as soon as possible. " +
-						"If this wouldn't be a demo." );
-				}
-			}
-		});
-		
-	
             
             });
         </script>
         <style type="text/css"> 
-            <!-- 
+             
             body  {
 	font: 100% 宋体, 新宋体;
 	background: #666666;
@@ -146,7 +132,10 @@
                 font-size: 1px;
                 line-height: 0px;
             }
-            --> 
+            
+            .tabButtons {
+                height: 40px;
+            }
         </style><!--[if IE]>
         <style type="text/css"> 
         /* 请将所有版本的 IE 的 css 修复放在这个条件注释中 */
@@ -163,7 +152,7 @@
                 <h1>标题</h1>
                 <!-- end #header --></div>
             <div id="sidebar1">
-                <input id="uid" type="hidden" value="${sessionScope.CurrUser.uid}">
+                <input id="uid" type="hidden" value="${requestScope.uid}">
 
                 <!-- end #sidebar1 --></div>
             <div id="sidebar2">
@@ -172,15 +161,12 @@
                 <p>Donec eu mi sed turpis feugiat feugiat. Integer turpis arcu, pellentesque  eget, cursus et, fermentum ut, sapien. </p>
                 <!-- end #sidebar2 --></div>
             <div id="mainContent">
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
+                <div id="maincontainer2">
+       
                 <div id="tabs">
-                    <ul>
-                        <li><a href="AllOnesStatus.action?uid=${requestScope.uid}">Status</a></li>
-                        <li><a href="/welcome.jsp">Picture</a></li>
+                    <ul class ="tabButtons">
+                        <li><a href="AllOnesStatus.action?uid=${requestScope.uid}">状态</a></li>
+                        <li><a href="welcome.jsp">图片</a></li>
                     </ul>
                 </div>
                 
@@ -199,14 +185,7 @@
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
                 
-                
-                <div class="tabs">
-                    <ul>
-                        <li><a href="AllOnesStatus.action?uid=${requestScope.uid}">Status</a></li>
-                        <li><a href="/welcome.jsp">Picture</a></li>
-                    </ul>
                 </div>
-                
                 <!-- end #mainContent --></div>
             <!-- 这个用于清除浮动的元素应当紧跟 #mainContent div 之后，以便强制 #container div 包含所有的子浮动 --><br class="clearfloat" />
             <div id="footer">

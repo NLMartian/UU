@@ -24,7 +24,7 @@
         
         <!--添加状态评论-->
         <action name="AddStatusComment" class="addStatusComment">
-            <result type="json"/>
+            <result>/newStatusComment.jsp</result>
         </action>
         
         <!--获取状态评论-->

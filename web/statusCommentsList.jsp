@@ -17,11 +17,21 @@
         
         <c:if test="${requestScope.commentList!=null}">
             <c:forEach var="comment" items="${requestScope.commentList}" >
-                <p>
-                    <span>${comment.userinfo.name}:${comment.content}</span>
-                    <fmt:formatDate value="${comment.time}" pattern="yyyy-MM-dd HH:mm:ss" var="time"/>	
-                    <span><c:out value="${time}"></c:out></span>
-                </p>
+                
+                <div style="display: inline">
+                    <a class="personLink" href="PersonalPage.action?uid=${comment.userinfo.uid}">
+                        <img src="${comment.userinfo.avatar}" width="30" height="30" >
+                    </a>
+                </div>
+                <div style="display: inline">
+                    <a class="personLink" href="PersonalPage.action?uid=${comment.userinfo.uid}/>">
+                        ${comment.userinfo.name}
+                    </a>
+                    :${comment.content} 
+                    <fmt:formatDate value="${comment.time}" pattern="yyyy-MM-dd HH:mm:ss" var="time"/>
+                    <c:out value="${time}"></c:out>
+                </div>
+                
                 <hr size="1"/>
             </c:forEach>
         </c:if>
