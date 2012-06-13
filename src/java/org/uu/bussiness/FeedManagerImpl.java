@@ -6,9 +6,11 @@ package org.uu.bussiness;
 
 import java.util.List;
 import org.uu.dao.components.FeedDao;
+import org.uu.dao.components.PicDao;
 import org.uu.dao.components.StatusDao;
 import org.uu.dao.components.UserDao;
 import org.uu.dao.model.Feed;
+import org.uu.dao.model.Picture;
 import org.uu.dao.model.Status;
 
 /**
@@ -20,7 +22,13 @@ public class FeedManagerImpl implements FeedManager{
     private FeedDao feedDao;
     private UserDao userDao;
     private StatusDao statusDao;
+    private PicDao picDao;
 
+    public void setPicDao(PicDao picDao) {
+        this.picDao = picDao;
+    }
+
+    
     public void setFeedDao(FeedDao feedDao) {
         this.feedDao = feedDao;
     }
@@ -61,7 +69,11 @@ public class FeedManagerImpl implements FeedManager{
                 
             }
             else if(feedType.equals("IMAGE")){
-                
+                Picture pic = picDao.getPicById(feedSrcId);
+                feed.setTitle("上传了一张照片");
+                feed.setUpdateTime(pic.getTime());
+                feed.setContent(pic.getPicPath());
+                feed.setDescription(pic.getDescription());
             }
             
             feedDao.addFeed(feed);

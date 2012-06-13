@@ -66,7 +66,7 @@
         </script>
         
         <style type="text/css">
-            #pagenate{
+            #picpagenate{
                 margin-left:auto;  
  
                 margin-right:auto;  

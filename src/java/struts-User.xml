@@ -23,7 +23,11 @@
         
         <action name="Login" class="loginAction">  
                 <result name="input">/Login.jsp</result>                 
-                <result name="success">/status_test.jsp</result> 
+                <result name="success">/infoCenterN.jsp</result> 
+        </action> 
+        
+        <action name="Logout" class="logoutAction">  
+                <result name="success">/Login.jsp</result>                 
         </action> 
         
         <action name="Register" class="registerAction">             

@@ -12,11 +12,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h3>你在想什么？</h3>
         <form name="statusone" method="POST" action="Status.action">
             <textarea name="status_content" rows="4" cols="60">
             </textarea>
-            <input type="submit" value="无语" name="submit" />
+            <input type="submit" value="发布" name="submit" />
         </form>
     </body>
 </html>

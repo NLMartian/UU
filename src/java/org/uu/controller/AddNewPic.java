@@ -12,7 +12,9 @@ import java.util.Date;
 import javax.swing.ImageIcon;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
+import org.uu.bussiness.FeedManager;
 import org.uu.bussiness.PicManager;
+import org.uu.dao.model.Picture;
 import org.uu.dao.model.Userinfo;
 
 /**
@@ -30,6 +32,7 @@ public class AddNewPic extends BaseAction{
 	private String imageContentType;
 	
         private PicManager picMgr;
+        private FeedManager feedMgr;
 
         public String getDescription() {
             return description;
@@ -42,7 +45,11 @@ public class AddNewPic extends BaseAction{
         public void setPicMgr(PicManager picMgr) {
             this.picMgr = picMgr;
         }
-        
+
+        public void setFeedMgr(FeedManager feedMgr) {
+            this.feedMgr = feedMgr;
+        }
+
         
 	/**
 	 * @param image
@@ -114,7 +121,9 @@ public class AddNewPic extends BaseAction{
 		try {
 			FileUtils.copyFile(image, imageFile);
                         
-                        picMgr.addPic(user.getUid(), "images/user_upload/"+ imageFileName, description);
+                         Picture pic = picMgr.addPic(user.getUid(), "images/user_upload/"+ imageFileName, description);
+                        
+                        feedMgr.addFeed(user.getUid(), pic.getPicId(), "IMAGE");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

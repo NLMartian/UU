@@ -74,6 +74,7 @@
         <ul>
             <c:forEach var="user" items="${requestScope.userList}" >
                 <li>
+                    <img src="${user.avatar}" width="50">
                     
                     <a href="PersonalPage.action?uid=${user.uid}">${user.name}</a>
                     

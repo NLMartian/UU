@@ -18,7 +18,8 @@
   <body>
   	<!-- 此处需将表单enctype设置为  multipart/form-date  -->
     <form action="AddNewPic.action" enctype="multipart/form-data" method="post">
-    	<input type="file" name="image"/>
+    	上传图片<input type="file" name="image"/>
+        <input type="text" name="description"/>
     	<input type="submit" value="submit"/>
     </form>
     

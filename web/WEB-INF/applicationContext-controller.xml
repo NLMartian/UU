@@ -10,6 +10,11 @@
     <bean id="loginAction" class="org.uu.controller.LoginAction">
         <property name="mgr" ref="mgr"/>
     </bean>
+    
+    <bean id="logoutAction" class="org.uu.controller.logout">
+        <property name="mgr" ref="mgr"/>
+    </bean>
+    
      <bean id="registerAction" class="org.uu.controller.RegisterAction">
         <property name="mgr" ref="mgr"/>
     </bean>
@@ -91,6 +96,7 @@
     <bean id="addNewPic" class="org.uu.controller.AddNewPic">
         <property name="mgr" ref="mgr"/>
         <property name="picMgr" ref="picMgr"/>
+        <property name="feedMgr" ref="feedMgr"/>
     </bean>
     
     <!--增加图片评论-->
@@ -108,4 +114,5 @@
     <bean id="allOnesPicture" class="org.uu.controller.AllOnesPicture">
         <property name="mgr" ref="mgr"/>
     </bean>
+    
 </beans>

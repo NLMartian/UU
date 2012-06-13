@@ -138,10 +138,8 @@
                     <td>${requestScope.user.className}</td>
                 </tr>
             </table>
-                
-                  
-
         </div>
+                
 
     </body>
 </html>

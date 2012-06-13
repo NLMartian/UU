@@ -23,7 +23,7 @@
             </a>
         </div>
         <div style="display: inline">
-            <a class="personLink" href="PersonalPage.action?uid=${comment.userinfo.uid}/>">
+            <a class="personLink" href="PersonalPage.action?uid=${comment.userinfo.uid}">
                 ${comment.userinfo.name}
             </a>
             :${comment.content} 

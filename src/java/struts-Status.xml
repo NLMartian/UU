@@ -14,7 +14,7 @@
         
         <!--添加状态-->
         <action name="Status" class="statusAction">
-            <result name="success">/personalpage.jsp</result>
+            <result name="success">/infoCenterN.jsp</result>
         </action>
   
         <!--转到状态页面与获取状态列表-->
