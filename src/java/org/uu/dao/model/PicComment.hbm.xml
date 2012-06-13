@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-6-13 12:08:21 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="org.uu.dao.model.PicComment" table="pic_comment" catalog="uuproject">
+        <id name="piccommentId" type="java.lang.Long">
+            <column name="piccomment_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="picture" class="org.uu.dao.model.Picture" fetch="select">
+            <column name="pic_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userinfo" class="org.uu.dao.model.Userinfo" fetch="select">
+            <column name="uid" not-null="true" />
+        </many-to-one>
+        <property name="content" type="string">
+            <column name="content" length="200" />
+        </property>
+        <property name="time" type="timestamp">
+            <column name="time" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

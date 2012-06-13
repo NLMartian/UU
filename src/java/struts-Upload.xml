@@ -6,7 +6,7 @@
  
 <struts>
     <!-- Add your configuration elements here -->
-       <package name="Upload" extends="struts-default" namespace="">
+       <package name="Upload" extends="json-default" namespace="">
 
                 <global-results>  
                     <result name="login">/Login.jsp</result>  
@@ -20,6 +20,28 @@
 		<action name="CropImage" class="cropImageAction">
 			<result>/show_image.jsp</result>
 		</action>
+                
+                <action name="GetPagedPic" class="getPagedPic">
+			<result>/picList.jsp</result>
+		</action>
+                
+                <action name="AddNewPic" class="addNewPic">
+                    <result>/show_image.jsp</result>
+                </action>
+                
+               <action name="AddPicComment" class="addPicComment">
+                    <result>/newStatusComment.jsp</result>
+                </action> 
+                
+                <action name="GetPicComments" class="getPicComments">
+                    <result>/picCommentsList.jsp</result>
+                </action> 
+                
+
+                <!--获取图片页面-->
+                <action name="AllOnesPic" class="allOnesPicture">
+                    <result name="success">/picture.jsp</result>
+                </action>
 
         
         

@@ -80,5 +80,32 @@
     <bean id="allOnesStatus" class="org.uu.controller.AllOnesStatus">
         <property name="mgr" ref="mgr"/>
     </bean>
+    
+    <!--获取用户分页图片-->
+    <bean id="getPagedPic" class="org.uu.controller.GetPagedPic">
+        <property name="mgr" ref="mgr"/>
+        <property name="picMgr" ref="picMgr"/>
+    </bean>
 
+     <!--增加图片-->
+    <bean id="addNewPic" class="org.uu.controller.AddNewPic">
+        <property name="mgr" ref="mgr"/>
+        <property name="picMgr" ref="picMgr"/>
+    </bean>
+    
+    <!--增加图片评论-->
+    <bean id="addPicComment" class="org.uu.controller.AddPicComment">
+        <property name="picMgr" ref="picMgr"/>
+    </bean>
+    
+    <!--获取图片评论-->
+    <bean id="getPicComments" class="org.uu.controller.GetPicCommentsList">
+        <property name="mgr" ref="mgr"/>
+        <property name="picMgr" ref="picMgr"/>
+    </bean>
+    
+     <!--获取图片页面-->
+    <bean id="allOnesPicture" class="org.uu.controller.AllOnesPicture">
+        <property name="mgr" ref="mgr"/>
+    </bean>
 </beans>

@@ -166,24 +166,14 @@
                 <div id="tabs">
                     <ul class ="tabButtons">
                         <li><a href="AllOnesStatus.action?uid=${requestScope.uid}">状态</a></li>
-                        <li><a href="welcome.jsp">图片</a></li>
+                        <li><a href="AllOnesPic.action?uid=${requestScope.uid}">图片</a></li>
                     </ul>
                 </div>
                 
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
+                
                 
                 </div>
                 <!-- end #mainContent --></div>

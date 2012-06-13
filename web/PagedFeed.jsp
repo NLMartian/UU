@@ -41,7 +41,7 @@
                     var feed_type = $(this).next("input");
                     
                     //新鲜事列表项
-                    var feed_li = $(this).parent().parent().parent();
+                    var feed_li = $(this).parent().parent().parent(".panel");
                     
                     if(feed_type.val() == "STATUS"){
                         

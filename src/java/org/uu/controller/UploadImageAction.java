@@ -21,7 +21,7 @@ public class UploadImageAction extends ActionSupport {
 	private String imageContentType;
 	private int imageHeigth;
 	private int imageWidth;
-        
+	
 	/**
 	 * @param image
 	 *            the image to set
@@ -106,20 +106,20 @@ public class UploadImageAction extends ActionSupport {
 	public void setImageHeigth(int imageHeigth) {
 		this.imageHeigth = imageHeigth;
 	}
-
+	
 	/**
 	 * @return the imageHeigth
 	 */
 	public int getImageHeigth() {
 		return imageHeigth;
 	}
-
+	
 	/**
 	 * @param imageWidth the imageWidth to set
 	 */
 	public void setImageWidth(int imageWidth) {
 		this.imageWidth = imageWidth;
-	}
+}
 
 	/**
 	 * @return the imageWidth

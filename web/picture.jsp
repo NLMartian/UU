@@ -1,6 +1,6 @@
 <%-- 
-    Document   : feeds
-    Created on : 2012-6-11, 19:21:13
+    Document   : pictures
+    Created on : 2012-6-13, 21:05:58
     Author     : 甲骨文
 --%>
 
@@ -14,16 +14,16 @@
         <script type="text/javascript" src="js/jquery-ui-1.8.20.custom.min.js"></script> 
         <link type="text/css" href="css/ui-lightness/jquery-ui-custom.css" rel="Stylesheet" />
         <script type="text/javascript" src="js/jquery.paginate.js"></script>
-        <title>feed Page</title>
+        <title>picture Page</title>
         
         <script type="text/javascript"> 
             $(function(){
                // 分页组件
-                $("#picpagenate").paginate({ 
+                $("#pagenate").paginate({ 
                     count         : 100, 
                     start         : 1, 
                     display     : 5, 
-                   border                    : true, 
+                    border                    : true, 
                     border_color            : '#BEF8B8', 
                     text_color              : '#79B5E3', 
                     background_color        : '#FFB344',     
@@ -31,18 +31,19 @@
                     text_hover_color          : '#2573AF', 
                     background_hover_color    : '#FFFFFF',  
                     images                    : false, 
-                    mouse                    : 'press',  
+                    mouse                    : 'press', 
                     onChange                 : function(page){
                                                     $.post(
-                                                       "GetPagedFeeds.action",
+                                                       "GetPagedPic.action",
                                                        {
-                                                           start: page * 25,
-                                                           length: 25
+                                                           uid: Number($("input#currUid").val()),
+                                                           start: (page-1) * 15,
+                                                           length: 15
                                                        },
                                                        function(data, textStatus){
                                                            if(textStatus == "success") {  
-                                                                $("#picpageContent").empty();
-                                                                $("#picpageContent").append(data);
+                                                                $("#pageContent").empty();
+                                                                $("#pageContent").append(data);
                                                            }
                                                        }
                                                     );
@@ -50,15 +51,16 @@
                     }); 
                     
                     $.post(
-                         "GetPagedFeeds.action",
+                         "GetPagedPic.action",
                         {
+                            uid: Number($("input#currUid").val()),
                             start: 0,
-                            length: 25
+                            length: 15
                         },
                         function(data, textStatus){
                             if(textStatus == "success") {  
-                                $("#picpageContent").empty();
-                                $("#picpageContent").append(data);
+                                $("#pageContent").empty();
+                                $("#pageContent").append(data);
                             }
                         }
                     );
@@ -71,16 +73,17 @@
  
                 margin-right:auto;  
 
-                width:200px; 
+                width: 200px; 
             }
         </style>
     </head>
     <body>
-        <div class="picList"> 
-            <div id="picpageContent"> 
+        <input id="currUid"  type="hidden" value="${requestScope.uid}" />
+        <div class="feedList"> 
+            <div id="pageContent"> 
                 
             </div> 
-            <div id="picpagenate"></div> 
+            <div id="pagenate"></div> 
         </div>  
     </body>
 </html>

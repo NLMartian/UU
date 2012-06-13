@@ -14,7 +14,7 @@
         
         <!--获取新鲜事-->
         <action name="GetPagedFeeds" class="getPagedFeeds">
-            <result name="success">/pagedFeed.jsp</result>
+            <result name="success">/PagedFeed.jsp</result>
         </action>
   
         

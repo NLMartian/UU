@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2012-6-11 15:05:08 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 2012-6-13 13:24:02 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="org.uu.dao.model.Userinfo" table="userinfo" catalog="uuproject">
         <id name="uid" type="java.lang.Long">
@@ -24,13 +24,13 @@
             <column name="class_name" length="20" not-null="true" />
         </property>
         <property name="avatar" type="string">
-            <column name="avatar" length="80" not-null="true" />
+            <column name="avatar" length="200" not-null="true" />
         </property>
-        <set name="feeds" inverse="true">
+        <set name="pictures" inverse="true">
             <key>
                 <column name="uid" not-null="true" />
             </key>
-            <one-to-many class="org.uu.dao.model.Feed" />
+            <one-to-many class="org.uu.dao.model.Picture" />
         </set>
     </class>
 </hibernate-mapping>
