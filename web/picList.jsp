@@ -16,9 +16,13 @@
         <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.20.custom.min.js"></script> 
         <link type="text/css" href="css/ui-lightness/jquery-ui-custom.css" rel="Stylesheet" />
+        <link href="sources/facebox/facebox.css" media="screen" rel="stylesheet" type="text/css"/>
+        <script src="sources/facebox/facebox.js" type="text/javascript"></script> 
         
         <script type="text/javascript">
              $(document).ready( function() {
+                 //facebox
+                 $('a[rel=facebox]').facebox();
                  
                 //弹出评论框
                 $(".btn-slide").click(function(){
@@ -115,7 +119,9 @@
                             :<s:property value="#pic.description"/>
                     </div>
                     <div>
-                        <img src="<s:property value='#pic.picPath'/>" width="200">
+                        <a href="<s:property value='#pic.picPath'/>" rel="facebox">
+                            <img src="<s:property value='#pic.picPath'/>" width="200">
+                        </a>
                     </div>
                     
                     <br/>

@@ -14,10 +14,14 @@
         <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.20.custom.min.js"></script> 
         <link type="text/css" href="css/ui-lightness/jquery-ui-custom.css" rel="Stylesheet" />
+        <link href="sources/facebox/facebox.css" media="screen" rel="stylesheet" type="text/css"/>
+        <script src="sources/facebox/facebox.js" type="text/javascript"></script> 
 
 
         <script type="text/javascript">
             $(document).ready( function() {
+                 //facebox
+                 $('a[rel=facebox]').facebox();
                  
                 //弹出评论框
                 $(".btn-slide").click(function(){
@@ -130,7 +134,9 @@
                         </div> 
                         
                         <s:if test="#feeds.feedType=='IMAGE'">
-                            <image id="image" src="<s:property value='#feeds.content'/>" width="200pix">
+                            <a href="<s:property value='#feeds.content'/>" rel="facebox">
+                                <image id="image" src="<s:property value='#feeds.content'/>" width="200pix">
+                            </a>
                             <div><s:property value="#feeds.description"/></div>
                         </s:if><br/>
                         <div>
