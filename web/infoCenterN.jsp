@@ -54,11 +54,25 @@
                     load_feed();
                 });
                 
+                 $("#tabButtons2").click(function(){
+                    $("#search_panel").empty();
+                    $("#search_panel").load("searchUserPage.jsp");
+                });
+                
                 $("#upload_poto").click(function(){
                     $("#upload_poto_panel").slideToggle("slow");
                     $(this).toggleClass("active");
                     return false;
                 });
+                
+                
+                //friendGrid
+                $("#friendList").load("GetFriend!grid.action",
+                                    {uid: Number($("#uid").val()),
+                                     start: 0,
+                                     length:20
+                                    }
+                );
             
             });
             
@@ -68,6 +82,25 @@
                 $("#feed_panel").empty();
                 $("#feed_panel").load("feeds.jsp");
             }
+            
+            
+            
+            //返回顶部
+            $(function(){
+            var $backToTopTxt = "返回顶部", $backToTopEle = $('<div class="backToTop"></div>').appendTo($("body"))
+            .text($backToTopTxt).attr("title", $backToTopTxt).click(function() {
+            $("html, body").animate({ scrollTop: 0 }, 120);
+            }), $backToTopFun = function() {
+            var st = $(document).scrollTop(), winh = $(window).height();
+            (st > 0)? $backToTopEle.show(): $backToTopEle.hide();
+            //IE6下的定位
+            if (!window.XMLHttpRequest) {
+            $backToTopEle.css("top", st + winh - 166);
+            }
+            };
+            $(window).bind("scroll", $backToTopFun);
+            $(function() { $backToTopFun(); });
+            });
                        
         </script> 
         <style type="text/css"> 
@@ -161,8 +194,6 @@
 
             .tabButtons {
                 height: 40px;
-                
-                
             }
             #headpage {
                 position:relative;
@@ -182,6 +213,17 @@
             }
             
             
+            #upload_poto_panel{
+                display: none;
+            }
+            
+            
+            /*返回顶部*/
+            .backToTop {display: none; width: 18px; line-height: 1.2; padding: 5px 0; background-color: #000; color: #fff; font-size: 12px; text-align: center; position: fixed; _position: absolute; right: 10px; bottom: 100px; _bottom: "auto"; cursor: pointer; opacity: .6; filter: Alpha(opacity=60);}
+            p {height:80px;}
+            
+            .personLink:link,.personLink:visited{text-decoration:none;}
+            
         </style><!--[if IE]>
         <style type="text/css"> 
         /* 请将所有版本的 IE 的 css 修复放在这个条件注释中 */
@@ -192,9 +234,9 @@
         <![endif]--></head>
 
     <body class="thrColElsHdr">
-
         <div id="container">
             <div id="header">
+
                 <div id="Logo">
                     <a  href="Login.jsp"><img src="resource/logo1.png"border="0"width="260" height="45"/> </a>
                 </div>
@@ -208,55 +250,70 @@
                 </div>
                 <!-- end #header -->
             </div>
+
+                <h1>标题</h1>
+                
+                
+                <!-- end #header --></div>
+
             <div id="sidebar1">
                 <input id="uid" type="hidden" value="${sessionScope.CurrUser.uid}">
                 
                 <div class="avater">
-                    <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}">
+                    <a class="personLink" href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}">
                         <img src="${sessionScope.CurrUser.avatar}" width=150 style="MARGIN-RIGHT: auto; MARGIN-LEFT: auto; ">
                     </a>    
                 </div>
                 <div class="name">
-                    <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}" style="text-align:center">
+                    <a class="personLink" href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}" style="text-align:center">
                         ${sessionScope.CurrUser.name}
                     </a>
+                    
+                    <a href="upload_photo.jsp">更换</a>
                 </div>
                 <!-- end #sidebar1 --></div>
             <div id="sidebar2">
-                <h3>sidebar2 内容</h3>
-                <p>此 div 上所显示的背景色刚好与内容等宽。如果您喜欢改用分界线，而且 #mainContent div 所包含的内容将始终比 #sidebar2 div 中的多，请在 #mainContent div 的右边缘放置一个边框。 </p>
-                <p>Donec eu mi sed turpis feugiat feugiat. Integer turpis arcu, pellentesque  eget, cursus et, fermentum ut, sapien. </p>
+                
+                <div id="friendList"></div>
                 <!-- end #sidebar2 --></div>
             <div id="mainContent">
                 <div id="maincontainer2">
                     
-                    
+                    <div>
                         <textarea name="status_content" id="status_content"></textarea>
                         <input type="submit" value="发布" name="submit" id="status_submit" />
-                        
                         <a href="#" id="upload_poto">上传图片</a>
-                        <div id="upload_poto_panel" class="ui-widget-content">
-                            <form action="AddNewPic.action" enctype="multipart/form-data" method="post">
-                                选择文件<input type="file" name="image"/>
-                                <input type="text" name="description"/>
-                                <input type="submit" value="submit"/>
-                            </form>
-                        </div>
+                    </div>
+                        
+                    <div id="upload_poto_panel" class="ui-widget-content">
+                        <form action="AddNewPic.action" enctype="multipart/form-data" method="post">
+                            <input type="file" name="image"/>
+                            <input type="text" name="description"/>
+                            <input type="submit" value="submit"/>
+                        </form>
+                    </div>
                    
 
                     <div id="tabs">
                         <ul class ="tabButtons">
                             <li><a id="feed_btn" href="#feed_panel">新鲜事</a></li>
+                            <li><a id="feed_btn2" href="#search_panel">搜索</a></li>
                         </ul>
                         
                         <div id="feed_panel"></div>
+                        
+                        <div id="search_panel"></div>
+                        
                     </div>
+
                        
                         <p>&nbsp;</p>
                         <p>&nbsp;</p>
                         <p>&nbsp;</p>
                    
                     
+
+
                    
 
                 </div>

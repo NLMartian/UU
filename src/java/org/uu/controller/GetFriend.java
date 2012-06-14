@@ -95,4 +95,14 @@ public class GetFriend extends BaseAction{
         
         return "page";
     }
+    
+    public String grid(){
+        
+        try {
+            pageList = (ArrayList<Userinfo>) relationMgr.getPageFriendList(uid, start, length);
+        } catch (Exception ex) {
+            Logger.getLogger(GetFriend.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "grid";
+    }
 }
