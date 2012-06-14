@@ -23,14 +23,13 @@
 
                
                         
-                // 中间tab页
-                $( "#tabs" ).tabs();
+                
                 
                 // 新鲜事页面加载
                 load_feed();
                 
                 
-                
+                //发布新状态
                 $("#status_submit").click(function(){
                     
                     if($("#status_content").val() == "") {
@@ -50,14 +49,7 @@
                     
                 });
                 
-                $("#tabButtons").click(function(){
-                    load_feed();
-                });
                 
-                 $("#tabButtons2").click(function(){
-                    $("#search_panel").empty();
-                    $("#search_panel").load("searchUserPage.jsp");
-                });
                 
                 $("#upload_poto").click(function(){
                     $("#upload_poto_panel").slideToggle("slow");
@@ -101,6 +93,10 @@
             $(window).bind("scroll", $backToTopFun);
             $(function() { $backToTopFun(); });
             });
+            
+            
+            //按钮
+            $( "input:submit", "#upload_poto_panel" ).button()
                        
         </script> 
         <style type="text/css"> 
@@ -224,6 +220,10 @@
             
             .personLink:link,.personLink:visited{text-decoration:none;}
             
+            
+            #upload_poto {padding: .4em 1em .4em 20px;text-decoration: none;position: relative;}
+            #upload_poto span.ui-icon {margin: 0 5px 0 0;position: absolute;left: .2em;top: 50%;margin-top: -8px;}
+            
         </style><!--[if IE]>
         <style type="text/css"> 
         /* 请将所有版本的 IE 的 css 修复放在这个条件注释中 */
@@ -240,19 +240,16 @@
                 <div id="Logo">
                     <a  href="Login.jsp"><img src="resource/logo1.png"border="0"width="260" height="45"/> </a>
                 </div>
-                <h1>个人中心</h1>
                 <div id="headpage">
-                    <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}">个人主页</a>
-                    &nbsp;
                     <a href="infoCenterN.jsp">信息中心</a>
+                    &nbsp;
+                    <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}">个人主页</a>
                     &nbsp;
                     <a href="/UU/Logout.action">退出登录</a>
                 </div>
                 <!-- end #header -->
             </div>
 
-                <h1>标题</h1>
-                
                 
                 <!-- end #header --></div>
 
@@ -282,28 +279,24 @@
                     <div>
                         <textarea name="status_content" id="status_content"></textarea>
                         <input type="submit" value="发布" name="submit" id="status_submit" />
-                        <a href="#" id="upload_poto">上传图片</a>
+                        
+                        <a href="#" id="upload_poto" class="ui-state-default ui-corner-all">
+                            <span class="ui-icon ui-icon-image"></span>上传图片
+                        </a>
                     </div>
                         
                     <div id="upload_poto_panel" class="ui-widget-content">
                         <form action="AddNewPic.action" enctype="multipart/form-data" method="post">
-                            <input type="file" name="image"/>
-                            <input type="text" name="description"/>
-                            <input type="submit" value="submit"/>
+                            <input type="file" name="image" value="选择图片">
+                            <label title="描述"><input type="text" name="description"/></label>
+                            <input type="submit" value="上传"/>
                         </form>
                     </div>
                    
 
-                    <div id="tabs">
-                        <ul class ="tabButtons">
-                            <li><a id="feed_btn" href="#feed_panel">新鲜事</a></li>
-                            <li><a id="feed_btn2" href="#search_panel">搜索</a></li>
-                        </ul>
-                        
+                    <div id="tabs" class="ui-widget-content">
+                        <h3 id="feed_btn" href="#feed_panel" class="ui-widget-header">新鲜事</h3>
                         <div id="feed_panel"></div>
-                        
-                        <div id="search_panel"></div>
-                        
                     </div>
 
                        

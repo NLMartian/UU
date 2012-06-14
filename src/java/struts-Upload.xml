@@ -18,7 +18,7 @@
 		</action>
                 
 		<action name="CropImage" class="cropImageAction">
-			<result type="json"/>
+			<result>/infoCenterN.jsp</result>
 		</action>
                 
                 <action name="GetPagedPic" class="getPagedPic">
@@ -26,7 +26,7 @@
 		</action>
                 
                 <action name="AddNewPic" class="addNewPic">
-                    <result>/show_image.jsp</result>
+                    <result>/infoCenterN.jsp</result>
                 </action>
                 
                <action name="AddPicComment" class="addPicComment">
