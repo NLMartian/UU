@@ -104,7 +104,9 @@
                        
         </script> 
         <style type="text/css"> 
-
+            texearea {
+                resize: none;
+            }
             body  {
                 font: 100% 宋体, 新宋体;
                 background: #666666;
@@ -128,6 +130,7 @@
             } 
             .thrColElsHdr #header { 
                 background: #DDDDDD; 
+                text-align: center;
                 padding: 0 10px;  /* 此填充会将出现在它后面的 div 中的元素左对齐。如果 #header 中使用的是图像（而不是文本），您最好删除填充。 */
             } 
             .thrColElsHdr #header h1 {
@@ -196,7 +199,7 @@
                 height: 40px;
             }
             #headpage {
-                position:relative;
+                position:absolute;
                 width:auto;
                 height:auto;
                 z-index:1;
@@ -204,13 +207,15 @@
                 top: 24px;
             }
             #Logo {
-                position:absolute;
+                float:left;
+                position:relative;
                 width:auto;
                 height:auto;
                 z-index:1;
-                left: 120px;
+               
                 top: 7px;
             }
+            
             
             
             #upload_poto_panel{
@@ -224,6 +229,10 @@
             
             .personLink:link,.personLink:visited{text-decoration:none;}
             
+            
+            texearea {
+             resize: none;
+            }
         </style><!--[if IE]>
         <style type="text/css"> 
         /* 请将所有版本的 IE 的 css 修复放在这个条件注释中 */
@@ -235,11 +244,10 @@
 
     <body class="thrColElsHdr">
         <div id="container">
-            <div id="header">
-
-                <div id="Logo">
-                    <a  href="Login.jsp"><img src="resource/logo1.png"border="0"width="260" height="45"/> </a>
-                </div>
+            <div id="Logo">
+                <a href="Login.jsp"><img src="resource/logo1.png"border="0" width="220" height="45"/></a>              
+            </div>
+            <div id="header">       
                 <h1>个人中心</h1>
                 <div id="headpage">
                     <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}">个人主页</a>
@@ -248,13 +256,8 @@
                     &nbsp;
                     <a href="/UU/Logout.action">退出登录</a>
                 </div>
-                <!-- end #header -->
+                
             </div>
-
-                <h1>标题</h1>
-                
-                
-                <!-- end #header --></div>
 
             <div id="sidebar1">
                 <input id="uid" type="hidden" value="${sessionScope.CurrUser.uid}">
@@ -280,7 +283,7 @@
                 <div id="maincontainer2">
                     
                     <div>
-                        <textarea name="status_content" id="status_content"></textarea>
+                        <textarea name="status_content" rows="5" cols="40" id="status_content"></textarea>
                         <input type="submit" value="发布" name="submit" id="status_submit" />
                         <a href="#" id="upload_poto">上传图片</a>
                     </div>

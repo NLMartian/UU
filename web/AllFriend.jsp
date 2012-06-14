@@ -173,7 +173,7 @@
 
         <div id="container">
             <div id="header">
-                <h1>标题</h1>
+                <h1>您的好友列表</h1>
                 <div id="headpage">
                     <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}">个人主页</a>
                     &nbsp;

@@ -148,13 +148,16 @@
                 height: 40px;
             }
              #headpage {
+            
                 position:absolute;
                 width:auto;
                 height:auto;
                 z-index:1;
                 left: 940px;
                 top: 24px;
-            }
+            }    
+                
+ 
         </style><!--[if IE]>
         <style type="text/css"> 
         /* 请将所有版本的 IE 的 css 修复放在这个条件注释中 */
@@ -168,15 +171,15 @@
 
         <div id="container">
             <div id="header">
-                <h1>标题</h1>
+                <h1>${sessionScope.CurrUser.name}的个人主页</h1>
                 <div id="headpage">
-                    <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}">个人主页</a>
-                    &nbsp;
+                        <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}">个人主页</a>
+                         &nbsp;
                     <a href="infoCenterN.jsp">信息中心</a>
                     &nbsp;
                     <a href="/UU/Logout.action">退出登录</a>
                 </div>
-                <!-- end #header --></div>
+            </div>
             <div id="sidebar1">
                 <input id="uid" type="hidden" value="${requestScope.uid}">
 

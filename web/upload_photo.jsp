@@ -110,6 +110,15 @@
                 margin-right:auto;  
                 width: 550px;
             }
+              #headpage {
+            
+                position:absolute;
+                width:auto;
+                height:auto;
+                z-index:1;
+                left: 940px;
+                top: 24px;
+            }    
         </style>
         
         <script type="text/javascript">
@@ -179,7 +188,14 @@
 
         <div id="container">
             <div id="header">
-                <h1>标题</h1>
+                <h1>请选择图片上传您的头像</h1>
+                 <div id="headpage">
+                        <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}">个人主页</a>
+                         &nbsp;
+                    <a href="infoCenterN.jsp">信息中心</a>
+                    &nbsp;
+                    <a href="/UU/Logout.action">退出登录</a>
+                </div>
                 <!-- end #header --></div>
             <div id="sidebar1">
                 
@@ -260,25 +276,29 @@
                     <button id="submit_avatar">上传</button>
     </s:if>
 
-                <p>&nbsp;</p>
+               
                     <p>&nbsp;</p>
                     <p>&nbsp;</p>
                     <p>&nbsp;</p>
+                     <p>&nbsp;</p>
                     <p>&nbsp;</p>
                     <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
+                  
                 </div>
                 <!-- end #mainContent --></div>
             <!-- 这个用于清除浮动的元素应当紧跟 #mainContent div 之后，以便强制 #container div 包含所有的子浮动 --><br class="clearfloat" />
             <div id="footer">
-                <p>脚注</p>
+                 ©2012 UU   &nbsp;&nbsp;
+                   
+                    <a target="_blank" href="http://www.hao123.com">关于</a>
+                    |
+                    <a target="_blank" href="http://www.hao123.com">开放平台</a>
+                    |
+                    <a target="_blank" href="http://www.hao123.com">UU游戏</a>
+                    |
+                    <a target="_blank" href="http://www.hao123.com">客服帮助</a>
+                    |
+                    <a target="_blank" href="http://www.hao123.com">隐私</a>
                 <!-- end #footer --></div>
             <!-- end #container --></div>
     </body>
