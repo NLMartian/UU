@@ -32,6 +32,11 @@
                 
                 
                 $("#status_submit").click(function(){
+                    
+                    if($("#status_content").val() == "") {
+                        return false;
+                    }
+                    
                     $.post(
                     "Status.action",
                     {status_content: $("#status_content").val()},
@@ -41,6 +46,8 @@
                             }
                         }
                     );
+                    $("#status_content").empty();
+                    
                 });
                 
                 $("#tabButtons").click(function(){
@@ -199,10 +206,10 @@
                         <textarea name="status_content" id="status_content"></textarea>
                         <input type="submit" value="发布" name="submit" id="status_submit" />
                         
-                        <a href="#" id="upload_poto"></a>
+                        <a href="#" id="upload_poto">上传图片</a>
                         <div id="upload_poto_panel" class="ui-widget-content">
                             <form action="AddNewPic.action" enctype="multipart/form-data" method="post">
-                                上传图片<input type="file" name="image"/>
+                                选择文件<input type="file" name="image"/>
                                 <input type="text" name="description"/>
                                 <input type="submit" value="submit"/>
                             </form>

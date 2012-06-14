@@ -58,6 +58,7 @@ public class FeedDaoHibernate extends HibernateDaoSupport implements FeedDao{
         final String HQL = "from Feed as fd "
                 + "where fd.userinfo.uid in"
                 + "( select relation.uid2 from Userrelation as relation  where relation.uid1=?)"
+                + "OR fd.userinfo.uid=?"
                 + "order by fd.feedId desc";
         
         List<Feed> list = getHibernateTemplate().executeFind(new HibernateCallback() {  
@@ -65,7 +66,7 @@ public class FeedDaoHibernate extends HibernateDaoSupport implements FeedDao{
             public Object doInHibernate(Session session) throws HibernateException,  
                     SQLException {  
                 List<Feed> result = session.createQuery(HQL).setFirstResult(start)  
-                                .setParameter(0, uid)  
+                                .setParameter(0, uid).setParameter(1, uid)  
                                 .setMaxResults(length)  
                                 .list();  
                 return result;  
