@@ -18,7 +18,7 @@
 		</action>
                 
 		<action name="CropImage" class="cropImageAction">
-			<result>/show_image.jsp</result>
+			<result type="json"/>
 		</action>
                 
                 <action name="GetPagedPic" class="getPagedPic">

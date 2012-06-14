@@ -61,7 +61,7 @@
 
                 margin-right:auto;  
 
-                width: 550px;
+                width: 180px;
             }
             #listTitle{
 
@@ -78,22 +78,22 @@
 
         
         <div id="friendListContent" class="ui-widget-content">
-            <h3 id="listTitle" class="ui-widget-header">好友列表</h3>  
+            <a href="/UU/GetFriend!goFriendPage.action?uid=${requsetScope.uid}" class="friend_li">
+                <h3 id="listTitle" class="ui-widget-header">好友列表</h3>
+            </a>
             <ul>
                 <c:forEach var="user" items="${requestScope.pageList}" >
-                    <li class="friend_li">
+                     <li class="friend_li">
                         <div style="display: inline">
-                            <a href="/UU/PersonalPage.action?uid=${user.uid}" class="personLink:link">
+                            <a class="personLink" href="/UU/PersonalPage.action?uid=${user.uid}" class="personLink:link">
                                 <img src="${user.avatar}" width="50">
                             </a>
                         </div>
                                     
                         <div style="display: inline">
-                            <a href="/UU/PersonalPage.action?uid=${user.uid}" class="personLink:link">
+                            <a class="personLink" href="/UU/PersonalPage.action?uid=${user.uid}" class="personLink:link">
                                 ${user.name}
                             </a>
-                            生日：${user.birthday}
-                            <c:out value="邮箱：${user.email}"></c:out>
                         </div>
                     </li>
                 </c:forEach>

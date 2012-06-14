@@ -26,6 +26,7 @@
         <action name="GetFriend" class="getFriend">
             <result name="success">/friendList.jsp</result>
             <result name="page">/AllFriend.jsp</result>
+            <result name="grid">/friendGrid.jsp</result>
             <result name="error">/errorpages/unknowError</result>
         </action>
                
