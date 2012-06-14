@@ -10,6 +10,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
+import java.awt.Image;
 import java.text.SimpleDateFormat;
 
 
@@ -94,6 +95,7 @@ public class UploadImageAction extends ActionSupport {
 			e.printStackTrace();
 		}
 		ImageIcon bi=new ImageIcon(imageFile.getPath());
+                bi.setImage(bi.getImage().getScaledInstance(50, 40, Image.SCALE_DEFAULT));
 		System.out.println(bi.getIconHeight()+" "+bi.getIconWidth());
 		setImageHeigth(bi.getIconHeight());
 		setImageWidth(bi.getIconWidth());

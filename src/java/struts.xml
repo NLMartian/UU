@@ -4,6 +4,7 @@
 
 <struts>
     
+
     <include file="struts-User.xml"/>
     <include file="struts-Status.xml"/>
     <include file="struts-Upload.xml"/>
