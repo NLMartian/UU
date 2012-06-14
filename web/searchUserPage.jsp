@@ -158,6 +158,7 @@
             .thrColElsHdr #footer { 
                 padding: 0 10px; /* 此填充会将它上面 div 中的所有元素左对齐。 */
                 background:#DDDDDD;
+                text-align: center;
             } 
             .thrColElsHdr #footer p {
                 margin: 0; /* 将脚注中第一个元素的边距设置为零将避免出现可能的边距重叠（即 div 之间出现的空白）*/
@@ -185,6 +186,14 @@
                 
                 
             }
+             #headpage {
+                position:absolute;
+                width:auto;
+                height:auto;
+                z-index:1;
+                left: 940px;
+                top: 24px;
+            }
             
             #searchFriendLink {padding: .4em 1em .4em 20px;text-decoration: none;position: relative;}
             #searchFriendLink span.ui-icon {margin: 0 5px 0 0;position: absolute;left: .2em;top: 50%;margin-top: -8px;}
@@ -196,6 +205,7 @@
 
                 width: 600px;
             }
+            
         </style>
 
         
@@ -207,6 +217,13 @@
         <div id="container">
             <div id="header">
                 <h1>标题</h1>
+                <div id="headpage">
+                    <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}">个人主页</a>
+                    &nbsp;
+                    <a href="infoCenterN.jsp">信息中心</a>
+                    &nbsp;
+                    <a href="/UU/Logout.action">退出登录</a>
+                </div>
                 <!-- end #header --></div>
             <div id="sidebar1">
                 
@@ -272,7 +289,17 @@
                 <!-- end #mainContent --></div>
             <!-- 这个用于清除浮动的元素应当紧跟 #mainContent div 之后，以便强制 #container div 包含所有的子浮动 --><br class="clearfloat" />
             <div id="footer">
-                <p>脚注</p>
+                 ©2012 UU   &nbsp;&nbsp;
+                   
+                    <a target="_blank" href="http://www.hao123.com">关于</a>
+                    |
+                    <a target="_blank" href="http://www.hao123.com">开放平台</a>
+                    |
+                    <a target="_blank" href="http://www.hao123.com">UU游戏</a>
+                    |
+                    <a target="_blank" href="http://www.hao123.com">客服帮助</a>
+                    |
+                    <a target="_blank" href="http://www.hao123.com">隐私</a>
                 <!-- end #footer --></div>
             <!-- end #container --></div>
     </body>

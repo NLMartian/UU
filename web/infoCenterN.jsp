@@ -69,7 +69,7 @@
                 $("#feed_panel").load("feeds.jsp");
             }
                        
-        </script>
+        </script> 
         <style type="text/css"> 
 
             body  {
@@ -164,6 +164,23 @@
                 
                 
             }
+            #headpage {
+                position:relative;
+                width:auto;
+                height:auto;
+                z-index:1;
+                left: 940px;
+                top: 24px;
+            }
+            #Logo {
+                position:absolute;
+                width:auto;
+                height:auto;
+                z-index:1;
+                left: 120px;
+                top: 7px;
+            }
+            
             
         </style><!--[if IE]>
         <style type="text/css"> 
@@ -178,15 +195,26 @@
 
         <div id="container">
             <div id="header">
-                <h1>标题</h1>
-                <!-- end #header --></div>
+                <div id="Logo">
+                    <a  href="Login.jsp"><img src="resource/logo1.png"border="0"width="260" height="45"/> </a>
+                </div>
+                <h1>个人中心</h1>
+                <div id="headpage">
+                    <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}">个人主页</a>
+                    &nbsp;
+                    <a href="infoCenterN.jsp">信息中心</a>
+                    &nbsp;
+                    <a href="/UU/Logout.action">退出登录</a>
+                </div>
+                <!-- end #header -->
+            </div>
             <div id="sidebar1">
                 <input id="uid" type="hidden" value="${sessionScope.CurrUser.uid}">
                 
                 <div class="avater">
                     <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}">
                         <img src="${sessionScope.CurrUser.avatar}" width=150 style="MARGIN-RIGHT: auto; MARGIN-LEFT: auto; ">
-                    </a>
+                    </a>    
                 </div>
                 <div class="name">
                     <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}" style="text-align:center">
@@ -223,27 +251,31 @@
                         
                         <div id="feed_panel"></div>
                     </div>
-
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
+                       
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                   
+                    
+                   
 
                 </div>
                 <!-- end #mainContent --></div>
             <!-- 这个用于清除浮动的元素应当紧跟 #mainContent div 之后，以便强制 #container div 包含所有的子浮动 --><br class="clearfloat" />
             <div id="footer">
-                <p>脚注</p>
+               
+                ©2012 UU   &nbsp;&nbsp;
+                   
+                    <a target="_blank" href="http://www.hao123.com">关于</a>
+                    |
+                    <a target="_blank" href="http://www.hao123.com">开放平台</a>
+                    |
+                    <a target="_blank" href="http://www.hao123.com">UU游戏</a>
+                    |
+                    <a target="_blank" href="http://www.hao123.com">客服帮助</a>
+                    |
+                    <a target="_blank" href="http://www.hao123.com">隐私</a>
+                   
                 <!-- end #footer --></div>
             <!-- end #container --></div>
     </body>
