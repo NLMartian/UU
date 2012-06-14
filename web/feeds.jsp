@@ -36,7 +36,7 @@
                                                     $.post(
                                                        "GetPagedFeeds.action",
                                                        {
-                                                           start: page * 25,
+                                                           start: (page-1) * 25,
                                                            length: 25
                                                        },
                                                        function(data, textStatus){

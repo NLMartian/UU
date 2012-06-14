@@ -24,20 +24,43 @@
                
                         
                 // 中间tab页
-                $( "#tabs" ).tabs({
-                    ajaxOptions: {
-                        error: function( xhr, status, index, anchor ) {
-                            $( anchor.hash ).html(
-                            "Couldn't load this tab. We'll try to fix this as soon as possible. " +
-                                "If this wouldn't be a demo." );
-                        }
-                    }
-                });
+                $( "#tabs" ).tabs();
                 
                 // 新鲜事页面加载
-                $("#feeds").load("feeds.jsp");
+                load_feed();
+                
+                
+                
+                $("#status_submit").click(function(){
+                    $.post(
+                    "Status.action",
+                    {status_content: $("#status_content").val()},
+                    function(data, textStatus){
+                        if(textStatus == "success"){
+                            load_feed();
+                            }
+                        }
+                    );
+                });
+                
+                $("#tabButtons").click(function(){
+                    load_feed();
+                });
+                
+                $("#upload_poto").click(function(){
+                    $("#upload_poto_panel").slideToggle("slow");
+                    $(this).toggleClass("active");
+                    return false;
+                });
             
             });
+            
+            
+            
+            function load_feed(){
+                $("#feed_panel").empty();
+                $("#feed_panel").load("feeds.jsp");
+            }
                        
         </script>
         <style type="text/css"> 
@@ -171,13 +194,27 @@
                 <!-- end #sidebar2 --></div>
             <div id="mainContent">
                 <div id="maincontainer2">
-
+                    
+                    
+                        <textarea name="status_content" id="status_content"></textarea>
+                        <input type="submit" value="发布" name="submit" id="status_submit" />
+                        
+                        <a href="#" id="upload_poto"></a>
+                        <div id="upload_poto_panel" class="ui-widget-content">
+                            <form action="AddNewPic.action" enctype="multipart/form-data" method="post">
+                                上传图片<input type="file" name="image"/>
+                                <input type="text" name="description"/>
+                                <input type="submit" value="submit"/>
+                            </form>
+                        </div>
                    
 
                     <div id="tabs">
                         <ul class ="tabButtons">
-                            <li><a href="feeds.jsp">新鲜事</a></li>
+                            <li><a id="feed_btn" href="#feed_panel">新鲜事</a></li>
                         </ul>
+                        
+                        <div id="feed_panel"></div>
                     </div>
 
                     <p>&nbsp;</p>
