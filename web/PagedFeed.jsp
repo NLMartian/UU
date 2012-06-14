@@ -14,10 +14,14 @@
         <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.20.custom.min.js"></script> 
         <link type="text/css" href="css/ui-lightness/jquery-ui-custom.css" rel="Stylesheet" />
+        <link href="sources/facebox/facebox.css" media="screen" rel="stylesheet" type="text/css"/>
+        <script src="sources/facebox/facebox.js" type="text/javascript"></script> 
 
 
         <script type="text/javascript">
             $(document).ready( function() {
+                 //facebox
+                 $('a[rel=facebox]').facebox();
                  
                 //弹出评论框
                 $(".btn-slide").click(function(){
@@ -36,18 +40,18 @@
                         return false;
                     }
                    
-                    var feed_id = $(this).attr("id");
+                    var feed_srcid = $(this).attr("id");
                     // 新鲜事类型
                     var feed_type = $(this).next("input");
                     
                     //新鲜事列表项
-                    var feed_li = $(this).parent().parent().parent(".panel");
+                    var feed_li = $(this).parent().parent(".panel");
                     
                     if(feed_type.val() == "STATUS"){
                         
                         $.post("AddStatusComment!addComment.action",
                         {
-                            status_id: parseInt(feed_id),
+                            status_id: parseInt(feed_srcid),
                             content: comment
                         },
                         // 提交以后的回调函数
@@ -62,7 +66,22 @@
                         }
                     );
                     }else if(feed_type.val() == "IMAGE"){
-                        
+                        $.post("AddPicComment!addComment.action",
+                        {
+                            picId: parseInt(feed_srcid),
+                            content: comment
+                        },
+                        // 提交以后的回调函数
+                        function(data, textStatus){
+                            if(textStatus == "success"){
+                                // 清空输入框
+                                input.val("");
+                                       
+                                //显示回复的内容
+                                feed_li.append(data);
+                            }
+                        }
+                    );
                     }
                     
                     return true;
@@ -115,7 +134,10 @@
                         </div> 
                         
                         <s:if test="#feeds.feedType=='IMAGE'">
-                            <image id="image" src="" width="200pix">
+                            <a href="<s:property value='#feeds.content'/>" rel="facebox">
+                                <image id="image" src="<s:property value='#feeds.content'/>" width="200pix">
+                            </a>
+                            <div><s:property value="#feeds.description"/></div>
                         </s:if><br/>
                         <div>
                             <s:date name="#feeds.updateTime" format="yyyy-MM-dd HH:mm:ss"/>

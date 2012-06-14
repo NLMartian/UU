@@ -21,43 +21,58 @@
         <script type="text/javascript">
             $(function(){
 
-                $.post(
-                        "UserCard.action", 
-                        {uid: Number($("#uid").val())},
-                        function(data, textStatus){
-                            if(textStatus == "success")
-                                $("#sidebar1").append(data);
-                        }
-                        
-                    );
+               
                         
                 // 中间tab页
-                $( "#tabs" ).tabs({
-			ajaxOptions: {
-				error: function( xhr, status, index, anchor ) {
-					$( anchor.hash ).html(
-						"Couldn't load this tab. We'll try to fix this as soon as possible. " +
-						"If this wouldn't be a demo." );
-				}
-			}
-		});
+                $( "#tabs" ).tabs();
                 
                 // 新鲜事页面加载
-                $("#feeds").load("feeds.jsp");
+                load_feed();
+                
+                
+                
+                $("#status_submit").click(function(){
+                    $.post(
+                    "Status.action",
+                    {status_content: $("#status_content").val()},
+                    function(data, textStatus){
+                        if(textStatus == "success"){
+                            load_feed();
+                            }
+                        }
+                    );
+                });
+                
+                $("#tabButtons").click(function(){
+                    load_feed();
+                });
+                
+                $("#upload_poto").click(function(){
+                    $("#upload_poto_panel").slideToggle("slow");
+                    $(this).toggleClass("active");
+                    return false;
+                });
             
             });
+            
+            
+            
+            function load_feed(){
+                $("#feed_panel").empty();
+                $("#feed_panel").load("feeds.jsp");
+            }
                        
         </script>
         <style type="text/css"> 
-             
+
             body  {
-	font: 100% 宋体, 新宋体;
-	background: #666666;
-	margin: 0; /* 最好将 body 元素的边距和填充设置为 0 以覆盖不同的浏览器默认值 */
-	padding: 0;
-	text-align: center; /* 在 IE 5* 浏览器中，这会将容器居中。文本随后将在 #container 选择器中设置为默认左对齐 */
-	color: #000000;
-	background-image: url(resource/uubg.png);
+                font: 100% 宋体, 新宋体;
+                background: #666666;
+                margin: 0; /* 最好将 body 元素的边距和填充设置为 0 以覆盖不同的浏览器默认值 */
+                padding: 0;
+                text-align: center; /* 在 IE 5* 浏览器中，这会将容器居中。文本随后将在 #container 选择器中设置为默认左对齐 */
+                color: #000000;
+                background-image: url(resource/uubg.png);
             }
 
             /* 弹性布局提示 
@@ -70,7 +85,6 @@
                 background: #FFFFFF;
                 margin: 0 auto; /* 自动边距（与宽度一起）会将页面居中 */
                 border: 1px solid #000000;
-                text-align: left; /* 这将覆盖 body 元素上的“text-align: center”。 */
             } 
             .thrColElsHdr #header { 
                 background: #DDDDDD; 
@@ -111,6 +125,7 @@
             */
             .thrColElsHdr #mainContent {
                 margin: 0 16em 0 16em; /* 右边距可以用全方 (em) 或像素来指定，它会在页面的右下方产生空白。 */
+                text-align: left;
             } 
             .thrColElsHdr #footer { 
                 padding: 0 10px; /* 此填充会将它上面 div 中的所有元素左对齐。 */
@@ -136,10 +151,13 @@
                 font-size: 1px;
                 line-height: 0px;
             }
-            
+
             .tabButtons {
                 height: 40px;
+                
+                
             }
+            
         </style><!--[if IE]>
         <style type="text/css"> 
         /* 请将所有版本的 IE 的 css 修复放在这个条件注释中 */
@@ -156,8 +174,18 @@
                 <h1>标题</h1>
                 <!-- end #header --></div>
             <div id="sidebar1">
-                <input id="uid" type="hidden" value="${requestScope.uid}">
-
+                <input id="uid" type="hidden" value="${sessionScope.CurrUser.uid}">
+                
+                <div class="avater">
+                    <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}">
+                        <img src="${sessionScope.CurrUser.avatar}" width=150 style="MARGIN-RIGHT: auto; MARGIN-LEFT: auto; ">
+                    </a>
+                </div>
+                <div class="name">
+                    <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}" style="text-align:center">
+                        ${sessionScope.CurrUser.name}
+                    </a>
+                </div>
                 <!-- end #sidebar1 --></div>
             <div id="sidebar2">
                 <h3>sidebar2 内容</h3>
@@ -166,30 +194,44 @@
                 <!-- end #sidebar2 --></div>
             <div id="mainContent">
                 <div id="maincontainer2">
-       
-                <input type="text" value="你在干什么呢？"/>
-                
-                <div id="tabs">
-                    <ul class ="tabButtons">
-                        <li><a href="feeds.jsp">新鲜事</a></li>
-                    </ul>
-                </div>
-                
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                
+                    
+                    
+                        <textarea name="status_content" id="status_content"></textarea>
+                        <input type="submit" value="发布" name="submit" id="status_submit" />
+                        
+                        <a href="#" id="upload_poto"></a>
+                        <div id="upload_poto_panel" class="ui-widget-content">
+                            <form action="AddNewPic.action" enctype="multipart/form-data" method="post">
+                                上传图片<input type="file" name="image"/>
+                                <input type="text" name="description"/>
+                                <input type="submit" value="submit"/>
+                            </form>
+                        </div>
+                   
+
+                    <div id="tabs">
+                        <ul class ="tabButtons">
+                            <li><a id="feed_btn" href="#feed_panel">新鲜事</a></li>
+                        </ul>
+                        
+                        <div id="feed_panel"></div>
+                    </div>
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+
                 </div>
                 <!-- end #mainContent --></div>
             <!-- 这个用于清除浮动的元素应当紧跟 #mainContent div 之后，以便强制 #container div 包含所有的子浮动 --><br class="clearfloat" />

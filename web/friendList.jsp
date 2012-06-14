@@ -12,40 +12,40 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        
+
         <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.20.custom.min.js"></script> 
         <link type="text/css" href="css/ui-lightness/jquery-ui-custom.css" rel="Stylesheet" />
-        
+
         <script type="text/javascript">
             
             $.fx.speeds._default = 500;
             $(function() {
-                    $( "#dialog" ).dialog({
-                            autoOpen: false,
-                            resizable: false,
-                            show: "blind",
-                            hide: "explode",
-                            modal: true,
-                            buttons: {
-						"确定": function() {
-                                                        addFriend(selectId);
-							$(this).dialog("close");
-						},
-						"取消": function() {
-							$(this).dialog("close");
-						}
-					}
+                $( "#dialog" ).dialog({
+                    autoOpen: false,
+                    resizable: false,
+                    show: "blind",
+                    hide: "explode",
+                    modal: true,
+                    buttons: {
+                        "确定": function() {
+                            addFriend(selectId);
+                            $(this).dialog("close");
+                        },
+                        "取消": function() {
+                            $(this).dialog("close");
+                        }
+                    }
 
-                    });
+                });
 
-                    $( "[href='#']" ).click(function() {
-                         $( "#dialog" ).dialog( "open" );
+                $( "[href='#']" ).click(function() {
+                    $( "#dialog" ).dialog( "open" );
                          
-                         selectId = $(this).attr("id");
-                         return false;
+                    selectId = $(this).attr("id");
+                    return false;
                             
-                    });
+                });
             });
             
             
@@ -53,21 +53,53 @@
             var selectId = 0;
             
         </script>
-    </head>
-    <body>
-        
-        <ul>
-            <c:forEach var="user" items="${requestScope.pageList}" >
-                <li>
-                    
-                    <a href="/UU/PersonalPage.action?uid=${user.uid}">
-                        ${user.name}
-                    <a>
-                    生日：${user.birthday}
-                    <c:out value="邮箱：${user.email}"></c:out>
-                </li>
-            </c:forEach>
+        <style tyep="text/css">
 
-        </ul>
-    </body>
+
+            #friendListContent{
+                margin-left:auto;  
+
+                margin-right:auto;  
+
+                width: 550px;
+            }
+            #listTitle{
+
+            }
+            .personLink:link,.personLink:visited{text-decoration:none;}
+        </style>
+    </head>
+
+
+
+    <body >
+
+        
+        <div id="friendListContent" class="ui-widget-content">
+            <h3 id="listTitle" class="ui-widget-header">好友列表</h3>  
+            <ul>
+                <c:forEach var="user" items="${requestScope.pageList}" >
+                    <li>
+                        <div style="display: inline">
+                            <a href="/UU/PersonalPage.action?uid=${user.uid}" class="personLink:link">
+                                <img src="$user.avatar" width="50">
+                            </a>
+                        </div>
+                                    
+                        <div style="display: inline">
+                            <a href="/UU/PersonalPage.action?uid=${user.uid}" class="personLink:link">
+                                ${user.name}
+                            </a>
+                            生日：${user.birthday}
+                            <c:out value="邮箱：${user.email}"></c:out>
+                        </div>
+                    </li>
+                </c:forEach>
+                            
+            </ul>
+        </div>
+                    
+    </div>
+            
+     </body>
 </html>

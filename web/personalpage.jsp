@@ -30,17 +30,28 @@
                         }
                         
                     );
-                        
+                   
+                   
                 // 中间tab页
-                $( "#tabs" ).tabs({
-			ajaxOptions: {
-				error: function( xhr, status, index, anchor ) {
-					$( anchor.hash ).html(
-						"Couldn't load this tab. We'll try to fix this as soon as possible. " +
-						"If this wouldn't be a demo." );
-				}
-			}
-		});
+                $( "#tabs" ).tabs();
+                
+                $("#tab_btn1").click(function(){
+                    $("#tabs-1").empty();
+                    $("#tabs-1").load("AllOnesStatus.action",
+                                        {uid: Number($("#uid").val())}
+                    );
+                });
+                
+                $("#tab_btn2").click(function(){
+                    $("#tabs-1").empty();
+                    $("#tabs-1").load("AllOnesPic.action",
+                                        {uid: Number($("#uid").val())}
+                    );
+                });
+                
+                $("#tabs-1").load("AllOnesStatus.action",
+                                        {uid: Number($("#uid").val())}
+                    );
             
             });
         </script>
@@ -157,7 +168,6 @@
                 <!-- end #sidebar1 --></div>
             <div id="sidebar2">
                 <h3>sidebar2 内容</h3>
-                <p>此 div 上所显示的背景色刚好与内容等宽。如果您喜欢改用分界线，而且 #mainContent div 所包含的内容将始终比 #sidebar2 div 中的多，请在 #mainContent div 的右边缘放置一个边框。 </p>
                 <p>Donec eu mi sed turpis feugiat feugiat. Integer turpis arcu, pellentesque  eget, cursus et, fermentum ut, sapien. </p>
                 <!-- end #sidebar2 --></div>
             <div id="mainContent">
@@ -165,9 +175,29 @@
        
                 <div id="tabs">
                     <ul class ="tabButtons">
-                        <li><a href="AllOnesStatus.action?uid=${requestScope.uid}">状态</a></li>
-                        <li><a href="AllOnesPic.action?uid=${requestScope.uid}">图片</a></li>
+                        <li><a href="#tabs-1" id="tab_btn1">状态</a></li>
+                        <li><a href="#tabs-1" id="tab_btn2">图片</a></li>
+                        <li><a href="#tabs-2" id="tab_btn3">微博留言</a></li>
                     </ul>
+                    
+                    <div id="tabs-1"></div>
+                    <div id="tabs-2">
+                        <script type="text/javascript">
+                            (function(){
+                            var url = "http://widget.weibo.com/distribution/comments.php?width=0&url=auto&border=1&fontsize=12&appkey=382264144&dpc=1";
+                            url = url.replace("url=auto", "url=" + document.URL); 
+                            document.write('<iframe id="WBCommentFrame" src="' + url + '" scrolling="no" frameborder="0" style="width:100%"></iframe>');
+                            })();
+                            </script>
+                            <script src="http://tjs.sjs.sinajs.cn/open/widget/js/widget/comment.js" type="text/javascript" charset="utf-8"></script>
+                            <script type="text/javascript">
+                            window.WBComment.init({
+                                "id": "WBCommentFrame"
+                            });
+                        </script>
+                    </div>
+		
+	</div>
                 </div>
                 
                 <p>&nbsp;</p>

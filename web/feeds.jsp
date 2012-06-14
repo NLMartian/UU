@@ -36,7 +36,7 @@
                                                     $.post(
                                                        "GetPagedFeeds.action",
                                                        {
-                                                           start: page * 25,
+                                                           start: (page-1) * 25,
                                                            length: 25
                                                        },
                                                        function(data, textStatus){
@@ -66,7 +66,7 @@
         </script>
         
         <style type="text/css">
-            #pagenate{
+            #picpagenate{
                 margin-left:auto;  
  
                 margin-right:auto;  
