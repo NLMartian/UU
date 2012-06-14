@@ -29,5 +29,10 @@
         <property name="relationDao" ref="relationDao"></property>
         <property name="userDao" ref="userDao"></property>
     </bean>
+    
+    <bean id="picMgr" class="org.uu.bussiness.PicManagerImpl" >
+        <property name="picDao" ref="picDao"></property>
+        <property name="userDao" ref="userDao"></property>
+    </bean>
 
 </beans>

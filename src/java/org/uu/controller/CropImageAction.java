@@ -1,9 +1,15 @@
 package org.uu.controller;
 
+import com.opensymphony.xwork2.ActionContext;
 import java.io.IOException;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
+import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.uu.bussiness.UserManager;
+import org.uu.dao.model.Userinfo;
 
 public class CropImageAction extends ActionSupport{
 	private String imageFile;
@@ -13,9 +19,20 @@ public class CropImageAction extends ActionSupport{
 	private int y2;
 	private int width;
 	private int height;
+        
+        
+        private UserManager mgr;
+
+    
+
+    public void setMgr(UserManager mgr) {
+        this.mgr = mgr;
+    }
 	/**
 	 * @param imageFile the imageFile to set
 	 */
+        
+        
 	public void setImageFile(String imageFile) {
 		this.imageFile = imageFile;
 	}
@@ -100,17 +117,25 @@ public class CropImageAction extends ActionSupport{
 	
 	public String execute(){
 		
-		String path=ServletActionContext.getServletContext().getRealPath("/images/");
-		String oldpath=path+"/"+imageFile;
+		String path=ServletActionContext.getServletContext().getRealPath("/images/avatar/");
+		String oldpath=path + File.separator + imageFile;
 		setImageFile("s"+getImageFile());
-		String newpath=path+"/"+imageFile;
+		String newpath=path + File.separator +imageFile;
+                
+               Userinfo user = (Userinfo)
+                       ActionContext.getContext().getSession().get("CurrUser");
+                
 		try {
 			ImageUtils.cut(oldpath,newpath,this.x1,this.y1,this.width,this.height);
+                        mgr.updateUserAvatar(user.getUid(), "images/avatar/" + imageFile);
+
                   
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}catch (Exception ex) {
+                    Logger.getLogger(CropImageAction.class.getName()).log(Level.SEVERE, null, ex);
+                }
 		return SUCCESS;
 	}
 	

@@ -22,7 +22,7 @@ public class UploadImageAction extends ActionSupport {
 	private String imageContentType;
 	private int imageHeigth;
 	private int imageWidth;
-        
+	
 	/**
 	 * @param image
 	 *            the image to set
@@ -85,11 +85,9 @@ public class UploadImageAction extends ActionSupport {
 
                 
 		File imageFile = new File(ServletActionContext.getServletContext()
-				.getRealPath("/images")
+				.getRealPath("/images/avatar/")
 				+ "/" + imageFileName);
-                System.out.println(ServletActionContext.getServletContext()
-				.getRealPath("/images")+"1111111111");
-		System.out.println(imageFile.getPath());
+                
 		try {
 			FileUtils.copyFile(image, imageFile);
 		} catch (IOException e) {
@@ -110,20 +108,20 @@ public class UploadImageAction extends ActionSupport {
 	public void setImageHeigth(int imageHeigth) {
 		this.imageHeigth = imageHeigth;
 	}
-
+	
 	/**
 	 * @return the imageHeigth
 	 */
 	public int getImageHeigth() {
 		return imageHeigth;
 	}
-
+	
 	/**
 	 * @param imageWidth the imageWidth to set
 	 */
 	public void setImageWidth(int imageWidth) {
 		this.imageWidth = imageWidth;
-	}
+}
 
 	/**
 	 * @return the imageWidth

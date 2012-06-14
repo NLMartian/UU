@@ -55,8 +55,12 @@ public class FeedManagerImpl implements FeedManager{
                 feed.setTitle(status.getStatusMessage());
                 feed.setUpdateTime(status.getTime());
                 feed.setDescription("");
+                feed.setContent("");
             }
             else if(feedType.equals("BLOG")) {
+                
+            }
+            else if(feedType.equals("IMAGE")){
                 
             }
             

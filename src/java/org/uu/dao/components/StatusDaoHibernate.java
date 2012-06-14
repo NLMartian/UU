@@ -50,7 +50,7 @@ public class StatusDaoHibernate extends HibernateDaoSupport implements StatusDao
     @Override
     public List<Status> getUserAllStatus(long uid) {
         List<Status> lstatus = getHibernateTemplate()
-                .find("find from Status st where st.userinfo.uid=?", uid);
+                .find("from Status st where st.userinfo.uid=?", uid);
         if(lstatus !=null && lstatus.size()>=1)
             return lstatus;
         return null;

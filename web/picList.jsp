@@ -1,6 +1,6 @@
 <%-- 
-    Document   : statusList
-    Created on : 2012-6-5, 1:07:35
+    Document   : picList
+    Created on : 2012-6-13, 13:55:37
     Author     : 甲骨文
 --%>
 
@@ -40,9 +40,9 @@
                    var status_id = $(this).attr("id");
                    // 状态所在的列表项
                    var status_li = $(this).parent().parent(".panel");
-                   $.post("AddStatusComment!addComment.action",
+                   $.post("AddPicComment!addComment.action",
                            {
-                               status_id: parseInt(status_id),
+                               picId: parseInt(status_id),
                                content: comment
                            },
                            // 提交以后的回调函数
@@ -95,27 +95,32 @@
     <body>
         <div id="debug"></div>
         <ul>
-            <div id="statusList"></div>
+            <div id="picList"></div>
                 
             <style>
                 .status_li {list-style-type:none;}
             </style>
                 
-            <s:iterator value="#request.statusList" id="status">
+            <s:iterator value="#request.picList" id="pic">
                 <li class="status_li">
                     <div style="display: inline">
-                        <a class="personLink" href="PersonalPage.action?uid=<s:property value='#status.userinfo.uid'/>">
-                            <img src="<s:property value='#status.userinfo.avatar'/>" width="50" height="50" >
+                        <a class="personLink" href="PersonalPage.action?uid=<s:property value='#pic.userinfo.uid'/>">
+                            <img src="<s:property value='#pic.userinfo.avatar'/>" width="50" height="50" >
                         </a>
                     </div>
                     <div style="display: inline">
-                        <a class="personLink" href="PersonalPage.action?uid=<s:property value='#status.userinfo.uid'/>">
-                            <s:property value="#status.userinfo.name"/>
+                        <a class="personLink" href="PersonalPage.action?uid=<s:property value='#pic.userinfo.uid'/>">
+                            <s:property value="#pic.userinfo.name"/>
                         </a>
-                            :<s:property value="#status.statusMessage"/>
-                    </div> <br/>
+                            :<s:property value="#pic.description"/>
+                    </div>
                     <div>
-                        <s:date name="#status.time" format="yyyy-MM-dd HH:mm:ss"/>
+                        <img src="<s:property value='#pic.picPath'/>" width="200">
+                    </div>
+                    
+                    <br/>
+                    <div>
+                        <s:date name="#pic.time" format="yyyy-MM-dd HH:mm:ss"/>
                         <a class="btn-slide" href="#">评论</a>
                     </div>  
                     
@@ -124,14 +129,14 @@
                         <div class="commentForm">
                             <input type="text" size="43" style="display: inline"></input>
                                 <a class="commentCommit" 
-                                   id="<s:property value='#status.statusId'/>" 
+                                   id="<s:property value='#pic.picId'/>" 
                                    href="#nogo">
                                     提交
                                 </a>
                         </div>
                         <!--评论-->
-                        <s:action name="GetStatusComments" executeResult="true">
-                            <s:param name="statusId" value="#status.statusId" />
+                        <s:action name="GetPicComments" executeResult="true">
+                            <s:param name="picId" value="#pic.picId" />
                         </s:action>
                         
                         <!--end of 评论panel-->

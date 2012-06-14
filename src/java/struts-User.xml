@@ -7,16 +7,10 @@
 <struts>
     <!-- Add your configuration elements here -->
         
-        
      <package name="loginAndReg" extends="struts-default" namespace=""> 
-         <interceptors>
-            <interceptor name="login_interceptor" class="org.uu.controller.AuthorityInterceptor">
-                <param name="name">一个登陆拦截器</param>
-            </interceptor>
-        </interceptors> 
-        
-        
-       
+         
+   
+
         
         <action name="Login" class="loginAction">  
                 <result name="input">/Login.jsp</result>                 
@@ -40,6 +34,14 @@
             <result name="success">/personalpage.jsp</result>
             <result name="error">/errorpages/unknowError.jsp</result>
         </action>
+        
+        <!--用户信息卡片-->
+       <action name="UserCard" class="userCard">
+            <result name="success">/userCard.jsp</result>
+            <result name="error">/errorpages/unknowError.jsp</result>
+        </action> 
+        
+        
         
     </package>
     
