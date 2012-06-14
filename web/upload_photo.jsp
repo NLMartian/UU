@@ -121,64 +121,7 @@
             }    
         </style>
         
-        <script type="text/javascript">
-            $.fx.speeds._default = 600;
-            
-            $(function(){
-                
-                        $("#dialog").dialog({
-                            autoOpen: false,
-                            show: "blind",
-                            hide: "explode",
-                            modal: true,
-                            buttons: {
-                                        "Ok": function() {
-                                                $(this).dialog("close");
-                                        },
-
-                                        "Cancel": function() {
-                                                $(this).dialog("close");
-                                        }
-                            }
-                        });
-                        
-                        
-                        $("#submit_avatar").click(function(){
-                            alert("!!");
-                        });
-                        
-                
-                        $("#submit_avatar").click(function(){
-                            alert("!!");
-                            $.post(
-                                    "CropImage.action",
-                                    {
-                                        imageFile: $("#imageFile").val(),
-                                        x1: Number($("#x1").val()),
-                                        y1: Number($("#y1").val()),
-                                        x2: Number($("#x2").val()),
-                                        y2: Number($("#y2").val()),
-                                        w: Number($("#w").val()),
-                                        h: Number($("#h").val())
-                                    },
-                                    function(data, textStatus){
-                                        if(textStatus == "success"){
-                                            $("#dialog").empty();
-                                            $("#dialog").append("<img src='images/avatar/" 
-                                                        + data.imageFileName + "'>");
-                                            $("#dialog").dialog( "open" );
-                                            return false;
-                                        }
-                                    },
-                                    "json"
-                            );
-                        });
-                        
-                        
-                        
-                        
-            });
-        </script>
+        
   </head>
  
   
@@ -213,7 +156,7 @@
                  <!-- 此处需将表单enctype设置为  multipart/form-date  -->
                 <form action="UploadImage.action" enctype="multipart/form-data" method="post">
                     <input type="file" name="image"/>
-                    <input type="submit" value="submit"/>
+                    <input type="submit" value="确定"/>
                 </form>
     <s:if test="imageFileName!=null">
       <script language="Javascript"> 
@@ -226,7 +169,7 @@
 					onChange: showPreview,
 					onSelect: showPreview,
 					aspectRatio: 1,
-                                        boxWidth: 300
+                                        boxWidth: 400
 				});
  
 			});
@@ -272,8 +215,9 @@
                     <input type="hidden" size="4" id="y2" name="y2" id="y2"/>
                     <input type="hidden" size="4" id="w" name="width" id="w"/>
                     <input type="hidden" size="4" id="h" name="height" id="h"/>
+                    <input id="submit_avatar" type="submit">上传</button>
 		</form> 
-                    <button id="submit_avatar">上传</button>
+                    
     </s:if>
 
                

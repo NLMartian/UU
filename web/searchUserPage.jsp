@@ -39,10 +39,10 @@
                     border                    : true, 
                     border_color            : '#BEF8B8', 
                     text_color              : '#79B5E3', 
-                    background_color        : '#E3F2E1',     
+                    background_color        : '#FFB344',     
                     border_hover_color        : '#68BA64', 
                     text_hover_color          : '#2573AF', 
-                    background_hover_color    : '#CAE6C6',  
+                    background_hover_color    : '#FFFFFF',  
                     images                    : false, 
                     mouse                    : 'press', 
                     onChange                 : function(page){

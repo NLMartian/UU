@@ -69,6 +69,9 @@
             .personLink:link,.personLink:visited{text-decoration:none;}
             
             .friend_li {list-style-type:none;}
+            
+            #searchPage {padding: .4em 1em .4em 20px;text-decoration: none;position: relative;}
+            #searchPage span.ui-icon {margin: 0 5px 0 0;position: absolute;left: .2em;top: 50%;margin-top: -8px;}
         </style>
     </head>
 
@@ -78,7 +81,7 @@
 
         
         <div id="friendListContent" class="ui-widget-content">
-            <a href="/UU/GetFriend!goFriendPage.action?uid=${requsetScope.uid}" class="friend_li">
+            <a href="/UU/GetFriend!goFriendPage.action?uid=${requsetScope.uid}" class="personLink">
                 <h3 id="listTitle" class="ui-widget-header">好友列表</h3>
             </a>
             <ul>
@@ -99,6 +102,12 @@
                 </c:forEach>
                             
             </ul>
+                
+            <div id="friendListContent" style="text-align: center">
+                <a href="searchUserPage.jsp" id="searchPage" class="ui-state-default ui-corner-all">
+                    <span class="ui-icon ui-icon-search"></span>搜索更多
+                </a>
+            </div>
         </div>
                     
     </div>

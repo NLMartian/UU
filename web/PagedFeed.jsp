@@ -163,6 +163,11 @@
                                     <s:param name="statusId" value="#feeds.feedSrcid" />
                                 </s:action>
                             </s:if>
+                            <s:elseif test="#feeds.feedType=='IMAGE'">
+                                <s:action name="GetPicComments" executeResult="true">
+                                    <s:param name="picId" value="#feeds.feedSrcid" />
+                                </s:action>
+                            </s:elseif>
                             
 
 

@@ -8,6 +8,21 @@
     <!-- Add your configuration elements here -->
        <package name="Upload" extends="json-default" namespace="">
 
+
+            <interceptors>  
+                <!--定义一个名为authority的拦截器-->  
+                <interceptor  
+                    class="org.uu.controller.AuthorityInterceptor"  
+                    name="authority"/>  
+                <!--定义一个包含权限检查的拦截器栈-->  
+                <interceptor-stack name="mydefault">  
+                    <!--配置内建默认拦截器-->  
+                    <interceptor-ref name="defaultStack"/>  
+                    <!--配置自定义的拦截器-->  
+                    <interceptor-ref name="authority"/>  
+                </interceptor-stack>  
+            </interceptors>  
+
                 <global-results>  
                     <result name="login">/Login.jsp</result>  
                 </global-results>
@@ -18,7 +33,7 @@
 		</action>
                 
 		<action name="CropImage" class="cropImageAction">
-			<result type="json"/>
+			<result>/infoCenterN.jsp</result>
 		</action>
                 
                 <action name="GetPagedPic" class="getPagedPic">
@@ -26,7 +41,7 @@
 		</action>
                 
                 <action name="AddNewPic" class="addNewPic">
-                    <result>/show_image.jsp</result>
+                    <result>/infoCenterN.jsp</result>
                 </action>
                 
                <action name="AddPicComment" class="addPicComment">
