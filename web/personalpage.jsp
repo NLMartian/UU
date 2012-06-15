@@ -107,6 +107,7 @@
             } 
             .thrColElsHdr #header { 
                 background: #DDDDDD; 
+                text-align: center; 
                 padding: 0 10px;  /* 此填充会将出现在它后面的 div 中的元素左对齐。如果 #header 中使用的是图像（而不是文本），您最好删除填充。 */
             } 
             .thrColElsHdr #header h1 {
@@ -186,7 +187,15 @@
                 left: 940px;
                 top: 24px;
             }    
-                
+              #Logo {
+                float:left;
+                position:relative;
+                width:auto;
+                height:auto;
+                z-index:1;
+               
+                top: 7px;
+            }
  
         </style><!--[if IE]>
         <style type="text/css"> 
@@ -200,6 +209,9 @@
     <body class="thrColElsHdr">
 
         <div id="container">
+             <div id="Logo">
+                <a href="Login.jsp"><img src="resource/logo1.png"border="0" width="220" height="45"/></a>              
+            </div>
             <div id="header">
                 <h1>${sessionScope.CurrUser.name}的个人主页</h1>
                 <div id="headpage">

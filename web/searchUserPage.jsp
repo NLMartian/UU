@@ -119,6 +119,7 @@
             } 
             .thrColElsHdr #header { 
                 background: #DDDDDD; 
+                text-align: center;
                 padding: 0 10px;  /* 此填充会将出现在它后面的 div 中的元素左对齐。如果 #header 中使用的是图像（而不是文本），您最好删除填充。 */
             } 
             .thrColElsHdr #header h1 {
@@ -194,6 +195,15 @@
                 left: 940px;
                 top: 24px;
             }
+            #Logo {
+                float:left;
+                position:relative;
+                width:auto;
+                height:auto;
+                z-index:1;
+               
+                top: 7px;
+            }
             
             #searchFriendLink {padding: .4em 1em .4em 20px;text-decoration: none;position: relative;}
             #searchFriendLink span.ui-icon {margin: 0 5px 0 0;position: absolute;left: .2em;top: 50%;margin-top: -8px;}
@@ -215,8 +225,11 @@
     <body class="thrColElsHdr">
 
         <div id="container">
+             <div id="Logo">
+                <a href="Login.jsp"><img src="resource/logo1.png"border="0" width="220" height="45"/></a>              
+            </div>
             <div id="header">
-                <h1>标题</h1>
+                <h1>搜索更多好友</h1>
                 <div id="headpage">
                     <a href="/UU/PersonalPage.action?uid=${sessionScope.CurrUser.uid}">个人主页</a>
                     &nbsp;

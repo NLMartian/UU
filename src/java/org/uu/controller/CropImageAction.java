@@ -128,6 +128,8 @@ public class CropImageAction extends ActionSupport{
 		try {
 			ImageUtils.cut(oldpath,newpath,this.x1,this.y1,this.width,this.height);
                         mgr.updateUserAvatar(user.getUid(), "images/avatar/" + imageFile);
+                        ActionContext.getContext().getSession().remove("CurrUser");
+                        ActionContext.getContext().getSession().put("CurrUser", mgr.findUserById(user.getUid()));
 
                   
 		} catch (IOException e) {

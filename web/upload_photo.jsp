@@ -119,6 +119,16 @@
                 left: 940px;
                 top: 24px;
             }    
+            
+              #Logo {
+                float:left;
+                position:relative;
+                width:auto;
+                height:auto;
+                z-index:1;
+               
+                top: 7px;
+            }
         </style>
         
         
@@ -130,6 +140,9 @@
   <body class="thrColElsHdr">
 
         <div id="container">
+            <div id="Logo">
+                <a href="Login.jsp"><img src="resource/logo1.png"border="0" width="220" height="45"/></a>              
+            </div>
             <div id="header">
                 <h1>请选择图片上传您的头像</h1>
                  <div id="headpage">
