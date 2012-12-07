@@ -2,6 +2,7 @@ UU
 ==
 
 ##数据库设计记到这里吧。
+``
 
 -- MySQL dump 11.13  Distrib 5.5.23, for Win32 (x86)
 --
@@ -308,3 +309,5 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2012-05-26 19:45:39
+
+``
