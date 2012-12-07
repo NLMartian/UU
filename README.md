@@ -4,7 +4,8 @@ UU
 ##数据库设计记到这里吧。
 
 
-``-- MySQL dump 11.13  Distrib 5.5.23, for Win32 (x86)
+```sql
+-- MySQL dump 11.13  Distrib 5.5.23, for Win32 (x86)
 --
 -- Host: localhost    Database: uuproject
 -- ------------------------------------------------------
@@ -308,4 +309,5 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-05-26 19:45:39``
+-- Dump completed on 2012-05-26 19:45:39
+```
